@@ -166,6 +166,38 @@ def load_people(legacy_dir):
     return people
 
 
+class _StrictLoader(yaml.SafeLoader):
+    """YAML loader that REFUSES duplicate mapping keys.
+
+    PyYAML silently keeps the last of a repeated key. In an overrides file
+    that is a data-loss bug wearing a disguise: a second `neil_xu:` block
+    listing only an employer wiped out the earlier block's `roster: alumni`,
+    quietly moving him back into the current-students list. Fail loudly.
+    """
+
+
+def _no_duplicates(loader, node, deep=False):
+    mapping = {}
+    for key_node, value_node in node.value:
+        key = loader.construct_object(key_node, deep=deep)
+        if key in mapping:
+            raise yaml.constructor.ConstructorError(
+                "while constructing a mapping", node.start_mark,
+                "duplicate key %r -- the later block would silently discard "
+                "fields set in the earlier one; merge them" % (key,),
+                key_node.start_mark)
+        mapping[key] = loader.construct_object(value_node, deep=deep)
+    return mapping
+
+
+_StrictLoader.add_constructor(
+    yaml.resolver.BaseResolver.DEFAULT_MAPPING_TAG, _no_duplicates)
+
+
+def _load_yaml_strict(stream):
+    return yaml.load(stream, Loader=_StrictLoader)
+
+
 def apply_overrides(people):
     """Layer people_overrides.yaml on top of the CSV.
 
@@ -177,7 +209,7 @@ def apply_overrides(people):
     if not os.path.exists(path):
         return
     with open(path, encoding="utf-8") as fh:
-        overrides = yaml.safe_load(fh) or {}
+        overrides = _load_yaml_strict(fh) or {}
     for slug, patch in overrides.items():
         rec = people.setdefault(slug, {})
         for k, v in (patch or {}).items():

@@ -79,11 +79,15 @@ hongjian_wang:
   position: Quantitative Researcher
   affiliation: Citadel
 
-# https://neilzxu.me -- "I do AI research at Duolingo"
+# Recorded as Meta on your say-so. NOTE THE CONFLICT -- as of 2026-08-06 both
+# neilzxu.me and his LinkedIn say Duolingo, and his site is demonstrably
+# current (it already lists his advisor as "Aaditya Ramdas (Stanford)", a move
+# effective 2026-09-01). Change `affiliation` back to Duolingo if the public
+# record turns out to be right.
 neil_xu:
   roster: alumni
   position: AI Research
-  affiliation: Duolingo
+  affiliation: Meta
 
 # CMU student page now 404s and he is absent from the PhD directory.
 # https://sidsarkar8.github.io/ announces the Meta start; LinkedIn confirms.
@@ -131,8 +135,12 @@ kevin_han:
   url: null
   affiliation: Machine Learning
 
+# people.csv spells this "Woongyoung"; the photo is img/woonyoung.jpg and every
+# talk record, plus her own Google Site, say Woonyoung.
 woonyoung_chang:
+  name: Woonyoung Chang
   url: https://sites.google.com/andrew.cmu.edu/woonyoungchang
+
 rebecca_farina:
   url: https://rebyfa98.github.io
 lucas_kania:
@@ -143,7 +151,7 @@ eric_chen:
   name: Eric Chen
   roster: student
   position: Graduate Student
-  affiliation: Statistics & Data Science
+  affiliation: Statistics
   url: https://ericchen28.github.io
 
 # ===========================================================================
@@ -152,7 +160,7 @@ eric_chen:
 
 eugene_katsevich:
   url: https://ekatsevi.github.io/          # andrew.cmu.edu page 404s
-  affiliation: University of Pennsylvania - Wharton
+  affiliation: University of Pennsylvania
 
 # The 403 was Cloudflare bot-blocking across the whole colby.edu domain, not a
 # dead page -- a deliberately fake path under the same host also returns 403.
@@ -212,7 +220,7 @@ shubhanshu_shekhar:
 # His CV records AWS from Jan 2025; the Walmart role ended then.
 sasha_podkopaev:
   position: Senior Applied Scientist
-  affiliation: Amazon Web Services
+  affiliation: Amazon
 
 nicolas_garcia_trillos:
   position: Associate Professor
@@ -235,5 +243,191 @@ boyan_duan:
 # Data Science; the page carries no title beyond "Academic staff", so the rank
 # is left unset rather than guessed.
 asaf_weinstein:
-  affiliation: Hebrew University of Jerusalem
-  url: https://en.stat.huji.ac.il/people/asaf-weinstein
+  position: Assistant Professor    # "assistant professor (lecturer)" -- Lecturer
+  affiliation: Hebrew University of Jerusalem   # is the Israeli equivalent rank
+  url: https://asafw.huji.ac.il/   # his own page; more informative than the dept one
+
+# ===========================================================================
+# New member
+# ===========================================================================
+
+# https://tristansaidi.github.io/ -- "I am PhD student in the Department of
+# Statistics and Data Science at Carnegie Mellon University", advised by Larry
+# Wasserman. Not in people.csv.
+tristan_saidi:
+  name: Tristan Luca Saidi
+  roster: student
+  position: Graduate Student
+  affiliation: Statistics & Data Science
+  url: https://tristansaidi.github.io/
+
+# ===========================================================================
+# ALUMNI -- August 2026 sweep. Every line below is a change from what
+# people.csv recorded, each verified against a primary source.
+#
+# A recurring trap: several old CMU pages still return HTTP 200 while showing
+# a years-old student bio, so a link checker passes them silently. Those are
+# replaced with the person's real current page, not merely re-pointed.
+# ===========================================================================
+
+alnur_ali:
+  position: Staff Software Engineer      # was Postdoctoral Fellow, Stanford
+  affiliation: Databricks
+  url: null                              # alnurali.com still says "Sisu Data"
+
+bryon_aragam:
+  position: Associate Professor          # promoted
+  affiliation: University of Chicago
+  url: https://www.bryonaragam.com/
+
+heejong_bong:
+  position: Assistant Professor          # was Research Fellow, Michigan
+  affiliation: Purdue University
+
+yen_chi_chen:
+  position: Associate Professor          # promoted
+
+# Senior Research Associate at UZH -- NOT a professorship, and it is the
+# University of Zurich, not ETH. donskerclass.github.io really is hers
+# (her handle is @DonskerClass).
+rachel_childers:
+  position: Senior Research Associate
+  affiliation: University of Zurich
+
+yj_choe:
+  position: Assistant Professor          # was Postdoc, Chicago
+  affiliation: INSEAD
+  url: https://yjchoe.github.io/
+
+tim_coleman:
+  url: https://tim-coleman.github.io/
+
+gautam_dasarathy:
+  position: Associate Professor          # promoted
+
+marina_dubova:
+  position: Assistant Professor          # was Postdoc, Santa Fe Institute
+  affiliation: UC Berkeley
+
+riccardo_fogliato:
+  position: Principal Research Scientist # was Applied Scientist, Amazon
+  affiliation: Microsoft
+  url: https://ricfog.github.io/         # CMU page still says "AWS"
+
+# Identity rests on a single line in a company blog bio ("PhD in Machine
+# Learning from CMU"). Likely but not proven, and it is a common name.
+kartik_gupta:
+  position: Senior AI Researcher
+  affiliation: Legion
+
+chirag_gupta:
+  affiliation: Bloomberg                 # was "Bloomberg AI"
+
+addison_hu:
+  position: Senior Data Scientist        # was Scientist, Latitude AI
+  affiliation: Waymo
+
+nick_kissel:
+  position: Data Scientist               # was "Graduate Student, Statistics"
+  affiliation: Moody's
+
+akshay_krishnamurthy:
+  position: Senior Principal Research Manager
+  affiliation: Microsoft Research
+
+# PhD completed 2025, so "Graduate Student" is definitely wrong -- but no
+# public source states an employer. Title left blank rather than invented.
+ojash_neopane:
+  position: null
+  affiliation: null
+  url: https://oneopane.github.io/
+
+pratik_patil:
+  position: Assistant Professor          # was Postdoc, UC Berkeley
+  affiliation: UT Austin
+  url: https://pratikpatil.io/
+
+adarsh_prasad:
+  position: Quantitative Analyst
+  affiliation: TGS Management
+  url: null                              # CMU page still says "PhD student"
+
+charvi_rastogi:
+  position: Research Scientist           # was "Graduate Student, Machine Learning"
+  affiliation: Google DeepMind
+
+# LinkedIn claims "Principal"; no primary source, so the plain title stands.
+sashank_reddi:
+  position: Research Scientist
+  affiliation: Google
+  url: https://research.google/people/106138/
+
+alessandro_rinaldo:
+  url: https://arinaldo.github.io/       # CMU page is a meta-refresh stub
+
+veeranjaneyulu_sadhanala:
+  position: Research Scientist           # was Postdoc, Chicago
+  affiliation: Google
+  url: https://veeranjaneyulus.github.io/
+
+# Confirmed correct after all: he was a CMU student when he spoke in March
+# 2025 and started at Iowa State that fall.
+kyle_schindl:
+  url: https://www.stat.iastate.edu/people/kyle-schindl
+
+james_sharpnack:
+  position: Senior Staff Machine Learning Engineer   # was Asst Prof, UC Davis
+  affiliation: Lovelace AI
+
+shashank_singh:
+  position: Software Engineer            # was Postdoc, Max Planck
+  affiliation: Meta
+
+arun_sai_suggala:
+  position: Research Scientist
+  affiliation: Google DeepMind
+  url: https://research.google/people/108152/
+
+jinjin_tian:
+  position: Applied Scientist
+  affiliation: Amazon
+
+ryan_tibshirani:
+  position: Professor and Chair          # chair from July 2025
+  affiliation: UC Berkeley
+  url: https://www.stat.berkeley.edu/~ryantibs/   # CMU page does NOT redirect
+
+andrew_warren:
+  position: Postdoctoral Fellow
+  affiliation: University of British Columbia
+  url: https://andrew-warren.github.io/
+
+yining_wang:
+  position: Associate Professor          # was Asst Prof, University of Florida
+  affiliation: UT Dallas                 # Florida ended in 2022
+
+# UC SAN DIEGO, not Santa Barbara. The old CMU URL redirects to a stale UCSB
+# page, which is almost certainly where the UCSB/UCSD confusion came from.
+yu_xiang_wang:
+  position: Associate Professor
+  affiliation: UC San Diego
+  url: https://cseweb.ucsd.edu/~yuxiangw/
+
+yuting_wei:
+  position: Associate Professor          # promoted
+  affiliation: University of Pennsylvania
+  url: https://yutingwei.github.io/
+
+david_zhao:
+  url: https://davidzhao.netlify.app/
+
+# NOT changed, deliberately:
+#   yusha_liu       -- only signal is "Yusha Liu, D.E. Shaw" on her advisor's
+#                      group page; several researchers share the name.
+#   slav_kirov      -- post-PhD claims come only from contact-scraper sites.
+#   ivan_stelmakh   -- title corroborated only by aggregators; no reachable page.
+#   martin_azizyan  -- our records mark him deceased; that could not be
+#                      independently sourced and no employment will be added.
+#   wei_peng        -- likely the Pitt statistician who spoke in 2019 as
+#                      "Wei Pang", not a CMU alum at all. Left alone pending
+#                      confirmation from the group.
