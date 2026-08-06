@@ -191,8 +191,9 @@ a:hover { color: inherit; }
 .header-affil {
   margin-top: 14px;
   margin-bottom: 0;
-  font-size: var(--fs-meta);
-  color: var(--text-muted);
+  font-size: var(--fs-body);
+  letter-spacing: .02rem;
+  color: var(--text-soft);
 }
 .header-affil a {
   color: var(--text-soft);
@@ -423,6 +424,26 @@ html { scroll-behavior: smooth; }
 .meeting-line { font-size: var(--fs-body); color: var(--text-mid); }
 .meeting-line strong { font-weight: 600; color: var(--text-strong); }
 
+/* A quiet outline button -- the only one on the site, so it reads as the
+   single onward action rather than as chrome. */
+.btn-quiet {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 9px 18px;
+  border: 1px solid var(--hairline-strong); border-radius: 3px;
+  text-transform: uppercase; font-size: var(--fs-label); font-weight: 600;
+  letter-spacing: var(--tracking-label);
+  color: var(--text-mid); text-decoration: none; background: transparent;
+  transition: border-color .22s ease, color .22s ease, background .22s ease;
+}
+.btn-quiet:after {
+  content: '\2192'; font-size: var(--fs-small); letter-spacing: 0;
+  transition: transform .22s ease;
+}
+.btn-quiet:hover {
+  border-color: var(--bleu); color: var(--bleu); background: var(--bleu-wash);
+}
+.btn-quiet:hover:after { transform: translateX(3px); }
+
 /* ================ Archive controls ================ */
 .archive-controls {
   display: flex; gap: 12px; align-items: center; flex-wrap: wrap;
@@ -457,7 +478,8 @@ mark {
 }
 .person { text-align: center; min-width: 0; }
 .person-photo {
-  width: 100%; aspect-ratio: 4 / 5; object-fit: cover;
+  width: 100%; aspect-ratio: 1 / 1; object-fit: cover;
+  object-position: 50% 28%;   /* sources are 4:5; bias up to keep heads centred */
   border-radius: 3px; display: block;
   background: var(--bg-sunk);
   filter: grayscale(100%);
