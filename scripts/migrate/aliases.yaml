@@ -1,0 +1,69 @@
+# Speaker-name canonicalisation. HAND-MAINTAINED -- never generated.
+#
+# Automatic canonicalisation (strip titles/affiliations, fold accents, slugify)
+# already merges 16 clusters. What remains needs human judgement, because the
+# difference between "a typo" and "a different person" is not computable:
+# ryan_tibshirani and rob_tibshirani are one edit apart and are father and son.
+#
+# Format:  canonical_slug: [list of other slugs that mean the same person]
+# Regenerate the evidence with:  python3 report_names.py
+
+merge:
+
+  # ---- Misspellings. Each corroborated by a second source (image filename,
+  #      a CSV, or the same talk recorded correctly elsewhere).
+  sivaraman_balakrishnan: [sivaramam_balakrishnan, siva_balakrishnan]
+  woonyoung_chang:        [woongyoung_chang]        # roster typo; img/woonyoung.jpg
+  kyle_schindl:           [kyle_schidl]             # roster typo; img/kyle-schindl.jpg + spring2025.csv
+  shubhanshu_shekhar:     [shubhanshu_shekar, shubanshu_shekar]
+  diego_martinez_taboada: [diego_martinez_tabaoda]  # sheet typo
+  jaehyeok_shin:          [jaehyoek_shin]
+  kwangho_kim:            [kwahangho_kim]
+  renato_negrinho:        [ranato_negrinho]
+  veeranjaneyulu_sadhanala: [veeranjaneyulu_sadhanla, veeru_sadhanala]
+  rajen_shah:             [rajen_d_shah]
+  kacper_chwialkowski:    [kacper_chawialkowski]
+  daniela_witten:         [daniella_witten]         # UW; "Daniella" is the typo
+  darren_homrighausen:    [barren_homrighausen, darren_warren_homrighausen]
+  james_robins:           []                        # "Havard School" -> Harvard, fixed in people.yaml
+  nicolas_garcia_trillos: []                        # file misspelled 'nicholas'; the LINK is correct
+
+  # ---- Nicknames and formal-vs-familiar. Same person, verified by matching
+  #      date + title across two sources.
+  david_choi:      [dave_choi]              # 2015-01-22: index "Dave", page "Prof. David"
+  rob_tibshirani:  [robert_tibshirani]      # 2016-01-25 "Internal inference": index "Rob", page "Robert"
+  eugene_katsevich: [gene_katsevich]
+  james_michelson: [jamie_michelson]
+  sangwon_hyun:    [justin_hyun]            # index "Justin", page "Sangwon"
+  madalina_fiterau: [ina_fiterau, ian_fiterau]   # "Ian" is an OCR-ish typo for "Ina"
+  sasha_podkopaev: [aleksandr_sasha_podkopaev]
+  steven_howard:   [steven_r_howard]
+  ernesto_araya:   [ernesto_araya_valdivia]
+  arun_kuchibhotla: [arun_kumar_kuchibhotla, arun_kumar]
+  # ^ 2019-04-02 "Linear regression A to W": the page says only "Arun Kumar",
+  #   the index says "Arun Kumar Kuchibhotla" for the same date and title.
+  #   Resolves the Kuchibhotla-vs-Sai-Suggala ambiguity from the source data.
+
+# ---- Pairs that fuzzy matching WANTS to collapse and must not be.
+#      Listed so a future maintainer does not "helpfully" merge them.
+never_merge:
+  - [ryan_tibshirani, rob_tibshirani]        # son (CMU) / father (Stanford)
+  - [arun_kuchibhotla, arun_sai_suggala]     # both spoke; different talks, different years
+  - [kevin_han, kevin_han_huang]             # CMU ML student / UCL researcher
+  - [alex_shen, yandi_shen]
+  - [rebecca_farina, gabriele_farina]
+  - [lucas_kania, lucas_mentch]
+  - [beomjo_park, sangmin_park]
+  - [simon_du, simon_wilson]
+  - [wei_peng, wei_pang]                     # UNRESOLVED -- see open_questions
+
+# ---- Genuinely undecidable from the data. Kept separate (safe default:
+#      an extra external-speaker entry costs nothing; a wrong merge is
+#      irreversible and silently rewrites history).
+open_questions:
+  wei_peng_vs_wei_pang: >-
+    people.csv lists an alumna "Wei Peng" (img/wei.jpg) who never appears as a
+    speaker. A talk on 2019-02-26 ("Asymptotic distributions and rates of
+    convergence...") is credited to "Wei Pang" in both the index and the page.
+    No homepage link on the blog page to disambiguate. Same person with a typo,
+    or two people? Ask someone who was there.

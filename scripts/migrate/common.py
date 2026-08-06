@@ -127,8 +127,14 @@ def strip_affiliation(s):
     # affiliation or a scheduling note only decides where its content is
     # routed (see split_speaker_note) -- either way it is not part of the name.
     s = re.sub(r"\s*\([^)]*\)\s*$", "", s).strip()
-    s = re.sub(r",\s*(the\s+)?[A-Z][\w.&' -]+(University|College|Institute|School|Labs?|Inc\.?)\b.*$",
-               "", s, flags=re.I).strip()
+    # ", University of Cambridge" / ", The Florida State University" / ", ETH Zurich".
+    # The institution word may lead OR trail, so match either side of the comma.
+    s = re.sub(
+        r",\s*(?:the\s+)?[^,]*\b"
+        r"(?:University|Universite|Universidad|College|Institute|Institut|School|"
+        r"Academy|Laborator(?:y|ies)|Labs?|Research|Inc\.?|Ltd\.?|Corp\.?|"
+        r"ETH|EPFL|MIT|CMU|INRIA)\b.*$",
+        "", s, flags=re.I).strip()
     return s.rstrip(",").strip()
 
 
@@ -174,6 +180,29 @@ def split_speaker_note(cell):
             out["affiliation"] = clean_text(inner)
     out["name"] = strip_affiliation(s)
     return out
+
+
+def split_speakers(raw):
+    """One speaker cell -> list of individual names.
+
+    Real multi-presenter entries exist ('Darren Homrighausen and Dan McDonald',
+    Fall 2012), so `speakers` is a LIST throughout the schema. Splitting on
+    'and' is only safe once affiliations are stripped -- 'Institute for
+    Computing and Information Sciences' would otherwise split.
+    """
+    s = clean_text(raw)
+    if not s:
+        return []
+    s = strip_affiliation(s)
+    parts = re.split(r"\s*(?:,|;|&|\band\b)\s*", s)
+    out = []
+    for p in parts:
+        p = p.strip()
+        # a bare initial or a fragment is not a name
+        if len(p) < 3 or not re.search(r"[A-Za-z]{2,}\s+[A-Za-z]", p):
+            continue
+        out.append(p)
+    return out or ([s] if s else [])
 
 
 # --------------------------------------------------------------------------

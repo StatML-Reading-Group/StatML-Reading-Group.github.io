@@ -39,6 +39,26 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 FILE_RE = re.compile(r"index_(Fall|Spring|Summer)(\d{2})\.html$", re.I)
 
 
+# Labels that can follow one another inside a single schedule cell. A field
+# capture must stop at any of them.
+_LABELS = (r"(?:Authors?|Presenters?|Commenters?(?:\(s\))?|Papers?|"
+           r"Time\s*/?\s*Location|Location|Time|Notes?|Abstract|Topics?|"
+           r"Relevant\s+reading|Reading(?:\s+material)?|Discussants?)")
+
+# Enumerating labels is a losing game -- the pages use ad-hoc ones
+# ("Relevant reading:", "Commenter(s):", "Topic:"). After the named cut, apply
+# a GENERIC cut at the next "Some Label:" so a stray one can't swallow the cell.
+_ANY_LABEL = re.compile(r"\s+(?=[A-Z][A-Za-z/()\s]{2,24}:\s)")
+
+
+def _field(text, label):
+    """Value of 'Label: ...' up to the next labelled field, or end of cell."""
+    m = re.search(r"\b%s\s*:\s*(.+?)(?=\s*\b%s\s*:|$)" % (label, _LABELS), text, re.I | re.S)
+    if not m:
+        return None
+    return clean_text(_ANY_LABEL.split(m.group(1), 1)[0])
+
+
 def term_from_filename(name):
     m = FILE_RE.search(name)
     if not m:
@@ -97,9 +117,13 @@ def extract_one(path):
         title = re.sub(r"\(\s*\)\s*$", "", title).strip(" ()")
 
         cell_text = clean_text(cell.get_text("\n")) or ""
-        am = re.search(r"Authors?\s*:\s*(.+?)(?:\s*Presenters?\s*:|$)", cell_text, re.I)
-        pm = re.search(r"Presenters?\s*:\s*(.+?)$", cell_text, re.I)
-        presenter = clean_text(pm.group(1)) if pm else None
+        # These cells carry a variable set of labelled fields in a variable
+        # order -- Authors:, Presenter:, Commenter:, Paper:, Time/Location:.
+        # Every capture must stop at the NEXT label or it swallows the rest of
+        # the cell (which produced 60-word "speaker names").
+        am = _field(cell_text, "Authors?")
+        presenter = _field(cell_text, "Presenters?")
+        commenter = _field(cell_text, "Commenters?")
         if presenter:
             presenter = re.split(r"\s{2,}|;", presenter)[0].strip()
 
@@ -114,7 +138,8 @@ def extract_one(path):
             "title": title or None,
             "speaker_raw": presenter,
             "paper_url": paper_url,
-            "paper_authors": clean_text(am.group(1)) if am else None,
+            "paper_authors": am,
+            "commenter": commenter,
             "source_page": fname,
         })
 
