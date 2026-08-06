@@ -1,0 +1,208 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!--
+Base Design by TEMPLATED
+http://templated.co
+Released for free under the Creative Commons Attribution License
+
+Name       : TwoColours 
+Description: A two-column, fixed-width design with dark color scheme.
+Version    : 1.0
+Released   : 20130811
+
+Last Updated : Sept 1, 2014
+Gautam Dasarathy
+
+-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>SMLRG | Carnegie Mellon University</title>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900" rel="stylesheet" />
+<link href="default.css" rel="stylesheet" type="text/css" media="all" />
+<link href="fonts.css" rel="stylesheet" type="text/css" media="all" />
+
+<!--[if IE 6]><link href="default_ie6.css" rel="stylesheet" type="text/css" /><![endif]-->
+ <!-- DataTables CSS
+<link rel="stylesheet" type="text/css" href="http://cdn.datatables.net/1.10.2/css/jquery.dataTables.css">
+  --> 
+<!-- DataTables CSS -->
+<link rel="stylesheet" type="text/css" href="DataTables-1.10.2/css/jquery.dataTablesSchedule.css">
+  
+<!-- jQuery -->
+<script type="text/javascript" charset="utf8" src="DataTables-1.10.2/js/jquery.js"></script>
+  
+<!-- DataTables -->
+<script type="text/javascript" charset="utf8" src="DataTables-1.10.2/js/jquery.dataTables.js"></script>
+</head>
+<body>
+<div id="header">
+	<div id="menu" class="container">
+		<ul>
+			<li><a href="index.html" accesskey="1" title="">Homepage</a></li>
+			<li class="current_page_item"><a href="#" accesskey="2" title="">Schedule</a></li>
+			<li><a href="archives.html">Archives</a></li>
+			<!-- <li><a href="#" accesskey="3" title="">About Us</a></li>
+			<li><a href="#" accesskey="4" title="">Careers</a></li>
+			<li><a href="#" accesskey="5" title="">Contact Us</a></li> -->
+		</ul>
+	</div>
+</div>
+<div id="page" class="container">
+	<p><font size = 4.5>The SMLRG usually meets on <strong>Thursdays at 3pm</strong> in <strong>Room 232M at Baker Hall</strong>.</font></p>
+
+    <font size = 4.5><strong>Upcoming Meetings</strong></font>
+			<table id="example" align = "left" class="stripe" width="100%">
+				<thead>
+            	<tr>
+                	<th align = "center"><font size = 4>Date and time</font></th>
+                	<th align = "left"><font size = 4>&nbsp  Date</font></th>
+                	<th align = "left"><font size = 4>&nbsp  Presenter</font></th>
+                	<th align = "left"><font size = 4>&nbsp  Topic/Paper(s)</font></th>
+            </tr>
+        </thead>
+			</table>
+		
+	   <!---->
+	    <script type="text/javascript" charset="utf-8">
+	    /* Custom filtering function which will search data in column four between two values */
+		$.fn.dataTable.ext.search.push(
+    	function( settings, data, dataIndex ) {
+        	//var min = parseInt( $('#min').val(), 10 );
+        	var today = new Date();
+			var dd = today.getDate();
+			var mm = today.getMonth()+1; //January is 0!
+			var yyyy = today.getFullYear();
+			
+			if(dd<10) {
+    			dd='0'+dd;
+				} 
+			if(mm<10) {
+    			mm='0'+mm;
+			} 
+			today = String(yyyy)+String(mm)+String(dd);
+        	var date = data[0];
+        	var splitDate = date.split("/");
+        	if(splitDate[0].length<2){
+        		splitDate[0] = '0'+splitDate[0];
+				}
+			if(splitDate[1].length<2){
+        		splitDate[1] = '0'+splitDate[1];
+				}
+
+        	date = splitDate[2]+splitDate[0]+splitDate[1];
+
+            if (settings.sTableId=="example"){
+        	if (today<=date){
+                //console.log(1);
+        		return true;
+        		}
+        		return false;
+            }
+            if (settings.sTableId=="example2"){
+                if (today>date){
+                //console.log(1);
+                return true;
+                }
+                return false;
+            }
+
+    		}
+);
+        $(document).ready(function() {
+            $('#example').dataTable( {
+            	"paging":false,
+                /*"scrollY":400,*/
+            	"info":false,
+            	"ordering":false,
+                "bServerSide":false,
+                "bProcessing":true,
+                "sAjaxDataProp": "feed.entry",
+                "sAjaxSource": "https://spreadsheets.google.com/feeds/list/1IPze0AI6xZOnMTIRLaqJNAZ0gbsQ42BY5hp6xMjQSLs/od6/public/values?alt=json",
+                "columnDefs": [
+                    { "visible": false, "targets": 0 },
+                    {"width":"20%", "targets":1},
+                    {"width":"25%", "targets":2},
+                    { "visible": true, "targets": 3 },
+                    ],
+
+                "aoColumns": [                 
+                     // { "mDataProp": "gsx$carmake.$t" },
+                    // { "mDataProp": "gsx$ggg.$t" },
+                    // { "mDataProp": "gsx$model.$t" },
+                    // { "mDataProp": "gsx$year.$t" },
+                    { "mDataProp": "gsx$date0.$t" },
+                    { "mDataProp": "gsx$date.$t" },
+                    { "mDataProp": "gsx$presenter.$t" },
+                    { "mDataProp": "gsx$title.$t" },
+                    
+                            ]
+            	} );
+
+        } );
+
+    </script>
+
+<br><br><br>
+
+
+    <font size = 4.5><strong>Completed Meetings</strong></font>
+            <table id="example2" align = "left" class="stripe" width="100%">
+                
+                <thead>
+                <tr>
+                    <th align = "left"><font size = 4>Date</font></th>
+                    <th align = "left"><font size = 4>&nbsp  Date</font></th>
+                    <th align = "left"><font size = 4>&nbsp  Presenter</font></th>
+                    <th align = "left"><font size = 4>&nbsp  Topic/Paper(s)</font></th>
+            </tr>
+        </thead>
+            </table>
+        </div>
+       
+ <script type="text/javascript" charset="utf-8">
+
+        $(document).ready(function() {
+            $('#example2').dataTable( {
+                "paging":true,
+                /*"scrollY":300,*/
+                "lengthChange":false,
+                "pageLength":8,
+                "info":false,
+                "ordering":false,
+                "bServerSide":false,
+                "bProcessing":true,
+                "sAjaxDataProp": "feed.entry",
+                "sAjaxSource": "https://spreadsheets.google.com/feeds/list/1IPze0AI6xZOnMTIRLaqJNAZ0gbsQ42BY5hp6xMjQSLs/od6/public/values?alt=json",
+                "columnDefs": [
+                    { "visible": false, "targets": 0 },
+                    {"width":"20%", "targets":1},
+                    {"width":"25%", "targets":2},
+                    { "visible": true, "targets": 3 },
+                    ],
+
+                "aoColumns": [                 
+                    // { "mDataProp": "gsx$carmake.$t" },
+                    // { "mDataProp": "gsx$ggg.$t" },
+                    // { "mDataProp": "gsx$model.$t" },
+                    // { "mDataProp": "gsx$year.$t" },
+                    { "mDataProp": "gsx$date0.$t" },
+                    { "mDataProp": "gsx$date.$t" },
+                    { "mDataProp": "gsx$presenter.$t" },
+                    { "mDataProp": "gsx$title.$t" },
+                    
+
+                            ]
+                } );});
+    </script>
+
+
+</div>
+
+
+<div id="copyright" class="container">
+	<p>Problems with website? Contact dasarathy at cmu dot edu | Based on Template Design by <a href="http://templated.co" rel="nofollow">TEMPLATED</a></p>
+</div>
+</body>
+</html>
