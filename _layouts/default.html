@@ -23,7 +23,6 @@
 
 <link rel="stylesheet" href="{{ '/libs/external/skeleton/normalize.css' | relative_url }}">
 <link rel="stylesheet" href="{{ '/libs/external/skeleton/skeleton.css'  | relative_url }}">
-<link rel="stylesheet" href="{{ '/libs/external/fontawesome/css/all.min.css' | relative_url }}">
 <link rel="stylesheet" href="{{ '/libs/custom/my_css.css' | relative_url }}">
 <script defer src="{{ '/libs/custom/site.js' | relative_url }}"></script>
 
@@ -31,7 +30,16 @@
 <link rel="alternate" type="application/atom+xml" title="{{ site.title }}" href="{{ '/feed.xml' | relative_url }}">
 
 <button class="theme-toggle theme-toggle-floating" aria-label="Toggle dark mode" aria-pressed="false" title="Toggle dark mode">
-  <i class="fa-solid fa-moon"></i><i class="fa-solid fa-sun"></i>
+  <svg class="icon-moon" viewBox="0 0 24 24" width="17" height="17" aria-hidden="true">
+    <path fill="currentColor" d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/>
+  </svg>
+  <svg class="icon-sun" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+    <circle cx="12" cy="12" r="4.2" fill="currentColor"/>
+    <g stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+      <path d="M12 2.4v2.4M12 19.2v2.4M2.4 12h2.4M19.2 12h2.4"/>
+      <path d="M5.2 5.2l1.7 1.7M17.1 17.1l1.7 1.7M18.8 5.2l-1.7 1.7M6.9 17.1l-1.7 1.7"/>
+    </g>
+  </svg>
 </button>
 
 <div class="container">

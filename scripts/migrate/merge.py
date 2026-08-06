@@ -169,6 +169,12 @@ def load_people(legacy_dir):
         people[slug] = rec
 
     apply_overrides(people)
+
+    # Only faculty photos are displayed, so only those are shipped. Drop the
+    # rest so nothing points at a file that is not in the repo.
+    for slug, rec in people.items():
+        if rec.get("roster") != "faculty":
+            rec.pop("img", None)
     return people
 
 

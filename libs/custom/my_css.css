@@ -512,9 +512,9 @@ html[data-theme="dark"] .person-photo { opacity: 0.92; }
   background: none; border: none; padding: 0; margin: 0; height: auto;
   line-height: 1; letter-spacing: normal; color: inherit; font-size: var(--fs-icon); cursor: pointer;
 }
-.theme-toggle .fa-sun { display: none; }
-html[data-theme="dark"] .theme-toggle .fa-sun  { display: inline-block; }
-html[data-theme="dark"] .theme-toggle .fa-moon { display: none; }
+.theme-toggle .icon-sun { display: none; }
+html[data-theme="dark"] .theme-toggle .icon-sun  { display: block; }
+html[data-theme="dark"] .theme-toggle .icon-moon { display: none; }
 .theme-toggle-floating {
   position: fixed; top: 16px; right: 20px; z-index: 200;
   font-size: var(--fs-lead); color: var(--text-muted);
