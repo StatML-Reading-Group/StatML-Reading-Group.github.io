@@ -1,122 +1,197 @@
 /* ==========================================================================
    StatML Reading Group
 
-   The token block, type scale, section rhythm, nav behaviour and dark-mode
-   mechanics are carried over VERBATIM from ericchen28.github.io so the two
-   sites read as the same author. New below that: the components a reading
-   group needs and a personal site does not (talk rows, semester headers,
-   people grid), written in the same idiom.
+   Foundation is ericchen28.github.io: the neutral ramps, the .docs-section
+   hairline rhythm, the docked navbar with its sibling dim-out, and the
+   View Transitions theme dissolve. Those are carried over so the two sites
+   read as the same author.
 
-   Two deliberate departures, both repairs rather than redesigns -- see
-   "Skeleton repairs" near the end.
+   Two things are new here:
+
+   1. A TYPE SCALE. The reference site sizes things ad hoc -- 11/12/13/14px
+      mixed with 1.5/1.7/1.8rem. Everything below draws from --fs-* tokens
+      instead, so a heading and a byline three sections apart cannot drift.
+
+   2. A FRENCH EDITORIAL ACCENT. The reference site runs on exactly one
+      non-neutral colour. This one adds two, used sparingly and always
+      structurally -- never as decoration for its own sake:
+
+        --bleu   deep ink blue   links, active nav, structure, focus
+        --rouge  muted red       the present tense: what is next, what is now
+
+      Plus warm ivory paper instead of flat white. The restraint IS the
+      style: rouge appears perhaps four times on any given page.
    ========================================================================== */
 
 /* ================ Theme variables ================ */
 :root {
   color-scheme: light;
-  /* surfaces */
-  --bg: #ffffff;
+
+  /* ---- surfaces. Ivory rather than #fff -- paper, not screen. */
+  --bg: #fcfbf7;
   --bg-elev: #ffffff;
-  --nav-bg: #ffffff;
-  --nav-bg-docked: rgba(255, 255, 255, 0.88);
-  /* text ramp */
-  --text-strong: #111;
-  --text: #222;
-  --text-mid: #333;
-  --text-soft: #555;
-  --text-muted: #888;
-  --text-faint: #aaa;
-  /* lines & borders */
-  --hairline: #eee;
-  --hairline-strong: #ddd;
-  --border-mid: #bbb;
-  /* links: slate blue -- distinct but sits in the monochrome family */
-  --link: #909298;
-  /* inverse pill */
+  --bg-sunk: #f6f4ee;
+  --nav-bg: #fcfbf7;
+  --nav-bg-docked: rgba(252, 251, 247, 0.88);
+
+  /* ---- text ramp */
+  --text-strong: #14161c;
+  --text: #22252c;
+  --text-mid: #333740;
+  --text-soft: #555a63;
+  --text-muted: #6f747c;   /* 4.54:1 on ivory -- AA for the 13px dates */
+  --text-faint: #8d939c;   /* decorative only: counts, placeholders */
+
+  /* ---- lines & borders */
+  --hairline: #e9e6de;
+  --hairline-strong: #dcd8ce;
+  --border-mid: #bcb8ae;
+
+  /* ---- accents */
+  --bleu: #1f3a68;
+  --bleu-soft: #2f5391;
+  --bleu-wash: rgba(31, 58, 104, 0.07);
+  --rouge: #9d2c35;
+  --rouge-soft: #b8434c;
+  --rouge-wash: rgba(157, 44, 53, 0.08);
+
+  --link: var(--bleu-soft);
+
   --pill-bg: #333;
   --pill-text: #fff;
-  /* shadows */
-  --shadow-soft: rgba(0, 0, 0, 0.04);
-  --shadow: rgba(0, 0, 0, 0.09);
+  --shadow-soft: rgba(20, 22, 28, 0.05);
+  --shadow: rgba(20, 22, 28, 0.10);
 }
 
 :root[data-theme="dark"] {
   color-scheme: dark;
   --bg: #14161a;
   --bg-elev: #1d2026;
+  --bg-sunk: #191c21;
   --nav-bg: #14161a;
   --nav-bg-docked: rgba(20, 22, 26, 0.85);
+
   --text-strong: #f2f3f5;
   --text: #d7d9dd;
   --text-mid: #c4c7cc;
   --text-soft: #a3a7ad;
   --text-muted: #7d828a;
   --text-faint: #62666d;
+
   --hairline: rgba(255, 255, 255, 0.09);
   --hairline-strong: rgba(255, 255, 255, 0.17);
   --border-mid: rgba(255, 255, 255, 0.28);
-  --link: #909298;
+
+  /* Both accents lift substantially on a dark ground -- the light-mode
+     values sit at roughly 2:1 against #14161a and would be unreadable. */
+  --bleu: #8fb3e8;
+  --bleu-soft: #a3c1ee;
+  --bleu-wash: rgba(143, 179, 232, 0.12);
+  --rouge: #e4868d;
+  --rouge-soft: #ec9aa0;
+  --rouge-wash: rgba(228, 134, 141, 0.12);
+
+  --link: var(--bleu-soft);
+
   --pill-bg: #d9dadd;
   --pill-text: #17191d;
   --shadow-soft: rgba(0, 0, 0, 0.35);
   --shadow: rgba(0, 0, 0, 0.5);
 }
 
-body { background: var(--bg); color: var(--text); }
+/* ================ Type scale ================
+   Root is 62.5%, so 1rem = 10px and these read as px at a glance. Every
+   font-size in this file comes from here -- no loose values. */
+:root {
+  --fs-micro: 1.1rem;   /* badges, counts                    */
+  --fs-label: 1.2rem;   /* uppercase micro-labels, nav        */
+  --fs-meta:  1.3rem;   /* dates, affiliations, footer        */
+  --fs-small: 1.4rem;   /* bylines, name lists                */
+  --fs-body:  1.5rem;   /* body copy                          */
+  --fs-lead:  1.7rem;   /* lede, "up next" title              */
+  --fs-sub:   1.9rem;   /* semester names                     */
+  --fs-head:  3.0rem;   /* h4 -- the section heading          */
+  --fs-disp:  3.4rem;   /* wordmark                           */
+  --fs-disp-lg: 4.2rem; /* wordmark, >=550px                  */
+  --fs-disp-sm: 2.6rem; /* wordmark, small screens            */
+  --fs-icon:  1.6rem;   /* icon buttons                       */
 
-/* h4 is the section-title element. Flipping Skeleton's negative tracking to
-   positive is the single most recognisable typographic move on the reference
-   site -- keep it identical. */
-h4 { letter-spacing: .1rem; }
+  --tracking-label: .2rem;   /* uppercase micro-labels */
+  --tracking-head:  .1rem;   /* section headings       */
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-size: var(--fs-body);
+}
+
+/* h4 is the section-title element. The positive tracking overriding
+   Skeleton's negative is the reference site's signature move. */
+h4 {
+  font-size: var(--fs-head);
+  letter-spacing: var(--tracking-head);
+  color: var(--text-strong);
+}
 
 .container { max-width: 1000px; }
 
 a { color: inherit; }
 a:hover { color: inherit; }
 
-/* Site-wide text links: link grey, underline fades in on hover. */
-.text-link, .prose a, .talk-title a, .person-name a, .footer a,
-.news-text a, .abstract a {
+/* Text links: bleu, underline fades in on hover. */
+.text-link, .prose a, .person-name a, .footer a, .abstract a, .talk-byline a {
   color: var(--link);
   text-decoration: underline;
   text-decoration-color: transparent;
   text-decoration-thickness: 1px;
   text-underline-offset: 2px;
-  transition: text-decoration-color 0.2s ease;
+  transition: text-decoration-color 0.2s ease, color 0.2s ease;
 }
-.text-link:hover, .prose a:hover, .talk-title a:hover, .person-name a:hover,
-.footer a:hover, .news-text a:hover, .abstract a:hover {
+.text-link:hover, .prose a:hover, .person-name a:hover,
+.footer a:hover, .abstract a:hover, .talk-byline a:hover {
   text-decoration-color: currentColor;
 }
 
 /* ================ Header ================ */
-.header { margin-top: 40px; margin-bottom: 34px; text-align: center; }
+.header { margin-top: 40px; margin-bottom: 30px; text-align: center; }
 @media (min-width: 550px) { .header { margin-top: 5rem; } }
 
 .wordmark { display: block; text-decoration: none; }
 .wordmark-main {
   display: block;
-  font-size: 2.8rem;
+  font-size: var(--fs-disp);
   font-weight: 300;
-  letter-spacing: .1rem;
-  line-height: 1.15;
+  letter-spacing: .08rem;
+  line-height: 1.12;
   color: var(--text-strong);
 }
 .wordmark-sub {
   display: block;
-  margin-top: 6px;
+  margin-top: 8px;
   text-transform: uppercase;
-  font-size: 12px;
+  font-size: var(--fs-label);
   font-weight: 600;
-  letter-spacing: .28rem;
+  letter-spacing: .3rem;
   color: var(--text-muted);
 }
-@media (min-width: 550px) { .wordmark-main { font-size: 3.6rem; } }
+@media (min-width: 550px) { .wordmark-main { font-size: var(--fs-disp-lg); } }
+
+/* The tricolore, as an editorial rule rather than a flag: three 16px
+   segments, 2px tall. Reads as a mark; only obvious once you look. */
+.wordmark-rule {
+  display: flex; justify-content: center; gap: 0;
+  margin: 16px auto 0; width: 48px; height: 2px;
+}
+.wordmark-rule span { flex: 1; }
+.wordmark-rule span:nth-child(1) { background: var(--bleu); }
+.wordmark-rule span:nth-child(2) { background: var(--hairline-strong); }
+.wordmark-rule span:nth-child(3) { background: var(--rouge); }
 
 .header-affil {
   margin-top: 14px;
   margin-bottom: 0;
-  font-size: 13px;
+  font-size: var(--fs-meta);
   color: var(--text-muted);
 }
 .header-affil a {
@@ -134,17 +209,43 @@ a:hover { color: inherit; }
   padding: 4rem 0;
   margin-bottom: 0;
 }
-.docs-section > h4 { margin-bottom: 1.6rem; }
+
+/* Section headings carry a short rule. The colour encodes tense, which is the
+   whole discipline behind using two accents rather than one:
+     bleu  -- structure, navigation, the settled past
+     rouge -- the present: the running term, the next talk, a life remembered
+   Rouge appears perhaps four times on a page. That restraint is the style. */
+.docs-section > h4,
+.section-header-row h4 {
+  position: relative;
+  padding-top: 14px;
+  margin-bottom: 1.8rem;
+}
+.docs-section > h4:before,
+.section-header-row h4:before {
+  content: '';
+  position: absolute; top: 0; left: 0;
+  width: 26px; height: 2px;
+  background: var(--bleu);
+  transition: width 0.3s ease;
+}
+.docs-section > h4.is-current:before,
+.section-header-row h4.is-current:before { background: var(--rouge); }
+
+/* The newest semester in the archive is the one just finished -- worth
+   distinguishing from the twenty-nine behind it. */
+.term-section:first-of-type .term-name { color: var(--text-strong); }
+.term-section:first-of-type .term-header { border-bottom-color: var(--rouge); }
 
 .section-header-row {
   display: flex; justify-content: space-between; align-items: baseline;
-  flex-wrap: wrap; gap: 10px; margin-bottom: 1.6rem;
+  flex-wrap: wrap; gap: 10px; margin-bottom: 1.8rem;
 }
 .section-header-row h4 { margin-bottom: 0; }
 
 .prose { max-width: 68rem; }
-.prose p { margin-bottom: 1.6rem; }
-.lede { font-size: 1.7rem; line-height: 1.6; color: var(--text-mid); }
+.prose p { margin-bottom: 1.6rem; font-size: var(--fs-body); }
+.lede { font-size: var(--fs-lead); line-height: 1.6; color: var(--text-mid); }
 
 /* ================ Nav ================ */
 .navbar { display: none; }
@@ -162,13 +263,14 @@ a:hover { color: inherit; }
   .navbar-list { list-style: none; margin-bottom: 0; display: flex; align-items: center; gap: 42px; }
   .navbar-item { position: relative; margin-bottom: 0; }
   .navbar-link {
-    text-transform: uppercase; font-size: 12px; font-weight: 600; letter-spacing: .2rem;
+    text-transform: uppercase;
+    font-size: var(--fs-label); font-weight: 600; letter-spacing: var(--tracking-label);
     text-decoration: none; line-height: 5.2rem; color: var(--text-mid);
     position: relative; transition: color 0.3s ease, opacity 0.3s ease;
   }
   .navbar-link:after {
     content: ''; position: absolute; bottom: 50%; left: 0; width: 100%; height: 1.5px;
-    background: var(--text-strong);
+    background: var(--bleu);
     transform: translateY(14px) scaleX(0); transform-origin: center;
     transition: transform 0.3s ease;
   }
@@ -192,29 +294,23 @@ a:hover { color: inherit; }
   .has-docked-nav .navbar > .container { width: 80%; }
 }
 
-/* Below 750px the desktop nav is hidden, so give small screens their own. */
 .navbar-mobile {
   display: flex; gap: 22px; justify-content: center; flex-wrap: wrap;
   padding: 14px 0; border-top: 1px solid var(--hairline);
   border-bottom: 1px solid var(--hairline);
 }
 .navbar-mobile a {
-  text-transform: uppercase; font-size: 11px; font-weight: 600;
+  text-transform: uppercase; font-size: var(--fs-micro); font-weight: 600;
   letter-spacing: .18rem; color: var(--text-soft); text-decoration: none;
 }
-.navbar-mobile a.active { color: var(--text-strong); }
+.navbar-mobile a.active { color: var(--bleu); }
 @media (min-width: 750px) { .navbar-mobile { display: none; } }
 
-/* Anchors must clear the docked navbar. Replaces the reference site's
-   jQuery smoothScroll, whose hardcoded -40px never matched the 5.2rem bar. */
 html { scroll-behavior: smooth; }
 [id] { scroll-margin-top: 6.5rem; }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
 
-/* ================ Talk rows ================
-   The reference site's .news-item: 2px left rule, 16px gap, 70px muted date
-   gutter. It was built for one-line news items; a talk adds a title, a byline
-   and a collapsible abstract inside the same frame. */
+/* ================ Talk rows ================ */
 .term-section { margin-bottom: 3.4rem; }
 .term-section:last-child { margin-bottom: 0; }
 
@@ -225,9 +321,13 @@ html { scroll-behavior: smooth; }
   border-bottom: 1px solid var(--hairline);
 }
 .term-name {
-  font-size: 18px; font-weight: 600; color: var(--text-mid); letter-spacing: .05rem;
+  font-size: var(--fs-sub); font-weight: 600;
+  color: var(--text-mid); letter-spacing: .04rem;
 }
-.term-meta { font-size: 13px; color: var(--text-muted); }
+.term-meta {
+  font-size: var(--fs-meta); color: var(--text-muted);
+  font-variant-numeric: tabular-nums;
+}
 
 .talk-list { display: flex; flex-direction: column; gap: 14px; }
 
@@ -235,91 +335,115 @@ html { scroll-behavior: smooth; }
   display: flex; gap: 16px;
   padding-left: 12px;
   border-left: 2px solid var(--hairline-strong);
+  transition: border-left-color 0.2s ease;
 }
-.talk.is-next { border-left-color: var(--text-mid); }
+.talk:hover { border-left-color: var(--bleu); }
+.talk.open { border-left-color: var(--bleu); }
 .talk.is-break { border-left-style: dotted; }
+.talk.is-break:hover { border-left-color: var(--hairline-strong); }
 
 .talk-date {
-  color: var(--text-muted); font-size: 13px; font-weight: 500;
-  min-width: 70px; flex-shrink: 0; padding-top: 1px;
+  color: var(--text-muted); font-size: var(--fs-meta); font-weight: 500;
+  min-width: 74px; flex-shrink: 0; padding-top: 1px;
+  font-variant-numeric: tabular-nums;
 }
 .talk-body { min-width: 0; flex: 1; }
 
 .talk-title {
+  font-size: var(--fs-body);
   font-weight: 600; color: var(--text); line-height: 1.4;
   cursor: pointer; display: block;
+  transition: color 0.2s ease;
 }
 .talk-title.is-static { cursor: default; }
+.talk:hover .talk-title:not(.is-static) { color: var(--bleu); }
 
 /* The chevron is inline-block, so on a title long enough to wrap it can be
    pushed onto a line of its own -- an invisible glyph rendering as a blank
    line under the row. Only attach it to titles that actually open. */
 .talk-title:not(.is-static):after {
   content: '\203A';
-  font-size: 15px; font-weight: 300; color: var(--text-muted);
+  font-size: var(--fs-body); font-weight: 300; color: var(--bleu);
   margin-left: 6px; display: inline-block;
   opacity: 0; transition: opacity 0.2s ease, transform 0.2s ease;
 }
 .talk:hover .talk-title:not(.is-static):after { opacity: 1; }
 .talk.open .talk-title:after { opacity: 1; transform: rotate(90deg); }
 
-.talk-byline { color: var(--text-soft); font-size: 14px; margin-top: 2px; }
+.talk-byline { color: var(--text-soft); font-size: var(--fs-small); margin-top: 2px; }
 .talk-affil { color: var(--text-muted); }
-.talk-where { color: var(--text-muted); font-size: 13px; margin-top: 2px; }
-.talk-note { color: var(--text-muted); font-size: 13px; font-style: italic; }
+.talk-where { color: var(--text-muted); font-size: var(--fs-meta); margin-top: 2px; }
+.talk-note { color: var(--text-muted); font-size: var(--fs-meta); font-style: italic; }
 
 .talk-abstract {
-  color: var(--text-soft); line-height: 1.6; font-size: 1.45rem;
+  color: var(--text-soft); line-height: 1.65; font-size: var(--fs-small);
   max-height: 0; overflow: hidden;
-  transition: max-height 0.28s ease, margin 0.28s ease;
+  transition: max-height 0.28s ease, margin 0.28s ease, padding 0.28s ease;
   margin-top: 0;
 }
-.talk.open .talk-abstract { max-height: 260rem; margin-top: 8px; }
+.talk.open .talk-abstract {
+  max-height: 260rem;
+  margin-top: 10px;
+  padding-left: 12px;
+  border-left: 1px solid var(--bleu-wash);
+}
 
 .talk-links { margin-top: 6px; display: flex; gap: 6px; flex-wrap: wrap; }
 .talk-badge {
-  font-size: 11px; padding: 0 5px; border-radius: 3px; line-height: 1.5;
+  font-size: var(--fs-micro); padding: 0 5px; border-radius: 2px; line-height: 1.6;
   display: inline-block; text-decoration: none;
-  background: var(--bg); border: 1px solid var(--border-mid); color: var(--text-soft);
+  background: transparent; border: 1px solid var(--border-mid); color: var(--text-soft);
   transition: border-color 0.2s ease, color 0.2s ease;
 }
-.talk-badge:hover { border-color: var(--text-muted); color: var(--text-mid); }
+.talk-badge:hover { border-color: var(--bleu); color: var(--bleu); }
 
 .talk-tbd .talk-title { color: var(--text-faint); font-weight: 500; }
-.talk-break .talk-title { color: var(--text-muted); font-weight: 500; font-style: italic; }
+.talk-no_meeting .talk-title,
+.talk-cancelled .talk-title {
+  color: var(--text-muted); font-weight: 500; font-style: italic;
+}
 
-/* "Up next" callout on the homepage */
+/* ---- "Up next": the one genuinely present-tense thing on the site, and
+        the only place rouge carries real weight. */
 .next-talk {
-  border-left: 2px solid var(--text-mid);
-  padding: 2px 0 2px 14px;
-  margin-bottom: 2.2rem;
+  border-left: 2px solid var(--rouge);
+  background: var(--rouge-wash);
+  padding: 12px 0 12px 14px;
+  margin-bottom: 2.4rem;
+  border-radius: 0 2px 2px 0;
 }
 .next-label {
-  text-transform: uppercase; font-size: 11px; font-weight: 600;
-  letter-spacing: .2rem; color: var(--text-muted);
+  text-transform: uppercase; font-size: var(--fs-micro); font-weight: 600;
+  letter-spacing: var(--tracking-label); color: var(--rouge);
 }
-.next-title { font-size: 1.8rem; font-weight: 600; line-height: 1.35; margin: 4px 0 2px; }
-.meeting-line { font-size: 1.5rem; color: var(--text-mid); }
+.next-title {
+  font-size: var(--fs-lead); font-weight: 600; line-height: 1.35;
+  margin: 5px 0 2px; color: var(--text-strong);
+}
+.meeting-line { font-size: var(--fs-body); color: var(--text-mid); }
 .meeting-line strong { font-weight: 600; color: var(--text-strong); }
 
-/* ================ Archive search ================ */
+/* ================ Archive controls ================ */
 .archive-controls {
   display: flex; gap: 12px; align-items: center; flex-wrap: wrap;
-  margin-bottom: 2rem;
+  margin-bottom: 2.2rem;
 }
 .archive-search {
   flex: 1 1 260px; min-width: 0;
-  height: 36px; padding: 0 12px;
-  font-family: inherit; font-size: 14px;
+  height: 38px; padding: 0 12px;
+  font-family: inherit; font-size: var(--fs-small);
 }
-.archive-count { font-size: 13px; color: var(--text-muted); white-space: nowrap; }
-.term-jump { font-size: 13px; height: 36px; padding: 0 8px; }
+.archive-count {
+  font-size: var(--fs-meta); color: var(--text-muted); white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+.term-jump { font-size: var(--fs-meta); height: 38px; padding: 0 8px; }
 .is-hidden { display: none !important; }
 .archive-empty { color: var(--text-muted); font-style: italic; }
 
 mark {
   background: transparent;
-  color: var(--text-strong);
+  color: var(--rouge);
   font-weight: 600;
   padding: 0;
 }
@@ -329,66 +453,67 @@ mark {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(126px, 1fr));
   gap: 26px 18px;
-  margin-top: 1.6rem;
+  margin-top: 1.8rem;
 }
 .person { text-align: center; min-width: 0; }
 .person-photo {
   width: 100%; aspect-ratio: 4 / 5; object-fit: cover;
-  border-radius: 4px; display: block;
-  background: var(--hairline);
+  border-radius: 3px; display: block;
+  background: var(--bg-sunk);
   filter: grayscale(100%);
-  transition: filter 0.3s ease;
+  transition: filter 0.35s ease;
 }
 .person:hover .person-photo { filter: grayscale(0%); }
 html[data-theme="dark"] .person-photo { opacity: 0.92; }
 
 .person-name {
   display: block; margin-top: 8px;
-  font-size: 13px; font-weight: 600; line-height: 1.3; color: var(--text);
+  font-size: var(--fs-meta); font-weight: 600; line-height: 1.3; color: var(--text);
 }
-.person-role { font-size: 12px; color: var(--text-muted); line-height: 1.35; margin-top: 2px; }
-.person-affil { font-size: 12px; color: var(--text-faint); line-height: 1.35; }
-.person.is-memorial .person-name:after {
+.person-role { font-size: var(--fs-meta); color: var(--text-muted); line-height: 1.35; margin-top: 2px; }
+.person-affil { font-size: var(--fs-meta); color: var(--text-faint); line-height: 1.35; }
+.person.is-memorial .person-name:after,
+.person-row.is-memorial .person-name:after {
   content: 'in memoriam';
-  display: block; font-size: 10px; font-weight: 500; font-style: italic;
-  text-transform: uppercase; letter-spacing: .1rem; color: var(--text-faint);
+  display: block; font-size: var(--fs-micro); font-weight: 500; font-style: italic;
+  text-transform: uppercase; letter-spacing: .1rem; color: var(--rouge);
   margin-top: 2px;
 }
 
-.people-group { margin-bottom: 3.2rem; }
+.people-group { margin-bottom: 3.4rem; }
 .people-group:last-child { margin-bottom: 0; }
 .people-group-title {
-  display: flex; align-items: baseline; gap: 8px;
-  text-transform: uppercase; font-size: 12px; font-weight: 600;
-  letter-spacing: .2rem; color: var(--text-muted);
+  display: flex; align-items: baseline; gap: 10px;
+  text-transform: uppercase; font-size: var(--fs-label); font-weight: 600;
+  letter-spacing: var(--tracking-label); color: var(--text-mid);
   padding-bottom: 8px; border-bottom: 1px solid var(--hairline);
 }
-.people-count { color: var(--text-faint); font-weight: 500; letter-spacing: .1rem; }
+.people-count {
+  font-size: var(--fs-micro); font-weight: 600; letter-spacing: .08rem;
+  color: var(--bleu); background: var(--bleu-wash);
+  padding: 1px 6px; border-radius: 2px;
+  font-variant-numeric: tabular-nums;
+}
 
 /* Name list -- postdocs, students, alumni. Multi-column so 54 alumni read as
    a roster rather than an endless scroll. */
 .people-list {
-  list-style: none; margin: 1.4rem 0 0; padding: 0;
+  list-style: none; margin: 1.6rem 0 0; padding: 0;
   columns: 2; column-gap: 32px;
 }
 @media (min-width: 750px) { .people-list { columns: 3; } }
 .person-row {
   break-inside: avoid; -webkit-column-break-inside: avoid;
-  margin-bottom: 10px; line-height: 1.35;
+  margin-bottom: 11px; line-height: 1.35;
 }
-.person-row .person-name { display: block; margin-top: 0; font-size: 14px; }
-.person-row .person-affil { font-size: 12px; }
-.person-row.is-memorial .person-name:after {
-  content: 'in memoriam';
-  display: block; font-size: 10px; font-weight: 500; font-style: italic;
-  text-transform: uppercase; letter-spacing: .1rem; color: var(--text-faint);
-}
+.person-row .person-name { display: block; margin-top: 0; font-size: var(--fs-small); }
+.person-row .person-affil { font-size: var(--fs-meta); }
 
 /* ================ Footer ================ */
 .footer {
   text-align: center; color: var(--text-muted);
   border-top: 1px solid var(--hairline);
-  padding: 22px 0 40px; margin-bottom: 0; font-size: 13px;
+  padding: 24px 0 40px; margin-bottom: 0; font-size: var(--fs-meta);
 }
 .footer p { margin-bottom: 8px; }
 .footer-meta .dot { margin: 0 8px; color: var(--text-faint); }
@@ -396,20 +521,19 @@ html[data-theme="dark"] .person-photo { opacity: 0.92; }
 /* ================ Theme toggle ================ */
 .theme-toggle {
   background: none; border: none; padding: 0; margin: 0; height: auto;
-  line-height: 1; letter-spacing: normal; color: inherit; font-size: 16px; cursor: pointer;
+  line-height: 1; letter-spacing: normal; color: inherit; font-size: var(--fs-icon); cursor: pointer;
 }
 .theme-toggle .fa-sun { display: none; }
 html[data-theme="dark"] .theme-toggle .fa-sun  { display: inline-block; }
 html[data-theme="dark"] .theme-toggle .fa-moon { display: none; }
 .theme-toggle-floating {
   position: fixed; top: 16px; right: 20px; z-index: 200;
-  font-size: 17px; color: var(--text-muted);
+  font-size: var(--fs-lead); color: var(--text-muted);
+  transition: color 0.2s ease;
 }
-.theme-toggle-floating:hover { color: var(--text-strong); }
+.theme-toggle-floating:hover { color: var(--bleu); }
 
-/* Theme switch: dissolve the old frame as ONE unit (View Transitions API).
-   The new theme renders instantly underneath at full opacity; only the old
-   snapshot fades out -- no element animates individually, so nothing lags. */
+/* Theme switch: dissolve the old frame as ONE unit (View Transitions API). */
 ::view-transition-new(root) { animation: none; }
 ::view-transition-old(root) { animation-duration: 0.3s; animation-timing-function: ease; }
 @media (prefers-reduced-motion: reduce) {
@@ -431,16 +555,18 @@ input[type="number"], textarea, select {
   background-color: var(--bg-elev);
   border: 1px solid var(--hairline-strong);
   color: var(--text);
-  border-radius: 4px;
+  border-radius: 3px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 input[type="text"]:focus, input[type="search"]:focus, textarea:focus, select:focus {
-  border-color: var(--text-muted);
+  border-color: var(--bleu);
+  box-shadow: 0 0 0 3px var(--bleu-wash);
   outline: 0;
 }
 input::placeholder { color: var(--text-faint); }
 
 code, pre > code {
-  background: var(--bg-elev);
+  background: var(--bg-sunk);
   border: 1px solid var(--hairline-strong);
   color: var(--text);
 }
@@ -449,13 +575,21 @@ hr { border-top: 1px solid var(--hairline); }
 
 .button, button { color: var(--text-soft); border-color: var(--border-mid); }
 .button:hover, button:hover, .button:focus, button:focus {
-  color: var(--text-mid); border-color: var(--text-muted);
+  color: var(--bleu); border-color: var(--bleu);
+}
+
+/* Keyboard focus must be visible everywhere, not just on inputs. */
+a:focus-visible, button:focus-visible, .talk-title:focus-visible {
+  outline: 2px solid var(--bleu);
+  outline-offset: 2px;
+  border-radius: 1px;
 }
 
 /* ================ Small screens ================ */
 @media (max-width: 549px) {
   .talk { gap: 10px; }
-  .talk-date { min-width: 54px; font-size: 12px; }
+  .talk-date { min-width: 58px; font-size: var(--fs-micro); }
   .people-grid { grid-template-columns: repeat(auto-fill, minmax(104px, 1fr)); gap: 20px 14px; }
-  .wordmark-main { font-size: 2.3rem; }
+  .wordmark-main { font-size: var(--fs-disp-sm); }
+  .people-list { columns: 1; }
 }

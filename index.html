@@ -21,7 +21,7 @@ title: Home
 
 <div class="docs-section" id="schedule">
   <div class="section-header-row">
-    <h4>{{ term.name }}</h4>
+    <h4 class="is-current">{{ term.name }}</h4>
     <span class="term-meta">
       {%- if term.default_time or term.default_room -%}
         {%- if term.default_weekday %}{{ term.default_weekday }}s, {% endif -%}
