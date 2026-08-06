@@ -24,7 +24,8 @@ import sys
 
 from PIL import Image, ImageOps
 
-TARGET_W, TARGET_H, QUALITY = 320, 400, 82
+# Faculty photos render up to ~180px square, so 440 keeps them crisp at 2x.
+TARGET_W, TARGET_H, QUALITY = 440, 550, 82
 
 
 def convert(src, dst):
@@ -53,6 +54,7 @@ def main():
     ap.add_argument("--src", default=os.path.expanduser("~/src/statml-old"))
     ap.add_argument("--data", default="_data/people.yaml")
     ap.add_argument("--out", default="assets/people")
+    ap.add_argument("--roster", help="only convert this roster group")
     ap.add_argument("--quiet", action="store_true")
     args = ap.parse_args()
 
@@ -67,6 +69,8 @@ def main():
     for slug, p in sorted(people.items()):
         want = p.get("img")
         if not want:
+            continue
+        if args.roster and p.get("roster") != args.roster:
             continue
         base = os.path.basename(want)
         # people.yaml already points at the destination; find the ORIGINAL,

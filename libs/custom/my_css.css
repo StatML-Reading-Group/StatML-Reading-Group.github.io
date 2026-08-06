@@ -440,25 +440,21 @@ mark {
 /* ================ People ================ */
 .people-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(126px, 1fr));
-  gap: 26px 18px;
+  grid-template-columns: repeat(auto-fill, minmax(172px, 1fr));
+  gap: 30px 22px;
   margin-top: 1.8rem;
 }
 .person { text-align: center; min-width: 0; }
 .person-photo {
   width: 100%; aspect-ratio: 1 / 1; object-fit: cover;
-  object-position: 50% 28%;   /* sources are 4:5; bias up for faces */
+  object-position: 50% 25%;   /* sources are 4:5; bias up for faces */
   border-radius: 3px; display: block;
   background: var(--bg-sunk);
-  filter: grayscale(100%);
-  transition: filter 0.35s ease;
 }
-.person:hover .person-photo { filter: grayscale(0%); }
-html[data-theme="dark"] .person-photo { opacity: 0.92; }
 
 .person-name {
-  display: block; margin-top: 8px;
-  font-size: var(--fs-meta); font-weight: 600; line-height: 1.3; color: var(--text);
+  display: block; margin-top: 10px;
+  font-size: var(--fs-small); font-weight: 600; line-height: 1.3; color: var(--text);
 }
 .person-role { font-size: var(--fs-meta); color: var(--text-muted); line-height: 1.35; margin-top: 2px; }
 .person-affil { font-size: var(--fs-meta); color: var(--text-faint); line-height: 1.35; }
@@ -575,7 +571,7 @@ a:focus-visible, button:focus-visible, .talk-title:focus-visible {
 @media (max-width: 549px) {
   .talk { gap: 10px; }
   .talk-date { min-width: 58px; font-size: var(--fs-micro); }
-  .people-grid { grid-template-columns: repeat(auto-fill, minmax(104px, 1fr)); gap: 20px 14px; }
+  .people-grid { grid-template-columns: repeat(auto-fill, minmax(132px, 1fr)); gap: 22px 16px; }
   .wordmark-main { font-size: var(--fs-disp-sm); }
   .people-list { columns: 1; }
 }
