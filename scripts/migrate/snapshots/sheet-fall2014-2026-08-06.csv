@@ -1,0 +1,171 @@
+date0,date,presenter,title,id,Name,webpage,topic,details
+8/28/2014,August 28,,"First meeting. Plannings, Introductions, etc., ",,,,"First meeting. Plannings, Introductions, etc., ",
+9/4/2014,September 4,"<a href=""http://statweb.stanford.edu/~tibs/"">Prof. Rob Tibshirani</a>","<a href=""Details.html?meeting=1"">Introduction to Deep Learning</a>",1,Prof. Rob Tibshirani,http://statweb.stanford.edu/~tibs/,Introduction to Deep Learning,"<h2>Introduction to Deep Learning</h2>
+
+<h3><a href=""http://statweb.stanford.edu/~tibs/"">Rob Tibshirani</a></h3>
+
+<br><p><strong>Date and Time</strong> : Thursday,&nbsp;September 4, 2014 (3pm)<br />
+<strong>Location </strong>: Baker Hall 232M</p>
+
+<p>Reading material: Le at al., <em><a href=""http://static.googleusercontent.com/media/research.google.com/en/us/archive/unsupervised_icml2012.pdf"">Building High-level Features Using Large Scale Unsupervised Learning.</a></em> For other reading material please see the emails circulated or the forum.</p>"
+9/11/2014,September 11,"<a href=""http://academic.sologen.net/Home.html"">Amir-Massoud Farahmand</a>","<a href=""Details.html?meeting=2"">Convolutional Neural Networks and Dropout</a>",2,Amir-Massoud Farahmand,http://academic.sologen.net/Home.html,Convolutional Neural Networks and Dropout,"<h2>Convolutional Neural Networks and Dropout</h2>
+<h3><a href=""http://academic.sologen.net/Home.html"">Amir-massoud Farahamand</a></h3><br>
+
+<p><strong>Date and Time</strong> : Thursday,&nbsp;September 11, 2014 (3pm)<br />
+<strong>Location </strong>: Baker Hall 232M</p><br>
+
+<p><span style=""line-height: 1.6;""><b>Reading Materials:&nbsp;</b></span></p>
+
+<p>Alex Krizhevsky, Ilya Sutskever, Geoffrey E. Hinton, &quot;<a href=""http://papers.nips.cc/paper/4824-imagenet-classification-with-deep-convolutional-neural-networks.pdf"">ImageNet<br />
+Classification with Deep Convolutional Neural Networks</a>,&quot; NIPS 2012.</p>
+
+<p><span style=""line-height: 1.6;"">Nitish Srivastava, Geoffrey Hinton, Alex Krizhevsky, Ilya Sutskever,</span><br />
+Ruslan Salakhutdinov, &quot;<a href=""http://jmlr.org/papers/volume15/srivastava14a/srivastava14a.pdf"">Dropout: A Simple Way to Prevent Neural Networks<br />
+from Overfitting</a>,&quot; JMLR, 2014.</p><br>
+
+<p><strong>More reading (which will not be referred to in this presentation):</strong>&nbsp;</p>
+
+<p><span style=""line-height: 1.6;"">Yoshua Bengio, &quot;<a href=""http://www.iro.umontreal.ca/~lisa/publications2/index.php/publications/show/239"">Learning deep architectures for AI</a>,&quot; Foundations and</span>&nbsp;Trends in Machine Learning, 2009.</p>
+
+"
+9/18/2014,September 18,"<a href="""">Kevin Lin</a>","<a href=""Details.html?meeting=3"">Deep Learning: An Implementation</a>",3,Kevin Lin,,Deep Learning: An Implementation,"<h2>Deep Learning: An Implementation</h2>
+
+<h3>Kevin Lin</h3>
+
+<p><strong>Date &amp; Time : Thursday (Sept 18, 2014) at 3pm<br />
+Location: Baker Hall 232M</strong><br />
+&nbsp;</p>
+
+<p><u><strong>Abstract:</strong></u>&nbsp;I believe I will be taking up most of the sessions to 1) review a very specific deep learning algorithm (binary visible and hidden units, using contrastive divergence with 1 step, using cross-entropy loss and Restricted Boltzmann Machines), 2) show my simulations results and discuss what intuition we can draw from the simulations, and if time 3) discuss the finer details of what has been shown. Along the way, I&#39;ll show the various functions to simulate, plot, and print/summarize that I have written.</p>
+
+<p><strong>Reading Material:</strong> <a href=""http://www.cs.cmu.edu/~aarti/SMLRG/kevinPamphlet.pdf"">Here</a></p>
+
+"
+9/25/2014,September 25,"<a href=""http://www.stat.cmu.edu/~ryantibs/"">Prof. Ryan Tibshirani</a>","<a href=""Details.html?meeting=4"">What Regularized Auto-Encoders Learn from the Data Generating Distribution</a>",4,Prof. Ryan Tibshirani,http://www.stat.cmu.edu/~ryantibs/,What Regularized Auto-Encoders Learn from the Data Generating Distribution,"<h2>What Regularized Auto-Encoders Learn from the Data Generating Distribution</h2>
+
+<h3>Presented by: <a href=""http://www.stat.cmu.edu/~ryantibs/"">Prof. Ryan Tibshirani</a></h3>
+
+<p><strong>Date and Time</strong> : Thursday,&nbsp;September 25, 2014 (3pm)<br />
+<strong>Location </strong>: Baker Hall 232M</p>
+
+<p><span style=""line-height: 1.6;""><b>Reading Materials:&nbsp;</b></span></p>
+
+<div class=""page"" title=""Page 1"">
+<div class=""section"">
+<div class=""layoutArea"">
+<div class=""column"">
+<p>Guillaume Alain and Yoshua Bengio,&nbsp;<a href=""http://arxiv.org/pdf/1211.4246v5.pdf"">What Regularized Auto-Encoders Learn from the Data Generating Distribution.&nbsp;</a></p>
+</div>
+</div>
+</div>
+</div>
+
+"
+10/2/2014,October 2,"<a href=""http://www.stat.cmu.edu/~jinglei/"">Prof. Jing Lei</a>","<a href=""Details.html?meeting=5"">Sparse PCA</a>",5,Prof. Jing Lei,http://www.stat.cmu.edu/~jinglei/,Sparse PCA,"<h2>Sparse PCA</h2>
+
+<h3>Presented by: <a href=""http://www.stat.cmu.edu/~jinglei/"">Prof. Jing Lei</a></h3>
+
+<p><strong>Date and Time</strong> : Thursday,&nbsp;October 2, 2014 (3pm)<br />
+<strong>Location </strong>: Baker Hall 232M</p>
+
+<p><span style=""line-height: 1.6;""><b>Reading Materials:&nbsp;</b></span><br />
+Jing Lei, Vince Vu.&nbsp;<em>Sparsistency and Agnostic Inference in Sparse PCA.&nbsp;</em><br />
+<a href=""http://arxiv.org/abs/1401.6978"">http://arxiv.org/abs/1401.6978</a></p>
+
+<p>We will also discuss:&nbsp;<br />
+<a href=""http://arxiv.org/abs/1408.5352"" target=""_blank"">http://arxiv.org/abs/1408.5352</a><br />
+<a href=""http://arxiv.org/abs/1408.5369"" target=""_blank"">http://arxiv.org/abs/1408.5369</a></p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<div class=""page"" title=""Page 1"">
+<div class=""section"">
+<div class=""layoutArea"">
+<div class=""column"">
+<p>&nbsp;</p>
+</div>
+</div>
+</div>
+</div>
+
+"
+10/9/2014,October 9,"<a href=""http://www.stat.cmu.edu/~jinglei/"">Prof. Jing Lei</a>","<a href=""Details.html?meeting=6"">Sparse PCA continued</a>",6,Prof. Jing Lei,http://www.stat.cmu.edu/~jinglei/,Sparse PCA continued,"<h2>Sparse PCA</h2>
+
+<h3>Presented by: <a href=""http://www.stat.cmu.edu/~jinglei/"">Prof. Jing Lei</a></h3>
+
+<p><strong>Date and Time</strong> : Thursday,&nbsp;October 9, 2014 (3pm)<br />
+<strong>Location </strong>: Baker Hall 232M</p>
+
+<p><span style=""line-height: 1.6;""><b>Reading Materials:&nbsp;</b></span><br />
+Jing Lei, Vince Vu.&nbsp;<em>Sparsistency and Agnostic Inference in Sparse PCA.&nbsp;</em><br />
+<a href=""http://arxiv.org/abs/1401.6978"">http://arxiv.org/abs/1401.6978</a></p>
+
+<p>We will also discuss:&nbsp;<br />
+<a href=""http://arxiv.org/abs/1408.5352"" target=""_blank"">http://arxiv.org/abs/1408.5352</a><br />
+<a href=""http://arxiv.org/abs/1408.5369"" target=""_blank"">http://arxiv.org/abs/1408.5369</a></p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<div class=""page"" title=""Page 1"">
+<div class=""section"">
+<div class=""layoutArea"">
+<div class=""column"">
+<p>&nbsp;</p>
+</div>
+</div>
+</div>
+</div>
+
+"
+10/16/2014,October 16,"<a href=""http://www.cs.cmu.edu/~aramdas/"">Aaditya Ramdas</a>","<a href=""Details.html?meeting=7"">Two Sample Testing in High Dimensions</a>",7,Aaditya Ramdas,http://www.cs.cmu.edu/~aramdas/,Two Sample Testing in High Dimensions,
+10/23/2014,October 23,"<a href="""">cancelled</a>","<a href=""Details.html?meeting=8"">cancelled</a>",8,cancelled,,cancelled,
+10/30/2014,October 30,"<a href=""http://www.cs.cmu.edu/~rurner/"">Ruth Urner</a>","<a href=""Details.html?meeting=9"">Recent Results in Multi-Class Learnability</a>",9,Ruth Urner,http://www.cs.cmu.edu/~rurner/,Recent Results in Multi-Class Learnability,"<h2>Recent Results in Multi-Class Learnability</h2>
+
+<h3>Presented by: <a href=""http://www.cs.cmu.edu/~rurner/"">Ruth Urner</a></h3><br>
+
+<p><strong>Date and Time</strong> : Thursday,&nbsp;October 23, 2014 (3pm)<br />
+<strong>Location </strong>: Baker Hall 232M</p><br>
+
+<p><span style=""line-height: 1.6;""><b>Reading Materials:&nbsp;</b></span><br />
+
+
+<a href=""http://jmlr.org/proceedings/papers/v35/daniely14b.html"">http://jmlr.org/proceedings/papers/v35/daniely14b.html</a><br>
+<a href = ""http://www.jmlr.org/proceedings/papers/v19/daniely11a/daniely11a.pdf"">http://www.jmlr.org/proceedings/papers/v19/daniely11a/daniely11a.pdf</a>"
+11/6/2014,November 6,"<a href=""http://www.cs.cmu.edu/~yuxiangw/"">Yu-Xiang Wang</a>","<a href=""Details.html?meeting=10"">Subspace Clustering</a>",10,Yu-Xiang Wang,http://www.cs.cmu.edu/~yuxiangw/,Subspace Clustering,"<h2>Subspace Clustering</h2>
+
+<h3>Presented by: <a href=""http://www.cs.cmu.edu/~yuxiangw/"">Yu-Xiang Wang</a></h3>
+
+<p>&nbsp;</p>
+
+<p><strong>Date and Time</strong> : Thursday,&nbsp;November 6, 2014 (3pm)<br />
+<strong>Location </strong>: Baker Hall 232M</p>
+
+"
+11/13/2014,November 13,"<a href=""http://www.stat.cmu.edu/~cshalizi/"">Prof. Cosma Shalizi</a>","<a href=""Details.html?meeting=11"">Intriguing Properties of Deep Neural Networks</a>",11,Prof. Cosma Shalizi,http://www.stat.cmu.edu/~cshalizi/,Intriguing Properties of Deep Neural Networks,"<h2>Intriguing Properties of Deep Nural Networks</h2>
+
+<h3>Presented by: <a href=""http://www.cs.cmu.edu/~cshalizi/"">Cosma Shalizi</a></h3>
+
+<p>&nbsp;</p>
+
+<p><strong>Date and Time</strong> : Thursday,&nbsp;November 20, 2014 (3pm)<br />
+<strong>Location </strong>: Baker Hall 232M</p>
+
+"
+11/20/2014,November 20,"<a href=""http://www.cs.cmu.edu/~kkandasa/"">Kirthevasan Kandasamy</a>","<a href=""Details.html?meeting=12"">Nonparametric Estimation of Smooth Functionals of Densities</a>",12,Kirthevasan Kandasamy,http://www.cs.cmu.edu/~kkandasa/,Nonparametric Estimation of Smooth Functionals of Densities,"<h2>Nonparametric Estimation of Smooth Functionals of Densities</h2>
+
+<h3>Presented by: <a href=""http://www.cs.cmu.edu/~kkandasa/"">Kirthevasan Kandasamy</a></h3>
+
+<p>&nbsp;</p>
+
+<p><strong>Date and Time</strong> : Thursday,&nbsp;Nov 20, 2014 (3pm)<br />
+<strong>Location </strong>: Baker Hall 232M</p>
+
+<p>&nbsp;</p>
+
+<p><span style=""line-height: 1.6;""><b>Reading Materials:&nbsp;</b></span><br />
+I will be discussing some work on nonparametric estimation of smooth functionals of densities using Influence Functions. The estimators were first presented in <a href=""http://www.biostat.harvard.edu/robins/publications/007.pdf""><span style=""color: rgb(71, 135, 255); -webkit-text-stroke-color: rgb(71, 135, 255);"">James Robins et al, Quadratic Semiparametric Von Mises Calculus</span></a>. However, I will be presenting an analysis which is simpler than what is given in the paper. We have a recent arxiv submission in which we present these results and extend it to functionals of multiple distributions:&nbsp;<a href=""http://arxiv.org/abs/1411.4342""><span style=""color: rgb(71, 135, 255); -webkit-text-stroke-color: rgb(71, 135, 255);"">http://arxiv.org/abs/1411.4342</span></a></p>"
+12/4/2014,December 4,"<a href=""http://gautamdasarathy.com"">Gautam Dasarathy</a>","<a href=""Details.html?meeting=13"">Some Elements of Mathematical Phylogenetics</a>",13,Gautam Dasarathy,http://gautamdasarathy.com,Some Elements of Mathematical Phylogenetics,
