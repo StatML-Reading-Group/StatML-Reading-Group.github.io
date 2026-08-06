@@ -4,10 +4,15 @@ title: Archive
 permalink: /archive/
 ---
 
+{%- comment -%}
+  The archive lists only talks that actually happened and have a title.
+  Breaks, cancellations and unfilled slots are schedule bookkeeping -- useful on
+  the homepage while a term is running, noise in a permanent record.
+{%- endcomment -%}
 {%- assign total = 0 -%}
 {%- for term in site.data.terms -%}
   {%- for t in site.data.talks[term.key] -%}
-    {%- if t.kind == nil %}{% assign total = total | plus: 1 %}{% endif -%}
+    {%- if t.kind == nil and t.title %}{% assign total = total | plus: 1 %}{% endif -%}
   {%- endfor -%}
 {%- endfor -%}
 
@@ -23,8 +28,11 @@ permalink: /archive/
     <span class="archive-count">{{ total }} talks</span>
     <select class="term-jump" aria-label="Jump to a semester">
       <option value="">Jump to&hellip;</option>
-      {%- for term in site.data.terms %}
+      {%- for term in site.data.terms -%}
+        {%- assign n = site.data.talks[term.key] | where_exp: "t", "t.kind == nil" | where_exp: "t", "t.title" -%}
+        {%- if n.size > 0 %}
       <option value="term-{{ term.key }}">{{ term.name }}</option>
+        {%- endif -%}
       {%- endfor %}
     </select>
   </div>
@@ -32,14 +40,13 @@ permalink: /archive/
   <p class="archive-empty is-hidden">No talks match that search.</p>
 
   {%- for term in site.data.terms -%}
-    {%- assign talks = site.data.talks[term.key] -%}
-    {%- if talks and talks.size > 0 -%}
+    {%- assign all = site.data.talks[term.key] -%}
+    {%- assign talks = all | where_exp: "t", "t.kind == nil" | where_exp: "t", "t.title" -%}
+    {%- if talks.size > 0 -%}
     <div class="term-section" id="term-{{ term.key }}">
-      {%- assign n = 0 -%}
-      {%- for t in talks -%}{%- if t.kind == nil %}{% assign n = n | plus: 1 %}{% endif -%}{%- endfor -%}
       <div class="term-header">
         <span class="term-name">{{ term.name }}</span>
-        <span class="term-meta">{{ n }} talk{% unless n == 1 %}s{% endunless %}</span>
+        <span class="term-meta">{{ talks.size }} talk{% unless talks.size == 1 %}s{% endunless %}</span>
       </div>
       <div class="talk-list">
         {%- for t in talks -%}

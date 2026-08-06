@@ -19,11 +19,16 @@ registry pattern as the reference site's coauthors.yaml.
 {%- assign date_fmt = '%-d %b' -%}
 {%- if mode == 'archive' -%}{%- assign date_fmt = '%-d %b %Y' -%}{%- endif -%}
 
+{%- comment -%}
+  Archive bylines are plain text. The archive is a historical record, and 200-odd
+  outbound links to personal pages -- many of which have already rotted after
+  fifteen years -- add noise, not information. Live schedule bylines stay linked.
+{%- endcomment -%}
 {%- capture byline -%}
   {%- for slug in t.speakers -%}
     {%- assign p = site.data.people[slug] -%}
     {%- if p -%}
-      {%- if p.url %}<a href="{{ p.url }}" target="_blank" rel="noopener">{{ p.name }}</a>
+      {%- if p.url and mode != 'archive' %}<a href="{{ p.url }}" target="_blank" rel="noopener">{{ p.name }}</a>
       {%- else %}{{ p.name }}{%- endif -%}
       {%- unless p.roster -%}{%- if p.affiliation %} <span class="talk-affil">({{ p.affiliation }})</span>{%- endif -%}{%- endunless -%}
     {%- else -%}{{ slug }}{%- endif -%}

@@ -250,7 +250,11 @@ html { scroll-behavior: smooth; }
   cursor: pointer; display: block;
 }
 .talk-title.is-static { cursor: default; }
-.talk-title:after {
+
+/* The chevron is inline-block, so on a title long enough to wrap it can be
+   pushed onto a line of its own -- an invisible glyph rendering as a blank
+   line under the row. Only attach it to titles that actually open. */
+.talk-title:not(.is-static):after {
   content: '\203A';
   font-size: 15px; font-weight: 300; color: var(--text-muted);
   margin-left: 6px; display: inline-block;
