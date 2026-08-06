@@ -10,15 +10,11 @@ title: Home
   <h4>About</h4>
   <div class="prose">
     <p class="lede">
-      We are a group of faculty, postdocs and students in Statistics and Machine
-      Learning at Carnegie Mellon, broadly interested in research at the
+      Welcome! We are a group of faculty, postdocs and PhD students located in the
+      <a href="https://www.stat.cmu.edu/">Statistics &amp; Data Science</a> and
+      <a href="https://www.ml.cmu.edu/">Machine Learning</a> departments at
+      Carnegie Mellon University, broadly interested in research at the
       intersection of the two.
-    </p>
-    <p>
-      We meet weekly during term. One member presents a paper or their own work,
-      and we discuss it. Talks range from theory to methods to applications;
-      everyone is welcome, and you do not need to be from either department to
-      come along.
     </p>
   </div>
 </div>
@@ -88,10 +84,10 @@ title: Home
   <h4>Joining</h4>
   <div class="prose">
     <p>
-      Anyone at CMU is welcome to attend &mdash; just show up. To join the
-      mailing list, to volunteer to present, or to have your entry on the
-      <a class="text-link" href="{{ '/people/' | relative_url }}">people page</a>
-      added or corrected, email one of the organizers.
+      Anyone at CMU is welcome to attend &mdash; just come along. To join the
+      mailing list, to volunteer to present, or to be added to the
+      <a class="text-link" href="{{ '/people/' | relative_url }}">people page</a>,
+      email one of the organizers.
     </p>
   </div>
 </div>
@@ -100,9 +96,12 @@ title: Home
   <h4>Organizers</h4>
   <div class="prose">
     <p>
-      {{ term.name }} organizers are still being confirmed. In the meantime,
-      questions can go to any current member listed on the
-      <a class="text-link" href="{{ '/people/' | relative_url }}">people page</a>.
+      {{ term.name }} is organized by
+      {%- for slug in site.data.organizers %}
+        {%- assign p = site.data.people[slug] -%}
+        {% if forloop.last and forloop.length > 1 %} and {% elsif forloop.first %} {% else %}, {% endif -%}
+        {% if p.url %}<a class="text-link" href="{{ p.url }}" target="_blank" rel="noopener">{{ p.name }}</a>{% else %}{{ p.name }}{% endif -%}
+      {%- endfor %}.
     </p>
   </div>
 </div>

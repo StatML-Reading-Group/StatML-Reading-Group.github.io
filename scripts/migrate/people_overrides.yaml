@@ -1,0 +1,26 @@
+# Corrections and additions applied on top of the migrated people.csv data.
+#
+# people.csv was last maintained in Dec 2025 and has drifted. Keeping these
+# here rather than hand-editing _data/people.yaml means re-running merge.py
+# cannot silently revert them.
+#
+# Anything set here wins. `null` removes a field.
+
+sivaraman_balakrishnan:
+  position: Professor            # was Associate Professor
+arun_kuchibhotla:
+  position: Associate Professor  # was Assistant Professor
+jing_lei:
+  position: Professor            # was Associate Professor
+nihar_shah:
+  position: Associate Professor  # was Assistant Professor
+steven_wu:
+  position: Associate Professor  # was Assistant Professor
+
+# Not in people.csv -- joined after its last update.
+eric_chen:
+  name: Eric Chen
+  roster: student
+  position: Graduate Student
+  affiliation: Statistics & Data Science
+  url: https://ericchen.io

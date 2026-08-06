@@ -155,9 +155,37 @@ def load_people(legacy_dir):
             rec["url"] = url if url.startswith("http") else "https://" + url.lstrip("/")
         img = clean_text(row.get("ImgPath"))
         if img and img.lower() != "none":
-            rec["img"] = "/assets/people/" + os.path.basename(img)
+            # scripts/optimize_images.py re-encodes EVERYTHING to .jpg, so the
+            # source extension (.png/.jpeg/.gif) must not survive into the path
+            # or the photo 404s. This bit Balakrishnan, Jing Lei and Aarti Singh.
+            stem = os.path.splitext(os.path.basename(img))[0]
+            rec["img"] = "/assets/people/" + stem + ".jpg"
         people[slug] = rec
+
+    apply_overrides(people)
     return people
+
+
+def apply_overrides(people):
+    """Layer people_overrides.yaml on top of the CSV.
+
+    people.csv was last touched in Dec 2025 and has drifted (promotions,
+    new members). Keeping corrections in their own file means re-running this
+    migration cannot silently revert them.
+    """
+    path = os.path.join(HERE, "people_overrides.yaml")
+    if not os.path.exists(path):
+        return
+    with open(path, encoding="utf-8") as fh:
+        overrides = yaml.safe_load(fh) or {}
+    for slug, patch in overrides.items():
+        rec = people.setdefault(slug, {})
+        for k, v in (patch or {}).items():
+            if v is None:
+                rec.pop(k, None)
+            else:
+                rec[k] = v
+        people[slug] = rec
 
 
 # --------------------------------------------------------------------------

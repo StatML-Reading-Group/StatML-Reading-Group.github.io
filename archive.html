@@ -35,17 +35,15 @@ permalink: /archive/
     {%- assign talks = site.data.talks[term.key] -%}
     {%- if talks and talks.size > 0 -%}
     <div class="term-section" id="term-{{ term.key }}">
+      {%- assign n = 0 -%}
+      {%- for t in talks -%}{%- if t.kind == nil %}{% assign n = n | plus: 1 %}{% endif -%}{%- endfor -%}
       <div class="term-header">
         <span class="term-name">{{ term.name }}</span>
-        <span class="term-meta">
-          {%- if term.default_weekday %}{{ term.default_weekday }}s, {% endif -%}
-          {%- if term.default_time %}{{ term.default_time }}{% endif -%}
-          {%- if term.default_room %}{% if term.default_time %} &middot; {% endif %}{{ term.default_room }}{% endif -%}
-        </span>
+        <span class="term-meta">{{ n }} talk{% unless n == 1 %}s{% endunless %}</span>
       </div>
       <div class="talk-list">
         {%- for t in talks -%}
-          {% include talk.html talk=t term=term show_year=true %}
+          {% include talk.html talk=t term=term mode='archive' %}
         {%- endfor -%}
       </div>
     </div>
