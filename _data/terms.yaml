@@ -8,7 +8,7 @@
   status: upcoming
 - key: spring2026
   name: Spring 2026
-  talks: 7
+  talks: 6
   default_room: GHC 8228
   default_time: 11am-12pm
   note: 'Time & location: GHC 8228 11am-12pm'

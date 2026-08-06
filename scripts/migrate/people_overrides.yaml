@@ -450,3 +450,12 @@ david_zhao:
 #   wei_peng        -- likely the Pitt statistician who spoke in 2019 as
 #                      "Wei Pang", not a CMU alum at all. Left alone pending
 #                      confirmation from the group.
+
+# dsi.udel.edu/faculty -- "Assistant Professor in the Department of Electrical
+# and Computer Engineering at the University of Delaware"; CMU postdoc before.
+burak_varici:
+  name: Burak Varıcı        # prettify(slug) loses the Turkish characters
+  roster: alumni
+  position: Assistant Professor
+  affiliation: University of Delaware
+  url: https://bvarici.github.io/

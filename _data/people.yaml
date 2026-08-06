@@ -662,6 +662,12 @@ oliver_hannaoui:
   position: Graduate Student
   affiliation: Statistics
   url: https://hanna-oui.github.io/research.html
+burak_varici:
+  name: Burak Varıcı
+  roster: alumni
+  position: Assistant Professor
+  affiliation: University of Delaware
+  url: https://bvarici.github.io/
 adams_wei_yu:
   name: Adams Wei Yu
 alden_green:
@@ -684,8 +690,6 @@ biswajit_paria:
   name: Biswajit Paria
 brittany_fasy:
   name: Brittany Fasy
-burak_varici:
-  name: Burak Varici
 christoph_dann:
   name: Christoph Dann
 cosma_shalizi:
@@ -784,8 +788,6 @@ ruodu_wang:
   name: Ruodu Wang
 ruth_urner:
   name: Ruth Urner
-selina:
-  name: Selina
 shayan_hundrieser:
   name: Shayan Hundrieser
 shiva_kaul:

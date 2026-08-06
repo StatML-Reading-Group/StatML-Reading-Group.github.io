@@ -1,0 +1,10 @@
+# Talk-level corrections applied after the merge.
+# `drop` removes an entry by term + date (+ optional speaker slug).
+
+drop:
+  - term: spring2026
+    date: 2026-03-09
+    speaker: jingwu_tang
+    why: >-
+      Duplicate. The schedule sheet lists the same talk twice, on 03/09 and
+      04/06; the April date is the one it was given on.

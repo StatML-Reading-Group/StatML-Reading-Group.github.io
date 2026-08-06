@@ -357,9 +357,34 @@ def build_talks(legacy_dir):
         log_conflict("recovered_talk", "%s %s" % (t["date"], t["speaker_raw"]),
                      "aarti", t.get("title"), "index", "(absent)")
 
+    apply_talk_overrides(terms)
+
     for t in terms.values():
         t["talks"].sort(key=lambda x: (x.get("date") or "", x.get("title") or ""))
     return terms, sheet["blocks"]
+
+
+def apply_talk_overrides(terms):
+    path = os.path.join(HERE, "talk_overrides.yaml")
+    if not os.path.exists(path):
+        return
+    with open(path, encoding="utf-8") as fh:
+        doc = _load_yaml_strict(fh) or {}
+    for rule in (doc.get("drop") or []):
+        term = terms.get(rule["term"])
+        if not term:
+            continue
+        want_date = str(rule["date"])
+        want_who = rule.get("speaker")
+        before = len(term["talks"])
+        term["talks"] = [
+            t for t in term["talks"]
+            if not (str(t.get("date")) == want_date
+                    and (want_who is None or want_who in (t.get("speakers") or [])))
+        ]
+        if len(term["talks"]) == before:
+            print("  WARN: drop rule matched nothing: %s %s" % (rule["term"], want_date),
+                  file=sys.stderr)
 
 
 def _content_key(title, speakers):

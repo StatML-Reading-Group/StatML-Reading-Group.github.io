@@ -48,7 +48,7 @@
   - sheet
 - date: '2025-09-24'
   speakers:
-  - selina
+  - selina_carter
   title: Conformal PID Control for Time Series Prediction
   abstract: >-
     The paper studies the problem of uncertainty quantification for time series prediction, with the
