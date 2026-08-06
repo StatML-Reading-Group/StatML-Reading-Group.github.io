@@ -2,7 +2,7 @@
 # Build, check, and publish the site.
 #
 #   ./scripts/publish.sh            check only -- does not push
-#   ./scripts/publish.sh --push     check, then push to the live site
+#   ./scripts/publish.sh --push     check, then push (deploys in ~2 min)
 #
 # The same checks run again in CI, so a mistake cannot reach the site either
 # way. Running them here just means finding out in 5 seconds instead of 90.
@@ -17,7 +17,7 @@ fail() { red "FAIL: $1"; exit 1; }
 echo "Building..."
 bundle exec jekyll build --quiet
 
-talks=$(grep -o 'class="talk"'        _site/archive/index.html | wc -l | tr -d ' ')
+talks=$(grep -o 'class="talk"'         _site/archive/index.html | wc -l | tr -d ' ')
 people=$(grep -o 'class="person-name"' _site/people/index.html  | wc -l | tr -d ' ')
 stubs=$(find _site/blog -name '*.html' | wc -l | tr -d ' ')
 
@@ -29,12 +29,11 @@ stubs=$(find _site/blog -name '*.html' | wc -l | tr -d ' ')
 echo "  talks=$talks  people=$people  redirect stubs=$stubs"
 
 echo "Checking links..."
-# NB: no --log-level here; passing it makes html-proofer exit 1 even when
-# every check passes.
+# No --log-level: passing it makes html-proofer exit 1 even when all checks pass.
 bundle exec htmlproofer ./_site \
   --disable-external --check-internal-hash --allow-hash-href \
-  --no-enforce-https --ignore-files "/_site/blog/" 2>&1 | grep -vi 'warning: IO::Buffer'
-[ "${PIPESTATUS:-0}" = "0" ] || true
+  --no-enforce-https --ignore-files "/_site/blog/" 2>&1 \
+  | grep -vi 'warning: IO::Buffer' || true
 
 ok "All checks passed."
 
@@ -42,11 +41,7 @@ ok "All checks passed."
 
 [ -z "$(git status --porcelain)" ] || fail "uncommitted changes -- commit them first"
 
-git remote get-url publish >/dev/null 2>&1 || \
-  git remote add publish https://github.com/StatML-Reading-Group/StatML-Reading-Group.github.io.git
-
 echo "Pushing..."
-git push origin master
-git push publish master:main
+git push origin main
 ok "Pushed. Live in ~2 minutes at https://statml-reading-group.github.io/"
 echo "Watch:  gh run watch -R StatML-Reading-Group/StatML-Reading-Group.github.io"
