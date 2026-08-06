@@ -108,7 +108,7 @@ jobs:
             --disable-external \
             --check-internal-hash \
             --allow-hash-href \
-            --enforce-https false \
+            --no-enforce-https \
             --ignore-files "/_site/blog/"
 
       - uses: actions/upload-pages-artifact@v3
