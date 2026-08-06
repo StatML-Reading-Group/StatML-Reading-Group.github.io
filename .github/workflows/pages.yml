@@ -1,0 +1,113 @@
+# Build and deploy the site to GitHub Pages.
+#
+# Pages' built-in ("legacy") builder runs Jekyll 3.10 with a fixed plugin
+# allowlist. This site is developed against Jekyll 4.x, so we build it
+# ourselves and hand Pages the finished artifact -- what ships is what was
+# tested locally, and plugins are not constrained.
+#
+# It also gives us somewhere to run the content checks. A regression fails the
+# build instead of going live.
+
+name: Deploy site
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Let a running deploy finish rather than cancelling it half-way.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.4'
+          bundler-cache: true
+
+      - uses: actions/configure-pages@v5
+
+      - name: Build
+        run: bundle exec jekyll build --trace
+        env:
+          JEKYLL_ENV: production
+
+      - name: Check the content survived the build
+        run: |
+          set -e
+          fail() { echo "::error::$1"; exit 1; }
+
+          # Every page renders.
+          for p in index.html archive/index.html people/index.html history/index.html 404.html; do
+            [ -s "_site/$p" ] || fail "missing or empty: _site/$p"
+          done
+
+          # The archive is the whole point of the site -- if it silently
+          # renders empty (a bad Liquid filter, a renamed data key), the build
+          # still "succeeds" and nobody notices until someone goes looking for
+          # a talk from 2014.
+          talks=$(grep -o 'class="talk"' _site/archive/index.html | wc -l)
+          [ "$talks" -ge 340 ] || fail "archive has $talks talks, expected >= 340"
+
+          people=$(grep -o 'class="person-name"' _site/people/index.html | wc -l)
+          [ "$people" -ge 90 ] || fail "people page has $people entries, expected >= 90"
+
+          # Old talk URLs must keep resolving.
+          stubs=$(find _site/blog -name '*.html' | wc -l)
+          [ "$stubs" -ge 400 ] || fail "only $stubs redirect stubs, expected >= 400"
+
+          echo "talks=$talks people=$people stubs=$stubs"
+
+      - name: Every redirect target exists in the archive
+        run: |
+          python3 - <<'PY'
+          import re, glob, sys
+          html = open('_site/archive/index.html', encoding='utf-8').read()
+          anchors = set(re.findall(r'id="(t-[^"]+)"', html))
+          bad = []
+          for path in glob.glob('_site/blog/**/*.html', recursive=True):
+              m = re.search(r'url=/archive/#([^"]+)"', open(path, encoding='utf-8').read())
+              if not m or m.group(1) not in anchors:
+                  bad.append(path)
+          if bad:
+              print("::error::%d redirect stubs point at anchors that do not exist" % len(bad))
+              for p in bad[:20]:
+                  print("  " + p)
+              sys.exit(1)
+          print("%d stubs, all targets resolve" % len(glob.glob('_site/blog/**/*.html', recursive=True)))
+          PY
+
+      - name: Internal links and anchors
+        run: |
+          gem install html-proofer -v '~> 5.0' --no-document
+          # External links are checked separately -- a professor's homepage
+          # going down should not block a deploy.
+          htmlproofer ./_site \
+            --disable-external \
+            --check-internal-hash \
+            --allow-hash-href \
+            --ignore-files "/_site/blog/" \
+            --swap-urls "^/:$(pwd)/_site/"
+
+      - uses: actions/upload-pages-artifact@v3
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
