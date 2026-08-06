@@ -5,7 +5,7 @@
   speakers:
   - aaditya_ramdas
   title: Optimal stochastic convex optimization through the lens of active learning
-  paper_url: http://arxiv.org/abs/1207.3012
+  paper_url: https://arxiv.org/abs/1207.3012
   paper_authors: A. Ramdas, A. Singh
   external_url: http://www.cs.cmu.edu/~aarti/SMLRG/index_Fall12.html
   sources:
@@ -31,7 +31,7 @@
   speakers:
   - mladen_kolar
   title: 'Correlated variables in regression: clustering and sparse estimation'
-  paper_url: http://arxiv.org/abs/1209.5908
+  paper_url: https://arxiv.org/abs/1209.5908
   paper_authors: Peter Buhlmann, Philipp Rutimann, Sara van de Geer, Cun-Hui Zhang
   external_url: http://www.cs.cmu.edu/~aarti/SMLRG/index_Fall12.html
   sources:
@@ -70,7 +70,7 @@
   speakers:
   - akshay_krishnamurthy
   title: Privacy aware learning
-  paper_url: http://arxiv.org/abs/1210.2085
+  paper_url: https://arxiv.org/abs/1210.2085
   paper_authors: John Duchi, Michael Jordan, Martin Wainwright
   external_url: http://www.cs.cmu.edu/~aarti/SMLRG/index_Fall12.html
   sources:
@@ -80,7 +80,7 @@
   speakers:
   - madalina_fiterau
   title: Confidence sets in sparse regression
-  paper_url: http://arxiv.org/abs/1209.1508
+  paper_url: https://arxiv.org/abs/1209.1508
   paper_authors: Richard Nickl, Sara van de Geer
   external_url: http://www.cs.cmu.edu/~aarti/SMLRG/index_Fall12.html
   sources:
@@ -117,7 +117,7 @@
   speakers:
   - james_sharpnack
   title: 'Convex analysis and optimization with submodular functions: a tutorial'
-  paper_url: http://arxiv.org/abs/1010.4207
+  paper_url: https://arxiv.org/abs/1010.4207
   paper_authors: Francis Bach
   external_url: http://www.cs.cmu.edu/~aarti/SMLRG/index_Fall12.html
   sources:

@@ -93,12 +93,23 @@ jobs:
           gem install html-proofer -v '~> 5.0' --no-document
           # External links are checked separately -- a professor's homepage
           # going down should not block a deploy.
+          #
+          # No --swap-urls here: html-proofer already resolves root-relative
+          # hrefs against the directory it is checking. Adding a swap rule on
+          # top of that prefixes the path twice and reports every asset on the
+          # site as missing.
+          # --enforce-https off: the remaining http:// links are citations
+          # inside abstracts written up to fifteen years ago, pointing at
+          # personal and institutional pages we do not control, some of which
+          # only answer on http. They are hrefs, not resources, so they carry
+          # no mixed-content risk. Well-known hosts (arxiv, doi, springer, ...)
+          # were upgraded in the data instead.
           htmlproofer ./_site \
             --disable-external \
             --check-internal-hash \
             --allow-hash-href \
-            --ignore-files "/_site/blog/" \
-            --swap-urls "^/:$(pwd)/_site/"
+            --enforce-https false \
+            --ignore-files "/_site/blog/"
 
       - uses: actions/upload-pages-artifact@v3
 

@@ -152,7 +152,13 @@ def load_people(legacy_dir):
             rec["affiliation2"] = affil2
         url = clean_text(row.get("Webpage"))
         if url:
-            rec["url"] = url if url.startswith("http") else "https://" + url.lstrip("/")
+            if not url.startswith("http"):
+                url = "https://" + url.lstrip("/")
+            # people.csv carries a handful of bare http:// links. All of them
+            # serve fine over https; upgrading here keeps the site free of
+            # mixed-content warnings and stops the CI link check flagging them.
+            # If one ever stops answering on https, the checker will say so.
+            rec["url"] = re.sub(r"^http://", "https://", url)
         img = clean_text(row.get("ImgPath"))
         if img and img.lower() != "none":
             # scripts/optimize_images.py re-encodes EVERYTHING to .jpg, so the
@@ -225,7 +231,9 @@ def apply_overrides(people):
 # --------------------------------------------------------------------------
 
 def load_json(name):
-    with open(os.path.join("build", name), encoding="utf-8") as fh:
+    # Resolve against this file, not the cwd -- the script is equally likely to
+    # be run from the repo root or from scripts/migrate/.
+    with open(os.path.join(HERE, "build", name), encoding="utf-8") as fh:
         return json.load(fh)
 
 
@@ -640,7 +648,9 @@ def main():
          "# Display order for /people/. Moving a student to alumni is one line.")
 
     # ---- conflicts
-    with open("build/conflicts.tsv", "w", encoding="utf-8") as fh:
+    conflicts_path = os.path.join(HERE, "build", "conflicts.tsv")
+    os.makedirs(os.path.dirname(conflicts_path), exist_ok=True)
+    with open(conflicts_path, "w", encoding="utf-8") as fh:
         fh.write("field\tkey\tchosen_source\tchosen\tother_source\tother\n")
         for c in CONFLICTS:
             fh.write("\t".join(c) + "\n")
@@ -652,7 +662,7 @@ def main():
     print("people    %d  (roster %d, external %d)" % (
         len(people), sum(1 for p in people.values() if p.get("roster")),
         sum(1 for p in people.values() if not p.get("roster"))))
-    print("conflicts %d  -> build/conflicts.tsv" % len(CONFLICTS))
+    print("conflicts %d  -> %s" % (len(CONFLICTS), conflicts_path))
     print("wrote     %s" % out)
 
 

@@ -272,7 +272,7 @@
   title: Some theoretical results on Thompson sampling for Multi-armed Bandits
   abstract: >-
     I will discuss some recent theoretical results on Thompson sampling for Multi-armed Bandits. The
-    discussion will be based on the following line of work, <ol> <li>http://www.jmlr.org/papers/volume17/14-087/14-087.pdf
+    discussion will be based on the following line of work, <ol> <li>https://www.jmlr.org/papers/volume17/14-087/14-087.pdf
     <li>http://djrusso.github.io/docs/Learning_to_Optimize.pdf <li>https://arxiv.org/abs/1403.5556
     </li></li></li></ol>
   time: 2pm

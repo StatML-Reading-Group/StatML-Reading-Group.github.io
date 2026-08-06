@@ -14,7 +14,7 @@ aarti_singh:
   roster: faculty
   position: Professor
   affiliation: Machine Learning
-  url: http://www.cs.cmu.edu/~aarti/
+  url: https://www.cs.cmu.edu/~aarti/
   img: /assets/people/aartiSingh.jpg
 dejan_slepcev:
   name: Dejan Slepčev
@@ -331,7 +331,7 @@ addison_hu:
   roster: alumni
   position: Senior Data Scientist
   affiliation: Waymo
-  url: http://huisaddison.com
+  url: https://huisaddison.com
   img: /assets/people/addison.jpg
 alnur_ali:
   name: Alnur Ali
@@ -387,7 +387,7 @@ yining_wang:
   roster: alumni
   position: Associate Professor
   affiliation: UT Dallas
-  url: http://yining-wang.com/
+  url: https://yining-wang.com/
   img: /assets/people/yiningWang.jpg
 simon_du:
   name: Simon Du
@@ -401,20 +401,20 @@ gautam_dasarathy:
   roster: alumni
   position: Associate Professor
   affiliation: Arizona State University
-  url: http://gautamdasarathy.com/
+  url: https://gautamdasarathy.com/
   img: /assets/people/gautamDasarathy.jpg
 martin_azizyan:
   name: Martin Azizyan
   roster: alumni
   memorial: true
-  url: http://www.cs.cmu.edu/~mazizyan/
+  url: https://www.cs.cmu.edu/~mazizyan/
   img: /assets/people/martinAzizyan.jpg
 yen_chi_chen:
   name: Yen-Chi Chen
   roster: alumni
   position: Associate Professor
   affiliation: University of Washington
-  url: http://faculty.washington.edu/yenchic/
+  url: https://faculty.washington.edu/yenchic/
   img: /assets/people/yenchiChen.jpg
 kyle_schindl:
   name: Kyle Schidl

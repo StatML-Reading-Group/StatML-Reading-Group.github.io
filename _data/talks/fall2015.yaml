@@ -17,11 +17,11 @@
     dimension reduction assumption, we show that the test excess risk of the random projection ensemble
     classifier can be controlled by terms that do not depend on the original data dimension. The classifier
     is also compared empirically with several other popular high-dimensional classifiers via an extensive
-    simulation study, which reveals its excellent finite-sample performance.<br/> <a href="http://arxiv.org/pdf/1506.03486v1.pdf">http://arxiv.org/pdf/1506.03486v1.pdf</a>
+    simulation study, which reveals its excellent finite-sample performance.<br/> <a href="https://arxiv.org/pdf/1506.03486v1.pdf">https://arxiv.org/pdf/1506.03486v1.pdf</a>
   time: 1:30 pm
   room: BH 232M
   weekday_override: Wednesday
-  paper_url: http://arxiv.org/abs/1504.04595
+  paper_url: https://arxiv.org/abs/1504.04595
   legacy_urls:
   - /blog/2015/09/09/Ryan.html
   - /blog/2015/9/9/Ryan.html
@@ -34,13 +34,13 @@
   title: Simplicial Manifold Reconstruction via Tangent Space Estimation
   abstract: >-
     We look at the problem of manifold reconstruction in a semi-asymptotic framework. Under geometrical
-    regularity constraints, we propose a computable estimator <img border="0" src="http://latex.codecogs.com/gif.latex?\hat{\mathcal{M}}">
-    of the support <img border="0" src="http://latex.codecogs.com/gif.latex?\mathcal{M}"/> of an unknown
-    measure from which we observe a i.i.d. <img border="0" src="http://latex.codecogs.com/gif.latex?n"/>-sample.
-    <img border="0" src="http://latex.codecogs.com/gif.latex?\mathcal{M}"/> has the same topology
-    as <img border="0" src="http://latex.codecogs.com/gif.latex?\mathcal{M}"/> and we give a rate
+    regularity constraints, we propose a computable estimator <em>M&#770;</em>
+    of the support <em>M</em> of an unknown
+    measure from which we observe a i.i.d. <em>n</em>-sample.
+    <em>M</em> has the same topology
+    as <em>M</em> and we give a rate
     of convergence for the Hausdorff distance. The method is based on a tangential Delaunay complex.
-    After having reduced the question to estimating the tangent spaces of <img border="0" src="http://latex.codecogs.com/gif.latex?\mathcal{M}"/>,
+    After having reduced the question to estimating the tangent spaces of <em>M</em>,
     the problem is handled with local PCA. A denoising technique with local PCA in a mixture model
     will be presented as well. <br/> </img>
   time: 1:30 pm
@@ -68,7 +68,7 @@
     The reach is defined as distance from the set to its medial axis, and it plays key condition in
     many theorems and algorithms related to geometry reconstruction. In this talk, I will go through
     definition of medial axis and reach, several properties of medial axis and reach, and I will show
-    stability result in medial axis. I will follow F. Chazal, A. Lieutier. The <img border="0" src="http://latex.codecogs.com/gif.latex?\lambda"><a
+    stability result in medial axis. I will follow F. Chazal, A. Lieutier. The &lambda;<a
     href="http://geometrica.saclay.inria.fr/team/Fred.Chazal/papers/cl-lma-05/mlambda.pdf">-medial
     axis</a>, but I will also combine materials from other papers as well. <br/> </img>
   time: 1:30 pm
@@ -88,10 +88,10 @@
   title: An overview of subsampling in linear regression
   abstract: >-
     This will be a mix of work in the following papers: <ul> <li>A statistical perspective on algorithmic
-    leveraging ( <a href="http://arxiv.org/abs/1306.5362">arxiv:1306.5362</a>) </li> <li>Constrained
-    adaptive sensing (<a href="http://arxiv.org/abs/1506.05889">arxiv:1506.05889</a>) </li> <li>A
-    statistical perspective of sampling scores for linear regression (<a href="http://arxiv.org/abs/1507.05870">arxiv:1507.05870</a>)
-    </li> <li>Optimal subsampling approaches for large-sample linear regression (<a href="http://arxiv.org/abs/1509.05111">arxiv:1509.05111</a>)
+    leveraging ( <a href="https://arxiv.org/abs/1306.5362">arxiv:1306.5362</a>) </li> <li>Constrained
+    adaptive sensing (<a href="https://arxiv.org/abs/1506.05889">arxiv:1506.05889</a>) </li> <li>A
+    statistical perspective of sampling scores for linear regression (<a href="https://arxiv.org/abs/1507.05870">arxiv:1507.05870</a>)
+    </li> <li>Optimal subsampling approaches for large-sample linear regression (<a href="https://arxiv.org/abs/1509.05111">arxiv:1509.05111</a>)
     </li> </ul> <br/>
   time: 1:30 pm
   room: BH 232M
@@ -107,12 +107,12 @@
   - jing_lei
   title: Bootstrap techniques for massive data
   abstract: >-
-    I will present the paper <a href="http://arxiv.org/abs/1508.01126"><b>"A subsampled double bootstrap
+    I will present the paper <a href="https://arxiv.org/abs/1508.01126"><b>"A subsampled double bootstrap
     for massive data"</b></a> by Srijan Sengupta, Stanislav Volgushev and Xiaofeng Shao. The motivation
     is to make bootstrap more computationally efficient for massive data with constraints on computation
     time, communication between distributed nodes, and storage. I will also cover related works in
     a unified framework, including the more classical "m out of n" bootstrap, the double bootstrap,
-    and the more recent <a href="http://arxiv.org/abs/1112.5016">"bag of little bootstrap" </a>. Although
+    and the more recent <a href="https://arxiv.org/abs/1112.5016">"bag of little bootstrap" </a>. Although
     it would be a non-trivial achievement to just get the notation clear, I will also try to talk
     a little bit about the technical proofs if time permits. <br/>
   time: 1:30 pm
@@ -200,9 +200,9 @@
     ridges are excellent models for tracing structures of the Universe. We study asymptotic theory
     for density ridges and propose a procedure for constructing confidence sets using the bootstrap.
     Moreover, we generalize the integrated distance to assess the risk for estimating ridges, and
-    choose smooth bandwidth via minimizing the risk. <br/><br/> References: <br/> <a href="http://arxiv.org/abs/1406.5663">
+    choose smooth bandwidth via minimizing the risk. <br/><br/> References: <br/> <a href="https://arxiv.org/abs/1406.5663">
     Yen-Chi Chen, Christopher Genovese, Larry Wasserman. "Asymptotic theory for density ridges", 2014
-    </a> <br/> <a href="http://arxiv.org/abs/1506.02278"> Yen-Chi Chen, Christopher Genovese, Shirley
+    </a> <br/> <a href="https://arxiv.org/abs/1506.02278"> Yen-Chi Chen, Christopher Genovese, Shirley
     Ho, Larry Wasserman. "Optimal Ridge Detection using Coverage Risk", 2015 </a> <br/>
   time: 1:30 pm
   room: NSH-1507
@@ -267,7 +267,7 @@
   time: 1:30 pm
   room: NSH-1507
   weekday_override: Wednesday
-  paper_url: http://arxiv.org/abs/1502.06197
+  paper_url: https://arxiv.org/abs/1502.06197
   legacy_urls:
   - /blog/2015/11/18/samy.html
   sources:
@@ -313,7 +313,7 @@
     quality. In this talk, I am going to present the main ideas and results of a detailed finite-sample
     theoretical analysis about the approximation quality of RFFs by (i) establishing optimal (in terms
     of the RFF dimension, and growing set size) performance guarantees in uniform norm, and (ii) providing
-    guarantees in <img border="0" src="http://latex.codecogs.com/gif.latex?L^r (1 \leq r < \infty)">
+    guarantees in <em>L<sup>r</sup></em> (1 &le; <em>r</em> &lt; &infin;)
     norms. I will also propose an RFF approximation to derivatives of a kernel with a theoretical
     study on its approximation quality. [Joint work with Bharath K. Sriperumbudur; equal contribution]
     </img>
@@ -334,10 +334,10 @@
   title: Topics in Differential Private Machine Learning
   abstract: >-
     I will introduce differential privacy in the machine learning setting with an illustrative example.
-    Convince you why it is useful. I mostly talk about the following two papers: <br/> <a href=" http://arxiv.org/abs/1502.07645">
-    ``Privacy for Free: Posterior Sampling and Stochastic Gradient Monte Carlo''</a> <br/> <a href="http://arxiv.org/abs/1505.01419">
+    Convince you why it is useful. I mostly talk about the following two papers: <br/> <a href=" https://arxiv.org/abs/1502.07645">
+    ``Privacy for Free: Posterior Sampling and Stochastic Gradient Monte Carlo''</a> <br/> <a href="https://arxiv.org/abs/1505.01419">
     ``Fast Differentially Private Matrix Factorization''</a> <br/><br/> Though if time permits, I
-    will also mention some theoretical understanding from <a href="http://arxiv.org/abs/1502.06309">
+    will also mention some theoretical understanding from <a href="https://arxiv.org/abs/1502.06309">
     ``Learning with Differential Privacy: Stability, Learnability and the Sufficiency and Necessity
     of the ERM principle''</a> and draw connections to the recent buzz of ``Reuseable Holdout'' by
     Dwork et. al.

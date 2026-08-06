@@ -14,7 +14,7 @@
   speakers:
   - aaditya_ramdas
   title: Simpler approach to matrix completion
-  paper_url: http://arxiv.org/abs/0910.0651
+  paper_url: https://arxiv.org/abs/0910.0651
   paper_authors: B. Recht
   external_url: http://www.cs.cmu.edu/~aarti/SMLRG/index_Spring12.html
   sources:
@@ -24,7 +24,7 @@
   speakers:
   - james_sharpnack
   title: Variance estimation using refitted cross-validation in ultrahigh dimensional regression
-  paper_url: http://arxiv.org/abs/1004.5178
+  paper_url: https://arxiv.org/abs/1004.5178
   paper_authors: J. Fan, S. Guo and N. Hao
   external_url: http://www.cs.cmu.edu/~aarti/SMLRG/index_Spring12.html
   sources:
@@ -34,7 +34,7 @@
   speakers:
   - larry_wasserman
   title: Noisy independent factor analysis model for density estimation and classification
-  paper_url: http://arxiv.org/abs/0906.2885
+  paper_url: https://arxiv.org/abs/0906.2885
   paper_authors: Umberto Amato, Anestis Antoniadis, Alexander Samarov, Alexander Tsybakov
   external_url: http://www.cs.cmu.edu/~aarti/SMLRG/index_Spring12.html
   sources:
@@ -53,7 +53,7 @@
   speakers:
   - madalina_fiterau
   title: Tight conditions for consistent variable selection in high dimensional nonparametric regression
-  paper_url: http://arxiv.org/abs/1102.3616
+  paper_url: https://arxiv.org/abs/1102.3616
   paper_authors: Laetitia Comminges, Arnak Dalalyan
   external_url: http://www.cs.cmu.edu/~aarti/SMLRG/index_Spring12.html
   sources:
@@ -63,7 +63,7 @@
   speakers:
   - martin_azizyan
   title: On low-dimensional projections of high-dimensional distributions
-  paper_url: http://arxiv.org/pdf/1107.0417v3.pdf
+  paper_url: https://arxiv.org/pdf/1107.0417v3.pdf
   paper_authors: Lutz Dumbgen, Perla Zerial
   external_url: http://www.cs.cmu.edu/~aarti/SMLRG/index_Spring12.html
   sources:
