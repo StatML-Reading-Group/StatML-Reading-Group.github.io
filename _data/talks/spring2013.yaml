@@ -47,7 +47,7 @@
   speakers:
   - akshay_krishnamurthy
   title: Spectral clustering based on local PCA
-  paper_url: https://arxiv.org/abs/1301.2007
+  paper_url: http://arxiv.org/abs/1301.2007
   paper_authors: Ery Arias-Castro, Gilad Lerman, Teng Zhang
   external_url: http://www.cs.cmu.edu/~aarti/SMLRG/index_Spring13.html
   sources:
@@ -76,7 +76,7 @@
   speakers:
   - jing_lei
   title: Second order comparison of Gaussian random functions and the geometry of DNA minicircles
-  paper_url: https://arxiv.org/abs/1104.4049
+  paper_url: http://arxiv.org/abs/1104.4049
   paper_authors: (1) Panaretos, Kraus and Maddocks. (2) Fremdt, Steinebach, Horvath, and Kokoszka
   external_url: http://www.cs.cmu.edu/~aarti/SMLRG/index_Spring13.html
   sources:
@@ -86,7 +86,7 @@
   speakers:
   - sohail_bahmani
   title: Computational and statistical tradeoffs via convex relaxation
-  paper_url: https://arxiv.org/abs/1211.1073
+  paper_url: http://arxiv.org/abs/1211.1073
   external_url: http://www.cs.cmu.edu/~aarti/SMLRG/index_Spring13.html
   sources:
   - blog_index

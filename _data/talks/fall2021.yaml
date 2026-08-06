@@ -258,7 +258,7 @@
     We discuss a class of sampling algorithms/generative models motivated by the Schrödinger bridge
     problem, a classical problem in probability theory closely connected to stochastic control and
     entropy-regularized optimal transport. The talk will be expository. Primary reference is the following
-    article of Tzen & Raginsky from COLT 2019: https://proceedings.mlr.press/v99/tzen19a/tzen19a.pdf
+    article of Tzen & Raginsky from COLT 2019: http://proceedings.mlr.press/v99/tzen19a/tzen19a.pdf
   room: NSH 3305
   legacy_urls:
   - /blog/2021/12/09/andrew.html

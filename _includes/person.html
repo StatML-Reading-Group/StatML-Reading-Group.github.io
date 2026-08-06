@@ -1,6 +1,4 @@
-{%- comment -%}
-One person card.  include.slug -> _data/people.yaml key
-{%- endcomment -%}
+{%- comment -%} include.slug -> _data/people.yaml key {%- endcomment -%}
 {%- assign p = site.data.people[include.slug] -%}
 {%- if p -%}
 <div class="person{% if p.memorial %} is-memorial{% endif %}">

@@ -114,7 +114,7 @@ ben_chugg:
   name: Ben Chugg
   roster: student
   position: Graduate Student
-  affiliation: Machine Learning
+  affiliation: Machine Learning & Statistics
   affiliation2: Statistics
   url: https://benchugg.com
   img: /assets/people/benchugg.jpg
@@ -136,7 +136,7 @@ selina_carter:
   name: Selina Carter
   roster: student
   position: Graduate Student
-  affiliation: Statistics
+  affiliation: Statistics & Machine Learning
   affiliation2: Machine Learning
   url: https://selinacarter.github.io/
   img: /assets/people/selina.jpg
@@ -648,8 +648,20 @@ tristan_saidi:
   name: Tristan Luca Saidi
   roster: student
   position: Graduate Student
-  affiliation: Statistics & Data Science
+  affiliation: Statistics
   url: https://tristansaidi.github.io/
+sanjit_dandapanthula:
+  roster: student
+  position: Graduate Student
+  affiliation: Statistics & Machine Learning
+  url: https://sanjitdp.github.io/
+  name: Sanjit Dandapanthula
+oliver_hannaoui:
+  name: Oliver Hannaoui
+  roster: student
+  position: Graduate Student
+  affiliation: Statistics
+  url: https://hanna-oui.github.io/research.html
 adams_wei_yu:
   name: Adams Wei Yu
 alden_green:
@@ -772,8 +784,6 @@ ruodu_wang:
   name: Ruodu Wang
 ruth_urner:
   name: Ruth Urner
-sanjit_dandapanthula:
-  name: Sanjit Dandapanthula
 selina:
   name: Selina
 shayan_hundrieser:

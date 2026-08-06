@@ -30,7 +30,7 @@
     for this method, and propose techniques for constructing confidence sets and prediction sets.
     The latter is used to select the smoothing bandwidth of the underlying KDE. The idea behind modal
     regression is connected to many others, such as mixture regression and density ridge estimation,
-    and we discuss these ties as well. <br/> Link: <a href="https://arxiv.org/abs/1412.1716"> https://arxiv.org/abs/1412.1716</a>
+    and we discuss these ties as well. <br/> Link: <a href="http://arxiv.org/abs/1412.1716"> http://arxiv.org/abs/1412.1716</a>
     <br/> <p>We thank Microsoft Research for their gracious support</p>
   legacy_urls:
   - /blog/2015/01/29/talk2.html
@@ -53,7 +53,7 @@
   - kirthevasan_kandasamy
   title: GP Bandits
   abstract: >-
-    The discussion will be based on the following paper: <br/><a href="https://arxiv.org/pdf/0912.3995v4.pdf">https://arxiv.org/pdf/0912.3995v4.pdf</a>
+    The discussion will be based on the following paper: <br/><a href="http://arxiv.org/pdf/0912.3995v4.pdf">http://arxiv.org/pdf/0912.3995v4.pdf</a>
   legacy_urls:
   - /blog/2015/02/12/talk4.html
   - /blog/2015/2/12/talk4.html
@@ -161,7 +161,7 @@
     but no matter what approach is taken, eventually the researcher needs to evaluate the performance
     of a clustering methodology by measuring the distance between a data-driven clustering and the
     ideal population goal. In this talk, two new distances are proposed for this aim, by extending
-    well-known distances between sets to distances between clusterings.<br/> <a href="https://arxiv.org/abs/1408.1381">https://arxiv.org/abs/1408.1381</a>
+    well-known distances between sets to distances between clusterings.<br/> <a href="http://arxiv.org/abs/1408.1381">http://arxiv.org/abs/1408.1381</a>
   room: Baker Hall
   weekday_override: Thursday
   legacy_urls:
@@ -260,7 +260,7 @@
     fashion, using a novel uniform empirical Bernstein version of the law of the iterated logarithm
     (LIL), which may be of independent interest and allows analysis of sequential tests in a general
     framework. We demonstrate how to extend our ideas to nonparametric homogeneity and independence
-    testing, and make a case for their even broader applicability.<br/> <a href="https://arxiv.org/pdf/1506.03486v1.pdf">https://arxiv.org/pdf/1506.03486v1.pdf</a>
+    testing, and make a case for their even broader applicability.<br/> <a href="http://arxiv.org/pdf/1506.03486v1.pdf">http://arxiv.org/pdf/1506.03486v1.pdf</a>
   time: 11:30 am
   weekday_override: Friday
   legacy_urls:

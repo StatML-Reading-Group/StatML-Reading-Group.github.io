@@ -1,33 +1,13 @@
-/* ==========================================================================
-   StatML Reading Group
-
-   Foundation is ericchen28.github.io: the neutral ramps, the .docs-section
-   hairline rhythm, the docked navbar with its sibling dim-out, and the
-   View Transitions theme dissolve. Those are carried over so the two sites
-   read as the same author.
-
-   Two things are new here:
-
-   1. A TYPE SCALE. The reference site sizes things ad hoc -- 11/12/13/14px
-      mixed with 1.5/1.7/1.8rem. Everything below draws from --fs-* tokens
-      instead, so a heading and a byline three sections apart cannot drift.
-
-   2. A FRENCH EDITORIAL ACCENT. The reference site runs on exactly one
-      non-neutral colour. This one adds two, used sparingly and always
-      structurally -- never as decoration for its own sake:
-
-        --bleu   deep ink blue   links, active nav, structure, focus
-        --rouge  muted red       the present tense: what is next, what is now
-
-      Plus warm ivory paper instead of flat white. The restraint IS the
-      style: rouge appears perhaps four times on any given page.
-   ========================================================================== */
+/* StatML Reading Group.
+   Neutral ramps, section rhythm, navbar and theme mechanics follow
+   ericchen28.github.io. Added here: a --fs-* type scale, and two accents --
+   bleu for structure, rouge for the present tense (current term, next talk). */
 
 /* ================ Theme variables ================ */
 :root {
   color-scheme: light;
 
-  /* ---- surfaces. Ivory rather than #fff -- paper, not screen. */
+  /* surfaces: ivory rather than #fff */
   --bg: #fcfbf7;
   --bg-elev: #ffffff;
   --bg-sunk: #f6f4ee;
@@ -39,8 +19,8 @@
   --text: #22252c;
   --text-mid: #333740;
   --text-soft: #555a63;
-  --text-muted: #6f747c;   /* 4.54:1 on ivory -- AA for the 13px dates */
-  --text-faint: #8d939c;   /* decorative only: counts, placeholders */
+  --text-muted: #6f747c;   /* 4.54:1 on ivory -- AA at 13px */
+  --text-faint: #8d939c;   /* decorative only */
 
   /* ---- lines & borders */
   --hairline: #e9e6de;
@@ -82,8 +62,7 @@
   --hairline-strong: rgba(255, 255, 255, 0.17);
   --border-mid: rgba(255, 255, 255, 0.28);
 
-  /* Both accents lift substantially on a dark ground -- the light-mode
-     values sit at roughly 2:1 against #14161a and would be unreadable. */
+  /* lifted: the light values sit near 2:1 on #14161a */
   --bleu: #8fb3e8;
   --bleu-soft: #a3c1ee;
   --bleu-wash: rgba(143, 179, 232, 0.12);
@@ -100,8 +79,7 @@
 }
 
 /* ================ Type scale ================
-   Root is 62.5%, so 1rem = 10px and these read as px at a glance. Every
-   font-size in this file comes from here -- no loose values. */
+   Root is 62.5%, so 1rem = 10px. Every font-size comes from here. */
 :root {
   --fs-micro: 1.1rem;   /* badges, counts                    */
   --fs-label: 1.2rem;   /* uppercase micro-labels, nav        */
@@ -126,15 +104,14 @@ body {
   font-size: var(--fs-body);
 }
 
-/* h4 is the section-title element. The positive tracking overriding
-   Skeleton's negative is the reference site's signature move. */
+/* Positive tracking, overriding Skeleton's negative. */
 h4 {
   font-size: var(--fs-head);
   letter-spacing: var(--tracking-head);
   color: var(--text-strong);
 }
 
-.container { max-width: 1000px; }
+.container { max-width: 1140px; }
 
 a { color: inherit; }
 a:hover { color: inherit; }
@@ -177,8 +154,7 @@ a:hover { color: inherit; }
 }
 @media (min-width: 550px) { .wordmark-main { font-size: var(--fs-disp-lg); } }
 
-/* The tricolore, as an editorial rule rather than a flag: three 16px
-   segments, 2px tall. Reads as a mark; only obvious once you look. */
+/* Tricolore as an editorial mark, not a flag. */
 .wordmark-rule {
   display: flex; justify-content: center; gap: 0;
   margin: 16px auto 0; width: 48px; height: 2px;
@@ -211,11 +187,7 @@ a:hover { color: inherit; }
   margin-bottom: 0;
 }
 
-/* Section headings carry a short rule. The colour encodes tense, which is the
-   whole discipline behind using two accents rather than one:
-     bleu  -- structure, navigation, the settled past
-     rouge -- the present: the running term, the next talk, a life remembered
-   Rouge appears perhaps four times on a page. That restraint is the style. */
+/* Heading rule. Colour encodes tense: bleu past, rouge present. */
 .docs-section > h4,
 .section-header-row h4 {
   position: relative;
@@ -233,8 +205,7 @@ a:hover { color: inherit; }
 .docs-section > h4.is-current:before,
 .section-header-row h4.is-current:before { background: var(--rouge); }
 
-/* The newest semester in the archive is the one just finished -- worth
-   distinguishing from the twenty-nine behind it. */
+/* Newest semester, distinguished from the thirty behind it. */
 .term-section:first-of-type .term-name { color: var(--text-strong); }
 .term-section:first-of-type .term-header { border-bottom-color: var(--rouge); }
 
@@ -244,7 +215,7 @@ a:hover { color: inherit; }
 }
 .section-header-row h4 { margin-bottom: 0; }
 
-.prose { max-width: 68rem; }
+.prose { max-width: none; }
 .prose p { margin-bottom: 1.6rem; font-size: var(--fs-body); }
 .lede { font-size: var(--fs-lead); line-height: 1.6; color: var(--text-mid); }
 
@@ -275,7 +246,7 @@ a:hover { color: inherit; }
     transform: translateY(14px) scaleX(0); transform-origin: center;
     transition: transform 0.3s ease;
   }
-  /* Hovering the list dims every link; the hovered one stays bright. */
+  /* Hovering the list dims every link but the hovered one. */
   .navbar-list:hover .navbar-link { opacity: 0.25; }
   .navbar-list:hover .navbar-link:hover,
   .navbar-list:hover .navbar-link.active { opacity: 1; }
@@ -359,9 +330,8 @@ html { scroll-behavior: smooth; }
 .talk-title.is-static { cursor: default; }
 .talk:hover .talk-title:not(.is-static) { color: var(--bleu); }
 
-/* The chevron is inline-block, so on a title long enough to wrap it can be
-   pushed onto a line of its own -- an invisible glyph rendering as a blank
-   line under the row. Only attach it to titles that actually open. */
+/* Only on titles that open: inline-block, so on a wrapping title it would
+   otherwise land on its own line as a blank row. */
 .talk-title:not(.is-static):after {
   content: '\203A';
   font-size: var(--fs-body); font-weight: 300; color: var(--bleu);
@@ -404,8 +374,7 @@ html { scroll-behavior: smooth; }
   color: var(--text-muted); font-weight: 500; font-style: italic;
 }
 
-/* ---- "Up next": the one genuinely present-tense thing on the site, and
-        the only place rouge carries real weight. */
+/* "Up next" -- where rouge carries the most weight. */
 .next-talk {
   border-left: 2px solid var(--rouge);
   background: var(--rouge-wash);
@@ -424,8 +393,7 @@ html { scroll-behavior: smooth; }
 .meeting-line { font-size: var(--fs-body); color: var(--text-mid); }
 .meeting-line strong { font-weight: 600; color: var(--text-strong); }
 
-/* A quiet outline button -- the only one on the site, so it reads as the
-   single onward action rather than as chrome. */
+/* The only button on the site. */
 .btn-quiet {
   display: inline-flex; align-items: center; gap: 8px;
   padding: 9px 18px;
@@ -479,7 +447,7 @@ mark {
 .person { text-align: center; min-width: 0; }
 .person-photo {
   width: 100%; aspect-ratio: 1 / 1; object-fit: cover;
-  object-position: 50% 28%;   /* sources are 4:5; bias up to keep heads centred */
+  object-position: 50% 28%;   /* sources are 4:5; bias up for faces */
   border-radius: 3px; display: block;
   background: var(--bg-sunk);
   filter: grayscale(100%);
@@ -517,8 +485,7 @@ html[data-theme="dark"] .person-photo { opacity: 0.92; }
   font-variant-numeric: tabular-nums;
 }
 
-/* Name list -- postdocs, students, alumni. Multi-column so 54 alumni read as
-   a roster rather than an endless scroll. */
+/* Postdocs, students, alumni. Multi-column so 60+ alumni read as a roster. */
 .people-list {
   list-style: none; margin: 1.6rem 0 0; padding: 0;
   columns: 2; column-gap: 32px;
@@ -555,7 +522,7 @@ html[data-theme="dark"] .theme-toggle .fa-moon { display: none; }
 }
 .theme-toggle-floating:hover { color: var(--bleu); }
 
-/* Theme switch: dissolve the old frame as ONE unit (View Transitions API). */
+/* Dissolve the old frame as one unit (View Transitions). */
 ::view-transition-new(root) { animation: none; }
 ::view-transition-old(root) { animation-duration: 0.3s; animation-timing-function: ease; }
 @media (prefers-reduced-motion: reduce) {
@@ -566,12 +533,9 @@ html.theme-switching *::before,
 html.theme-switching *::after { transition: none !important; }
 
 /* ================ Skeleton repairs ================
-   Skeleton hardcodes light-mode greys for these, so they are unreadable in
-   dark mode. The reference site never hit it: it has no <table>, no <code>
-   outside prose, and -- critically -- no form input anywhere. This site has a
-   search box, which would otherwise render as a white slab with a cyan focus
-   ring on a dark page. Overridden here rather than edited into skeleton.css,
-   so that file stays a clean replaceable upstream artifact. */
+   Skeleton hardcodes light greys here, so they break in dark mode -- most
+   visibly the search box. Overridden rather than edited into skeleton.css,
+   which stays a clean upstream copy. */
 input[type="text"], input[type="search"], input[type="email"],
 input[type="number"], textarea, select {
   background-color: var(--bg-elev);
@@ -600,7 +564,7 @@ hr { border-top: 1px solid var(--hairline); }
   color: var(--bleu); border-color: var(--bleu);
 }
 
-/* Keyboard focus must be visible everywhere, not just on inputs. */
+/* Skeleton styles focus on inputs only. */
 a:focus-visible, button:focus-visible, .talk-title:focus-visible {
   outline: 2px solid var(--bleu);
   outline-offset: 2px;

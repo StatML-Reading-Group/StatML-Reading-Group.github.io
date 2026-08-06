@@ -5,7 +5,7 @@
   speakers:
   - divyanshu_vats
   title: High dimensional structure learning of ising models on sparse random graphs
-  paper_url: https://arxiv.org/abs/1011.0129
+  paper_url: http://arxiv.org/abs/1011.0129
   paper_authors: Animashree Anandkumar, Vincent Tan, Alan Willsky
   external_url: http://www.cs.cmu.edu/~aarti/SMLRG/index_Spring11.html
   sources:
@@ -15,7 +15,7 @@
   speakers:
   - james_sharpnack
   title: Detection of an anomalous cluster in a network
-  paper_url: https://arxiv.org/abs/1001.3209
+  paper_url: http://arxiv.org/abs/1001.3209
   paper_authors: Ery Arias-Castro, Emmanuel J. Candes, Arnaud Durand
   external_url: http://www.cs.cmu.edu/~aarti/SMLRG/index_Spring11.html
   sources:
@@ -25,7 +25,7 @@
   speakers:
   - min_xu
   title: The sample complexity of dictionary learning
-  paper_url: https://arxiv.org/abs/1011.5395
+  paper_url: http://arxiv.org/abs/1011.5395
   paper_authors: Daniel Vainsencher, Shie Mannor, Alfred M. Bruckstein
   external_url: http://www.cs.cmu.edu/~aarti/SMLRG/index_Spring11.html
   sources:
@@ -35,7 +35,7 @@
   speakers:
   - martin_azizyan
   title: Concentration inequalities of the cross-validation estimate for stable predictors
-  paper_url: https://arxiv.org/abs/1011.5133v1
+  paper_url: http://arxiv.org/abs/1011.5133v1
   paper_authors: Matthieu Cornec
   external_url: http://www.cs.cmu.edu/~aarti/SMLRG/index_Spring11.html
   sources:
@@ -54,7 +54,7 @@
   speakers:
   - akshay_krishnamurthy
   title: Nuclear norm penalization and optimal rates for noisy low rank matrix completion
-  paper_url: https://arxiv.org/abs/1011.6256
+  paper_url: http://arxiv.org/abs/1011.6256
   paper_authors: Vladimir Koltchinskii, Alexandre B. Tsybakov, Karim Lounici
   external_url: http://www.cs.cmu.edu/~aarti/SMLRG/index_Spring11.html
   sources:
@@ -64,7 +64,7 @@
   speakers:
   - larry_wasserman
   title: Information theoretic model validation for clustering
-  paper_url: https://arxiv.org/abs/1006.0375
+  paper_url: http://arxiv.org/abs/1006.0375
   paper_authors: Joachim M. Buhmann
   external_url: http://www.cs.cmu.edu/~aarti/SMLRG/index_Spring11.html
   sources:
@@ -74,7 +74,7 @@
   speakers:
   - alekh_agarwal
   title: 'Noisy matrix decomposition via convex relaxation: optimal rates in high dimensions'
-  paper_url: https://arxiv.org/abs/1102.4807
+  paper_url: http://arxiv.org/abs/1102.4807
   paper_authors: Alekh Agarwal
   external_url: http://www.cs.cmu.edu/~aarti/SMLRG/index_Spring11.html
   sources:

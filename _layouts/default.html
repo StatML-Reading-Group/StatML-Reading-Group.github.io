@@ -1,11 +1,11 @@
-<!-- Chrome adapted from ericchen28.github.io. Load order matters: the theme
-     script must run BEFORE any stylesheet or the page flashes light-then-dark. -->
+<!-- Chrome adapted from ericchen28.github.io. The theme script must run
+     before any stylesheet or the page flashes light-then-dark. -->
 <meta charset="utf-8">
 <title>{% if page.title and page.url != "/" %}{{ page.title }} | {% endif %}{{ site.title }}</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 {% seo title=false %}
 
-<!-- Theme (must run before first paint; keep before all CSS links) -->
+
 <meta name="theme-color" id="meta-theme-color" content="#ffffff">
 <script>
   (function () {

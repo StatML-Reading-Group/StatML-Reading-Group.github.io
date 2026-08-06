@@ -21,7 +21,7 @@
     in a high-dimensional linear model. The split LRT can also be used with profile likelihoods to
     deal with nuisance parameters, and it can also be run sequentially to yield anytime-valid p-values
     and confidence sequences. <p> Reference: Larry Wasserman, Aaditya Ramdas, Sivaraman Balakrishnan,
-    2019 (https://arxiv.org/abs/1912.11436) </p>
+    2019 (http://arxiv.org/abs/1912.11436) </p>
   time: 3pm
   room: GHC 6501
   legacy_urls:

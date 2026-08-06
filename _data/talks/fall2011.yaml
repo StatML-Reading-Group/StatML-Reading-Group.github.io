@@ -5,7 +5,7 @@
   speakers:
   - min_xu
   title: The benefit of group sparsity
-  paper_url: https://arxiv.org/abs/0901.2962
+  paper_url: http://arxiv.org/abs/0901.2962
   paper_authors: Junzhou Huang, Tong Zhang
   external_url: http://www.cs.cmu.edu/~aarti/SMLRG/index_Fall11.html
   sources:
@@ -34,7 +34,7 @@
   speakers:
   - ankur_parikh
   title: Spectral methods for learning multivariate latent tree structure
-  paper_url: https://arxiv.org/abs/1107.1283
+  paper_url: http://arxiv.org/abs/1107.1283
   paper_authors: Animashree Anandkumar, Kamalika Chaudhuri, Daniel Hsu, Sham M. Kakade, Le Song, Tong
     Zhang
   external_url: http://www.cs.cmu.edu/~aarti/SMLRG/index_Fall11.html
@@ -45,7 +45,7 @@
   speakers:
   - akshay_krishnamurthy
   title: 'High-dimensional regression with noisy and missing data: provable guarantees with non-convexity'
-  paper_url: https://arxiv.org/abs/1109.3714
+  paper_url: http://arxiv.org/abs/1109.3714
   paper_authors: Po-Ling Loh and Martin J. Wainwright
   external_url: http://www.cs.cmu.edu/~aarti/SMLRG/index_Fall11.html
   sources:

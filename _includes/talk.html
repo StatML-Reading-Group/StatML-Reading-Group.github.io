@@ -1,15 +1,8 @@
 {%- comment -%}
-One talk row. The single most reused include on the site -- it replaces the
-reference site's publication card, which is duplicated verbatim four times.
-
-  include.talk   a talk entry from _data/talks/<term>.yaml
-  include.term   the matching entry from _data/terms.yaml (for defaults)
-  include.mode   'schedule' (default) -- the current term, so room/time and
-                                         exceptions matter
-                 'archive'            -- past talks: date, title, speaker only
-
-Speakers are joined against _data/people.yaml by slug -- the same single-hop
-registry pattern as the reference site's coauthors.yaml.
+  include.talk  entry from _data/talks/<term>.yaml
+  include.term  matching entry from _data/terms.yaml, for room/time defaults
+  include.mode  'schedule' (default) shows room, time and links;
+                'archive' shows date, title and speaker only
 {%- endcomment -%}
 
 {%- assign t = include.talk -%}
@@ -19,11 +12,7 @@ registry pattern as the reference site's coauthors.yaml.
 {%- assign date_fmt = '%-d %b' -%}
 {%- if mode == 'archive' -%}{%- assign date_fmt = '%-d %b %Y' -%}{%- endif -%}
 
-{%- comment -%}
-  Archive bylines are plain text. The archive is a historical record, and 200-odd
-  outbound links to personal pages -- many of which have already rotted after
-  fifteen years -- add noise, not information. Live schedule bylines stay linked.
-{%- endcomment -%}
+{%- comment -%} Archive bylines are plain text; live ones stay linked. {%- endcomment -%}
 {%- capture byline -%}
   {%- for slug in t.speakers -%}
     {%- assign p = site.data.people[slug] -%}
@@ -36,14 +25,10 @@ registry pattern as the reference site's coauthors.yaml.
   {%- endfor -%}
 {%- endcapture -%}
 
-{%- comment -%} Lowercased haystack for the archive filter. {%- endcomment -%}
+{%- comment -%} Haystack for the archive filter. {%- endcomment -%}
 {%- capture haystack -%}{{ t.title }} {{ byline | strip_html }} {{ t.date }} {{ term.name }}{%- endcapture -%}
 
-{%- comment -%}
-  A `tbd` slot is a scheduled meeting with no speaker yet -- visually distinct
-  from a `no_meeting` break. Collapsing them would tell a reader that Fall 2026
-  has no meetings, when in fact it has thirteen with speakers still to confirm.
-{%- endcomment -%}
+{%- comment -%} A `tbd` slot is a meeting without a speaker, not a break. {%- endcomment -%}
 {%- assign is_break = false -%}
 {%- if kind == 'no_meeting' or kind == 'cancelled' %}{% assign is_break = true %}{% endif -%}
 
@@ -57,11 +42,7 @@ registry pattern as the reference site's coauthors.yaml.
       <span class="talk-title{% unless t.abstract %} is-static{% endunless %}">{{ t.title | default: 'Untitled' }}</span>
       {%- if byline != blank %}<div class="talk-byline">{{ byline }}</div>{% endif -%}
 
-      {%- comment -%}
-        The archive is a record of WHAT was presented and BY WHOM. Rooms, times
-        and link badges are scheduling detail that only matters while a talk is
-        still upcoming, so they appear in schedule mode only.
-      {%- endcomment -%}
+      {%- comment -%} Scheduling detail only matters while a talk is upcoming. {%- endcomment -%}
       {%- if mode != 'archive' -%}
         {%- assign room = t.room | default: nil -%}
         {%- assign time = t.time | default: nil -%}

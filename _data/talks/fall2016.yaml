@@ -21,7 +21,7 @@
     that this setup provides a framework for testing the significance of features. Moreover, the internal
     estimation method we develop allows us to estimate the variance parameters and perform these inference
     procedures at no additional computational cost. Demonstrations are provided using data from the
-    ebird project hosted at Cornell University. Here is the link to the relevant paper: <a href="https://jmlr.org/papers/v17/14-168.html">https://jmlr.org/papers/v17/14-168.html</a>
+    ebird project hosted at Cornell University. Here is the link to the relevant paper: <a href="http://jmlr.org/papers/v17/14-168.html">http://jmlr.org/papers/v17/14-168.html</a>
   room: GHC-8102
   weekday_override: Tuesday
   legacy_urls:
@@ -65,8 +65,8 @@
     only mild smoothness assumptions on the effect curve, and still allows for misspecification of
     either the treatment density or outcome regression. We derive asymptotic properties and give a
     procedure for data-driven bandwidth selection. The methods are illustrated via simulation and
-    in a study of the effect of nurse staffing on hospital readmissions penalties. Preprint: <a href="https://arxiv.org/abs/1507.00747">
-    https://arxiv.org/abs/1507.00747</a>
+    in a study of the effect of nurse staffing on hospital readmissions penalties. Preprint: <a href="http://arxiv.org/abs/1507.00747">
+    http://arxiv.org/abs/1507.00747</a>
   room: GHC-8102
   weekday_override: Tuesday
   legacy_urls:

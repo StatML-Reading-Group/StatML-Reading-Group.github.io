@@ -5,7 +5,7 @@
   speakers:
   - shiva_kaul
   title: VC bounds on the cardinality of nearly orthogonal function classes
-  paper_url: https://arxiv.org/abs/1007.4915
+  paper_url: http://arxiv.org/abs/1007.4915
   paper_authors: Lee-Ad Gottlieb, Leonid (Aryeh) Kontorovich, Elchanan Mossel
   external_url: http://www.cs.cmu.edu/~aarti/SMLRG/index_Fall10.html
   sources:
@@ -25,7 +25,7 @@
   speakers:
   - aarti_singh
   title: Latent variable graphical model selection via convex optimization
-  paper_url: https://arxiv.org/abs/1008.1290
+  paper_url: http://arxiv.org/abs/1008.1290
   paper_authors: Venkat Chandrasekaran, Pablo A. Parrilo, Alan S. Willsky
   external_url: http://www.cs.cmu.edu/~aarti/SMLRG/index_Fall10.html
   sources:
@@ -35,7 +35,7 @@
   speakers:
   - james_sharpnack
   title: Spectral clustering based on local linear approximations
-  paper_url: https://arxiv.org/abs/1001.1323
+  paper_url: http://arxiv.org/abs/1001.1323
   paper_authors: Ery Arias-Castro, Guangliang Chen, Gilad Lerman
   external_url: http://www.cs.cmu.edu/~aarti/SMLRG/index_Fall10.html
   sources:
@@ -45,7 +45,7 @@
   speakers:
   - akshay_krishnamurthy
   title: Learning latent tree graphical models
-  paper_url: https://arxiv.org/abs/1009.2722
+  paper_url: http://arxiv.org/abs/1009.2722
   paper_authors: Myung Jin Choi, Vincent Y. F. Tan, Animashree Anandkumar, Alan S. Willsky
   external_url: http://www.cs.cmu.edu/~aarti/SMLRG/index_Fall10.html
   sources:
@@ -55,7 +55,7 @@
   speakers:
   - larry_wasserman
   title: A framework for feature selection in clustering
-  paper_url: https://arxiv.org/abs/1009.2722
+  paper_url: http://arxiv.org/abs/1009.2722
   paper_authors: Daniela M. Witten and Robert Tibshirani
   external_url: http://www.cs.cmu.edu/~aarti/SMLRG/index_Fall10.html
   sources:
@@ -75,7 +75,7 @@
   speakers:
   - darren_homrighausen
   title: SPADES and mixture models
-  paper_url: https://arxiv.org/abs/0901.2044
+  paper_url: http://arxiv.org/abs/0901.2044
   paper_authors: Florentina Bunea, Alexandre B. Tsybakov, Marten H. Wegkamp, Adrian Barbu
   external_url: http://www.cs.cmu.edu/~aarti/SMLRG/index_Fall10.html
   sources:
@@ -85,7 +85,7 @@
   speakers:
   - shiva_kaul
   title: Implementing regularization implicitly via approximate eigenvector computation
-  paper_url: https://arxiv.org/abs/1010.0703
+  paper_url: http://arxiv.org/abs/1010.0703
   paper_authors: Michael W. Mahoney, Lorenzo Orecchia
   external_url: http://www.cs.cmu.edu/~aarti/SMLRG/index_Fall10.html
   sources:

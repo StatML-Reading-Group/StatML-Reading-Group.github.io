@@ -31,9 +31,9 @@
   - sivaraman_balakrishnan
   title: Minimax theory for ranking from pairwise comparisons
   abstract: >-
-    I will present a subset of results from the following two papers: <br/><br/> - <a href="https://arxiv.org/abs/1505.01462">"Estimation
+    I will present a subset of results from the following two papers: <br/><br/> - <a href="http://arxiv.org/abs/1505.01462">"Estimation
     from Pairwise Comparisons: Sharp Minimax Bounds with Topology Dependence"</a> by Shah, Balakrishnan,
-    radley, Parekh, Ramchandran and Wainwright.<br/> - <a href="https://arxiv.org/abs/1510.05610">"Stochastically
+    radley, Parekh, Ramchandran and Wainwright.<br/> - <a href="http://arxiv.org/abs/1510.05610">"Stochastically
     Transitive Models for Pairwise Comparisons: Statistical and Computational Issues"</a> by Shah,
     Balakrishnan, Guntuboyina and Wainwright. <br/><br/>
   time: 1:30 pm
@@ -222,7 +222,7 @@
     reinforcement learning in episodic Markov decision processes and discuss model-based algorithms
     using optimism under uncertainty. Finally, I will present the key insights of recent analyses
     which show that these methods achieve near-optimal sample complexity. The last part of the talk
-    is based on our NIPS'15 paper available at: <a href="https://arxiv.org/abs/1510.08906"> https://arxiv.org/abs/1510.08906
+    is based on our NIPS'15 paper available at: <a href="http://arxiv.org/abs/1510.08906"> http://arxiv.org/abs/1510.08906
     </a>.
   time: 1:30 pm
   room: BH-232M
@@ -247,7 +247,7 @@
     or the proximal mapping on each block of coordinates is computationally expensive, e.g., involves
     an eigenvalue decomposition. Furthermore, we prove a theoretical lower bound on the iteration
     complexity of a family of primal-dual (block) coordinate methods, including our method, for bilinear
-    saddle-point problems. <br/> A draft of the work can be found in <a href="https://arxiv.org/abs/1508.03390">https://arxiv.org/abs/1508.03390</a>.
+    saddle-point problems. <br/> A draft of the work can be found in <a href="http://arxiv.org/abs/1508.03390">http://arxiv.org/abs/1508.03390</a>.
   time: 1:30 pm
   room: GHC-8102
   weekday_override: Monday
@@ -294,7 +294,7 @@
     metrics. In this talk I present some recent results which address both the performance of sketching
     in the statistical setting, where we assume an underlying statistical model and show that many
     of the existing intuitions and results are quite different from the worst-case algorithmic setting.
-    <br/><br/> This is based on joint work with Michael Mahoney. Reference: <a href="https://arxiv.org/abs/1505.06659">https://arxiv.org/abs/1505.06659</a>.
+    <br/><br/> This is based on joint work with Michael Mahoney. Reference: <a href="http://arxiv.org/abs/1505.06659">http://arxiv.org/abs/1505.06659</a>.
   time: 1:30 pm
   room: BH-232M
   weekday_override: Monday
@@ -321,12 +321,12 @@
     small relative error can be achieved by taking the rank constraint k to be of order one, independently
     of the problem size. <br/><br/> PS: I might also mention little bits from this paper, just to
     motivate the other one: <br/> Reference: "Community detection in sparse networks via Grothendieck's
-    inequality", Olivier Guédon and Roman Vershynin,<a href="https://arxiv.org/abs/1411.4686">https://arxiv.org/abs/1411.4686</a>.
-    <br/><br/> This is based on joint work with Michael Mahoney. Reference: <a href="https://arxiv.org/abs/1505.06659">https://arxiv.org/abs/1505.06659</a>.
+    inequality", Olivier Guédon and Roman Vershynin,<a href="http://arxiv.org/abs/1411.4686">http://arxiv.org/abs/1411.4686</a>.
+    <br/><br/> This is based on joint work with Michael Mahoney. Reference: <a href="http://arxiv.org/abs/1505.06659">http://arxiv.org/abs/1505.06659</a>.
   time: 1:30 pm
   room: GHC-8102
   weekday_override: Monday
-  paper_url: https://arxiv.org/abs/1603.04064
+  paper_url: http://arxiv.org/abs/1603.04064
   legacy_urls:
   - /blog/2016/04/25/dave.html
   - /blog/2016/4/25/dave.html

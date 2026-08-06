@@ -1,14 +1,10 @@
-/* StatML Reading Group -- all site behaviour, vanilla.
- *
- * The reference site loads jQuery 3.1.1 + skeleton-tabs.js and then immediately
- * .off('click')s skeleton-tabs' only handler. None of that is needed here:
- * nav docking is 6 lines of vanilla, smooth scrolling is a CSS property, and
- * the accordions are a class toggle. */
+/* All site behaviour. Vanilla: nav docking is a scroll listener, smooth
+ * scrolling is a CSS property, and the accordions are a class toggle. */
 
 (function () {
   'use strict';
 
-  /* ---------- Theme toggle (verbatim behaviour from the reference site) ---- */
+  /* ---------- Theme ---------- */
   var DARK_META = '#14161a', LIGHT_META = '#ffffff';
 
   function syncButtons(theme) {
@@ -65,13 +61,13 @@
     document.addEventListener('click', function (e) {
       var title = e.target.closest ? e.target.closest('.talk-title') : null;
       if (!title || title.classList.contains('is-static')) return;
-      if (e.target.closest('a')) return;           // let real links through
+      if (e.target.closest('a')) return;           // let links through
       var talk = title.closest('.talk');
       if (!talk || !talk.querySelector('.talk-abstract')) return;
       talk.classList.toggle('open');
     });
 
-    // Keyboard support: the row is interactive, so it must be focusable.
+    // The row is interactive, so it must be focusable.
     var titles = document.querySelectorAll('.talk-title:not(.is-static)');
     for (var i = 0; i < titles.length; i++) {
       titles[i].setAttribute('tabindex', '0');
@@ -102,7 +98,7 @@
         t.classList.toggle('is-hidden', !hit);
         if (hit) shown++;
       });
-      // Hide a semester heading once every talk under it is filtered out.
+      // Hide a semester heading once all its talks are filtered out.
       sections.forEach(function (s) {
         var any = s.querySelector('.talk:not(.is-hidden)');
         s.classList.toggle('is-hidden', !any);

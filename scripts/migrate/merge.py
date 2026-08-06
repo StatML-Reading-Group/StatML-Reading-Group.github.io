@@ -38,8 +38,8 @@ from collections import OrderedDict, defaultdict
 import yaml
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from common import (both_paddings, clean_text, read_text,  # noqa: E402
-                    slugify, split_speakers)
+from common import (both_paddings, clean_text, inline_codecogs,  # noqa: E402
+                    read_text, slugify, split_speakers)
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 DEFAULT_LEGACY = os.path.expanduser("~/src/statml-old")
@@ -464,7 +464,7 @@ def assemble(e, page, row, sh, aa, terms):
                     ("csv", row and row.get("abstract")),
                     ("sheet", sh and sh.get("abstract")))
     if abstract:
-        talk["abstract"] = abstract
+        talk["abstract"] = inline_codecogs(abstract)
 
     time = pick("time", key, ("csv", row and row.get("time")),
                 ("page", page and page.get("time")), ("sheet", sh and sh.get("time")))

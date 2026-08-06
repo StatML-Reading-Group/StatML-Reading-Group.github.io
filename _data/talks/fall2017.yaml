@@ -245,7 +245,7 @@
     which has been studied extensively over the past few years and discuss the intriguing implication
     of the interplay between the two fields. <p> References: - Dwork et. al. : FOCS, https://arxiv.org/abs/1411.2664,
     NIPS https://papers.nips.cc/paper/5993-generalization-in-adaptive-data-analysis-and-holdout-reuse.pdf
-    - Russo and Zou paper: https://proceedings.mlr.press/v51/russo16.html - Hugely out-dated version
+    - Russo and Zou paper: http://proceedings.mlr.press/v51/russo16.html - Hugely out-dated version
     our paper: https://arxiv.org/abs/1602.04287. The more recent reference is Chapter 10 of my thesis:
     https://www.dropbox.com/s/v4t7nf9ytqlu1hv/yuxiang-thesis-draft.pdf?dl=0, and the connection to
     bandits are partially written down on Page 293 onwards. - Stochastic linear bandits: http://banditalgs.com/2016/10/19/stochastic-linear-bandits/)

@@ -1,12 +1,5 @@
-# Build and deploy the site to GitHub Pages.
-#
-# Pages' built-in ("legacy") builder runs Jekyll 3.10 with a fixed plugin
-# allowlist. This site is developed against Jekyll 4.x, so we build it
-# ourselves and hand Pages the finished artifact -- what ships is what was
-# tested locally, and plugins are not constrained.
-#
-# It also gives us somewhere to run the content checks. A regression fails the
-# build instead of going live.
+# Pages' built-in builder is Jekyll 3.10 with a fixed plugin allowlist; this
+# site targets 4.x, so we build it ourselves and upload the artifact.
 
 name: Deploy site
 
@@ -20,7 +13,6 @@ permissions:
   pages: write
   id-token: write
 
-# Let a running deploy finish rather than cancelling it half-way.
 concurrency:
   group: pages
   cancel-in-progress: false
@@ -53,17 +45,14 @@ jobs:
             [ -s "_site/$p" ] || fail "missing or empty: _site/$p"
           done
 
-          # The archive is the whole point of the site -- if it silently
-          # renders empty (a bad Liquid filter, a renamed data key), the build
-          # still "succeeds" and nobody notices until someone goes looking for
-          # a talk from 2014.
+          # A bad filter or renamed key renders the archive EMPTY while the
+          # build still succeeds. That is the failure this catches.
           talks=$(grep -o 'class="talk"' _site/archive/index.html | wc -l)
           [ "$talks" -ge 340 ] || fail "archive has $talks talks, expected >= 340"
 
           people=$(grep -o 'class="person-name"' _site/people/index.html | wc -l)
           [ "$people" -ge 90 ] || fail "people page has $people entries, expected >= 90"
 
-          # Old talk URLs must keep resolving.
           stubs=$(find _site/blog -name '*.html' | wc -l)
           [ "$stubs" -ge 400 ] || fail "only $stubs redirect stubs, expected >= 400"
 
@@ -91,19 +80,12 @@ jobs:
       - name: Internal links and anchors
         run: |
           gem install html-proofer -v '~> 5.0' --no-document
-          # External links are checked separately -- a professor's homepage
-          # going down should not block a deploy.
-          #
-          # No --swap-urls here: html-proofer already resolves root-relative
-          # hrefs against the directory it is checking. Adding a swap rule on
-          # top of that prefixes the path twice and reports every asset on the
-          # site as missing.
-          # --enforce-https off: the remaining http:// links are citations
-          # inside abstracts written up to fifteen years ago, pointing at
-          # personal and institutional pages we do not control, some of which
-          # only answer on http. They are hrefs, not resources, so they carry
-          # no mixed-content risk. Well-known hosts (arxiv, doi, springer, ...)
-          # were upgraded in the data instead.
+          # External links are not checked: a speaker's homepage going down
+          # should not block a deploy. --no-enforce-https because the remaining
+          # http:// links are decade-old citations in archived abstracts --
+          # hrefs, not resources, so no mixed-content risk.
+          # No --swap-urls: html-proofer already resolves root-relative hrefs
+          # against the checked directory, and adding one prefixes them twice.
           htmlproofer ./_site \
             --disable-external \
             --check-internal-hash \

@@ -417,6 +417,33 @@ def meta_text(meta_tag):
     return clean_text(" ".join(parts))
 
 
+# Three 2015 abstracts embed their maths as images from an http-only CDN. On an
+# https site those are mixed content and get blocked, so the formula silently
+# disappears. All eight are single symbols -- inline them.
+_LATEX_INLINE = {
+    r"\hat{\mathcal{M}}": "<em>M&#770;</em>",
+    r"\mathcal{M}": "<em>M</em>",
+    r"n": "<em>n</em>",
+    r"\lambda": "&lambda;",
+    r"L^r (1 \leq r < \infty)":
+        "<em>L<sup>r</sup></em> (1 &le; <em>r</em> &lt; &infin;)",
+}
+
+_CODECOGS = re.compile(r"<img[^>]*codecogs[^?]*\?([^\"]*)\"\s*/?>")
+
+
+def inline_codecogs(html):
+    """Replace latex.codecogs.com <img> tags with inline HTML."""
+    if not html or "codecogs" not in html:
+        return html
+
+    def repl(m):
+        tex = m.group(1).strip()
+        return _LATEX_INLINE.get(tex, "<em>%s</em>" % tex)
+
+    return _CODECOGS.sub(repl, html)
+
+
 def rel_path(root, path):
     return os.path.relpath(path, root).replace(os.sep, "/")
 

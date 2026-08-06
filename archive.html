@@ -4,11 +4,7 @@ title: Archive
 permalink: /archive/
 ---
 
-{%- comment -%}
-  The archive lists only talks that actually happened and have a title.
-  Breaks, cancellations and unfilled slots are schedule bookkeeping -- useful on
-  the homepage while a term is running, noise in a permanent record.
-{%- endcomment -%}
+{%- comment -%} Only talks that happened and have a title. {%- endcomment -%}
 {%- assign total = 0 -%}
 {%- for term in site.data.terms -%}
   {%- for t in site.data.talks[term.key] -%}

@@ -40,7 +40,7 @@
   speakers:
   - ryan_tibshirani
   title: What regularized auto-encoders learn from the data generating distribution
-  paper_url: https://arxiv.org/pdf/1211.4246v5.pdf
+  paper_url: http://arxiv.org/pdf/1211.4246v5.pdf
   paper_authors: 's:'
   external_url: http://www.cs.cmu.edu/~aarti/SMLRG/schedule.html
   sources:
@@ -50,7 +50,7 @@
   speakers:
   - jing_lei
   title: Sparse PCA
-  paper_url: https://arxiv.org/abs/1401.6978
+  paper_url: http://arxiv.org/abs/1401.6978
   paper_authors: 's:'
   external_url: http://www.cs.cmu.edu/~aarti/SMLRG/schedule.html
   sources:
@@ -60,7 +60,7 @@
   speakers:
   - jing_lei
   title: Sparse PCA continued
-  paper_url: https://arxiv.org/abs/1401.6978
+  paper_url: http://arxiv.org/abs/1401.6978
   paper_authors: 's:'
   external_url: http://www.cs.cmu.edu/~aarti/SMLRG/schedule.html
   sources:
@@ -76,7 +76,7 @@
   speakers:
   - ruth_urner
   title: Recent results in multi-Class learnability
-  paper_url: https://jmlr.org/proceedings/papers/v35/daniely14b.html
+  paper_url: http://jmlr.org/proceedings/papers/v35/daniely14b.html
   paper_authors: 's:'
   external_url: http://www.cs.cmu.edu/~aarti/SMLRG/schedule.html
   sources:

@@ -258,8 +258,27 @@ tristan_saidi:
   name: Tristan Luca Saidi
   roster: student
   position: Graduate Student
-  affiliation: Statistics & Data Science
+  affiliation: Statistics
   url: https://tristansaidi.github.io/
+
+sanjit_dandapanthula:
+  roster: student
+  position: Graduate Student
+  affiliation: Statistics & Machine Learning
+  url: https://sanjitdp.github.io/
+
+oliver_hannaoui:
+  name: Oliver Hannaoui
+  roster: student
+  position: Graduate Student
+  affiliation: Statistics
+  url: https://hanna-oui.github.io/research.html
+
+selina_carter:
+  affiliation: Statistics & Machine Learning
+
+ben_chugg:
+  affiliation: Machine Learning & Statistics
 
 # ===========================================================================
 # ALUMNI -- August 2026 sweep. Every line below is a change from what
