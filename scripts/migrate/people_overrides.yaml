@@ -1,21 +1,142 @@
 # Corrections and additions applied on top of the migrated people.csv data.
 #
-# people.csv was last maintained in Dec 2025 and has drifted. Keeping these
-# here rather than hand-editing _data/people.yaml means re-running merge.py
-# cannot silently revert them.
+# people.csv was last maintained in Dec 2025 and has drifted badly -- Simon Du
+# was still recorded as a Princeton postdoc six years after he became UW
+# faculty. Keeping corrections here rather than hand-editing _data/people.yaml
+# means re-running merge.py cannot silently revert them.
 #
-# Anything set here wins. `null` removes a field.
+# Anything set here wins; `null` removes a field.
+#
+# Every entry below was verified against a primary source (the person's own
+# homepage, a department directory, or a CV) in August 2026. Where a claim
+# could not be confirmed, the field is left alone rather than guessed -- for a
+# page naming real people, blank beats wrong.
+
+# ===========================================================================
+# FACULTY
+# ===========================================================================
 
 sivaraman_balakrishnan:
-  position: Professor            # was Associate Professor
+  position: Professor                    # was Associate Professor
+  url: https://www.stat.cmu.edu/~siva/   # http -> https
 arun_kuchibhotla:
-  position: Associate Professor  # was Assistant Professor
+  position: Associate Professor          # was Assistant Professor
 jing_lei:
-  position: Professor            # was Associate Professor
+  position: Professor                    # was Associate Professor
+  url: https://www.stat.cmu.edu/~jinglei/
 nihar_shah:
-  position: Associate Professor  # was Assistant Professor
+  position: Associate Professor          # was Assistant Professor
 steven_wu:
-  position: Associate Professor  # was Assistant Professor
+  # CMU's own S3D/CSD/HCII directories still say "Assistant Professor" and are
+  # stale. His CV (updated 2026-06-05) records the promotion as effective
+  # July 2025. The personal source wins here.
+  position: Associate Professor
+dejan_slepcev:
+  url: https://www.math.cmu.edu/~slepcev/
+larry_wasserman:
+  url: https://www.stat.cmu.edu/~larry/
+
+# Left CMU for Stanford effective 2026-09-01 -- one day after Fall 2026 term
+# starts. His CMU page still resolves but he should not be listed as current
+# faculty for a term he will not be here for.
+# Note he was ALSO mis-titled: he has been Associate Professor with tenure,
+# not Assistant. https://www.stat.cmu.edu/~aramdas/ + profiles.stanford.edu/aramdas
+aaditya_ramdas:
+  roster: alumni
+  position: Associate Professor
+  affiliation: Stanford University
+  affiliation2: null
+  url: https://www.stat.cmu.edu/~aramdas/
+
+# ===========================================================================
+# POSTDOCS
+# ===========================================================================
+
+# Never a CMU postdoc -- he is at LMU Munich and appears in our records only
+# because he gave a talk on 2025-04-04. Dropping `roster` makes him an
+# external speaker: he keeps his talk byline, leaves the People page.
+ernesto_araya:
+  roster: null
+  position: null
+  affiliation: LMU Munich
+
+# Left CMU June 2025. https://terrytianyuzhang.github.io/ +
+# https://www.pstat.ucsb.edu/people/faculty/tianyu-zhang
+tianyu_zhang:
+  roster: alumni
+  position: Assistant Professor
+  affiliation: UC Santa Barbara
+
+# ===========================================================================
+# GRADUATE STUDENTS -> ALUMNI
+# ===========================================================================
+
+# https://wanghongjian.wordpress.com/ -- "2026 - Current: Quantitative
+# Researcher at Citadel (New York, NY)". Still on the CMU directory; that
+# listing is stale.
+hongjian_wang:
+  roster: alumni
+  position: Quantitative Researcher
+  affiliation: Citadel
+
+# https://neilzxu.me -- "I do AI research at Duolingo"
+neil_xu:
+  roster: alumni
+  position: AI Research
+  affiliation: Duolingo
+
+# CMU student page now 404s and he is absent from the PhD directory.
+# https://sidsarkar8.github.io/ announces the Meta start; LinkedIn confirms.
+siddhaarth_sarkar:
+  roster: alumni
+  position: Research Scientist
+  affiliation: Meta
+
+# https://jmemich.github.io/ -- CMU Philosophy PhD (Computation, Logic &
+# Methodology), now industry.
+james_michelson:
+  roster: alumni
+  position: Software Engineer
+  affiliation: CFC Underwriting
+
+# https://sites.google.com/view/sangminparks -- CMU Math PhD under Slepcev,
+# now at Caltech.
+sangmin_park:
+  roster: alumni
+  position: von Karman Instructor
+  affiliation: Caltech
+
+# CMU MLD PhD 2025 (ml.cmu.edu alumni listing + dissertations page). Current
+# employer could NOT be confirmed -- LinkedIn headline is stale and the
+# employment section is behind a login. Position deliberately left blank.
+yusha_liu:
+  roster: alumni
+  position: null
+  affiliation: null
+
+# ===========================================================================
+# CURRENT STUDENTS -- homepage corrections
+# ===========================================================================
+
+# a-chicharito-s.github.io belongs to Yuchen SHEN, a different person in a
+# different department (MLD, advised by Aran Nayebi). No homepage found for
+# the Statistics & Data Science student.
+yuchen_chen:
+  url: null
+
+# kevinxhan.com belongs to a CMU student who started in 2024 under Amir
+# Barati Farimani in Mechanical Engineering -- almost certainly a different
+# Kevin Han. Removed rather than publish a wrong link; ask the group.
+kevin_han:
+  url: null
+  affiliation: Machine Learning
+
+woonyoung_chang:
+  url: https://sites.google.com/andrew.cmu.edu/woonyoungchang
+rebecca_farina:
+  url: https://rebyfa98.github.io
+lucas_kania:
+  url: https://www.lucaskania.com/
 
 # Not in people.csv -- joined after its last update.
 eric_chen:
@@ -24,3 +145,95 @@ eric_chen:
   position: Graduate Student
   affiliation: Statistics & Data Science
   url: https://ericchen28.github.io
+
+# ===========================================================================
+# ALUMNI -- dead links and stale affiliations
+# ===========================================================================
+
+eugene_katsevich:
+  url: https://ekatsevi.github.io/          # andrew.cmu.edu page 404s
+  affiliation: University of Pennsylvania - Wharton
+
+# The 403 was Cloudflare bot-blocking across the whole colby.edu domain, not a
+# dead page -- a deliberately fake path under the same host also returns 403.
+# The page is fine; only the scheme needed fixing.
+jerzy_wieczorek:
+  position: Associate Professor
+  url: https://web.colby.edu/jawieczo/
+
+jisu_kim:
+  position: Assistant Professor             # was Postdoctoral Fellow, Inria
+  affiliation: Seoul National University
+  url: https://jkim82133.github.io/
+
+# No personal homepage exists; his Korea University profile links back to the
+# departmental listing. Dropping the dead LinkedIn URL rather than linking a
+# fragile CMS query string.
+kwangho_kim:
+  position: Assistant Professor             # was Postdoc, Harvard Medical School
+  affiliation: Korea University
+  url: null
+
+# NB: a personal site does resolve at mkolar.coffeejunkies.org, but it is
+# stale and still says "Chicago Booth" -- linking it would publish exactly the
+# wrong affiliation. Use the USC page.
+mladen_kolar:
+  position: Professor                       # was Assistant Professor
+  affiliation: USC Marshall
+  url: https://www.marshall.usc.edu/people/mladen-kolar
+
+# UC Santa Cruz, not USC -- easy to confuse with his earlier USC postdoc.
+sangwon_hyun:
+  position: Assistant Professor
+  affiliation: UC Santa Cruz
+  url: https://sangwon-hyun.org/
+
+# https://simonshaoleidu.com/ -- UW's own bio paragraph still says "assistant";
+# its page header and his site both say associate.
+simon_du:
+  position: Associate Professor             # was Postdoctoral Fellow, Princeton
+  affiliation: University of Washington
+  url: https://simonshaoleidu.com/
+
+# https://tmanole.github.io/ -- currently a Norbert Wiener postdoc at MIT;
+# Stanford appointment runs from 2026-09-01. Worded so it is accurate both
+# today and after the move.
+tudor_manole:
+  position: Assistant Professor (from Fall 2026)
+  affiliation: Stanford University
+  url: https://tmanole.github.io/
+
+# https://www.sshekhar.page/ -- institution was missing entirely.
+# (CMU postdoc alum, not a PhD alum; PhD is EE at UC San Diego.)
+shubhanshu_shekhar:
+  position: Assistant Professor
+  affiliation: University of Michigan
+
+# His CV records AWS from Jan 2025; the Walmart role ended then.
+sasha_podkopaev:
+  position: Senior Applied Scientist
+  affiliation: Amazon Web Services
+
+nicolas_garcia_trillos:
+  position: Associate Professor
+  affiliation: University of Wisconsin-Madison
+  url: https://www.nicolasgarciat.com/
+
+ian_waudby_smith:
+  position: Miller Fellow
+  affiliation: UC Berkeley
+  url: https://ianws.com/
+
+boyan_duan:
+  url: https://duanby.github.io/
+
+# NOT updated: Yotam Hechtlinger. Every source claiming he founded exists.ai is
+# a third-party data broker, and exists.ai itself names no founder or team.
+# Left as-is rather than publish an unverifiable role.
+
+# CMU page 404s. Hebrew University departmental listing confirms Statistics &
+# Data Science; the page carries no title beyond "Academic staff", so the rank
+# is left unset rather than guessed.
+asaf_weinstein:
+  affiliation: Hebrew University of Jerusalem
+  url: https://en.stat.huji.ac.il/people/asaf-weinstein

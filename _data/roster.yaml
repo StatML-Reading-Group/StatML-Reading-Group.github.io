@@ -5,7 +5,6 @@ faculty:
 - arun_kuchibhotla
 - jing_lei
 - gonzalo_mena
-- aaditya_ramdas
 - pradeep_ravikumar
 - nihar_shah
 - yandi_shen
@@ -14,35 +13,6 @@ faculty:
 - weijing_tang
 - larry_wasserman
 - steven_wu
-student:
-- selina_carter
-- james_carzon
-- woonyoung_chang
-- yuchen_chen
-- eric_chen
-- ben_chugg
-- rebecca_farina
-- tomas_gonzalez
-- kevin_han
-- lucas_kania
-- james_leiner
-- ziqi_liu
-- yusha_liu
-- james_michelson
-- sangmin_park
-- siddhaarth_sarkar
-- kayla_scharfstein
-- ergan_shang
-- alex_shen
-- diego_martinez_taboada
-- kenta_takatsu
-- hongjian_wang
-- neil_xu
-- richard_zhu
-postdoc:
-- chandler_squires
-- ernesto_araya
-- tianyu_zhang
 alumni:
 - shubhada_agrawal
 - alnur_ali
@@ -69,18 +39,23 @@ alumni:
 - nick_kissel
 - mladen_kolar
 - akshay_krishnamurthy
+- yusha_liu
 - tudor_manole
+- james_michelson
 - ojash_neopane
+- sangmin_park
 - beomjo_park
 - pratik_patil
 - wei_peng
 - sasha_podkopaev
 - adarsh_prasad
 - yixuan_qiu
+- aaditya_ramdas
 - charvi_rastogi
 - sashank_reddi
 - alessandro_rinaldo
 - veeranjaneyulu_sadhanala
+- siddhaarth_sarkar
 - kyle_schindl
 - james_sharpnack
 - shubhanshu_shekhar
@@ -90,6 +65,7 @@ alumni:
 - arun_sai_suggala
 - jinjin_tian
 - ryan_tibshirani
+- hongjian_wang
 - yining_wang
 - yu_xiang_wang
 - andrew_warren
@@ -97,4 +73,27 @@ alumni:
 - yuting_wei
 - asaf_weinstein
 - jerzy_wieczorek
+- neil_xu
+- tianyu_zhang
 - david_zhao
+student:
+- selina_carter
+- james_carzon
+- woonyoung_chang
+- yuchen_chen
+- eric_chen
+- ben_chugg
+- rebecca_farina
+- tomas_gonzalez
+- kevin_han
+- lucas_kania
+- james_leiner
+- ziqi_liu
+- kayla_scharfstein
+- ergan_shang
+- alex_shen
+- diego_martinez_taboada
+- kenta_takatsu
+- richard_zhu
+postdoc:
+- chandler_squires

@@ -549,8 +549,14 @@ def main():
     for t in terms.values():
         for talk in t["talks"]:
             referenced.update(talk.get("speakers") or [])
-    for slug in sorted(referenced - set(people)):
-        people[slug] = {"name": prettify(slug)}
+    # Overrides are applied inside load_people(), which runs BEFORE external
+    # speakers are known. An override targeting someone who appears only as a
+    # speaker therefore creates an entry with no `name`. Backfill by slug
+    # rather than only creating wholly-absent people.
+    for slug in sorted(referenced | set(people)):
+        rec = people.setdefault(slug, {})
+        if not rec.get("name"):
+            rec["name"] = prettify(slug)
 
     # ---- terms.yaml
     # The "2009-2010" bucket holds only the archive's own "And there was once a

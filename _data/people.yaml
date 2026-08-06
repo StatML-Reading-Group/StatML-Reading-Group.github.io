@@ -7,7 +7,7 @@ jing_lei:
   roster: faculty
   position: Professor
   affiliation: Statistics
-  url: http://www.stat.cmu.edu/~jinglei/
+  url: https://www.stat.cmu.edu/~jinglei/
   img: /assets/people/jingLei.jpg
 aarti_singh:
   name: Aarti Singh
@@ -21,7 +21,7 @@ dejan_slepcev:
   roster: faculty
   position: Professor
   affiliation: Mathematical Sciences
-  url: http://www.math.cmu.edu/~slepcev/
+  url: https://www.math.cmu.edu/~slepcev/
   img: /assets/people/dejanSlepcev.jpg
 larry_wasserman:
   name: Larry Wasserman
@@ -29,7 +29,7 @@ larry_wasserman:
   position: Professor
   affiliation: Statistics
   affiliation2: Machine Learning
-  url: http://www.stat.cmu.edu/~larry/
+  url: https://www.stat.cmu.edu/~larry/
   img: /assets/people/larryWasserman.jpg
 sivaraman_balakrishnan:
   name: Sivaraman Balakrishnan
@@ -37,15 +37,14 @@ sivaraman_balakrishnan:
   position: Professor
   affiliation: Statistics
   affiliation2: Machine Learning
-  url: http://www.stat.cmu.edu/~siva/
+  url: https://www.stat.cmu.edu/~siva/
   img: /assets/people/sivaBalakrishnan.jpg
 aaditya_ramdas:
   name: Aaditya Ramdas
-  roster: faculty
-  position: Assistant Professor
-  affiliation: Statistics
-  affiliation2: Machine Learning
-  url: http://www.stat.cmu.edu/~aramdas/
+  roster: alumni
+  position: Associate Professor
+  affiliation: Stanford University
+  url: https://www.stat.cmu.edu/~aramdas/
   img: /assets/people/aadityaRamdas.jpg
 nihar_shah:
   name: Nihar Shah
@@ -106,9 +105,9 @@ richard_zhu:
   img: /assets/people/richard_zhu.jpg
 neil_xu:
   name: Neil Xu
-  roster: student
-  position: Graduate Student
-  affiliation: Statistics
+  roster: alumni
+  position: AI Research
+  affiliation: Duolingo
   url: https://neilzxu.me
   img: /assets/people/neil.jpg
 ben_chugg:
@@ -154,6 +153,7 @@ lucas_kania:
   position: Graduate Student
   affiliation: Statistics
   img: /assets/people/lucas-kania.jpg
+  url: https://www.lucaskania.com/
 kenta_takatsu:
   name: Kenta Takatsu
   roster: student
@@ -167,12 +167,14 @@ rebecca_farina:
   position: Graduate Student
   affiliation: Statistics
   img: /assets/people/rebecca-farina.jpg
+  url: https://rebyfa98.github.io
 woonyoung_chang:
   name: Woongyoung Chang
   roster: student
   position: Graduate Student
   affiliation: Statistics
   img: /assets/people/woonyoung.jpg
+  url: https://sites.google.com/andrew.cmu.edu/woonyoungchang
 diego_martinez_taboada:
   name: Diego Martinez Taboada
   roster: student
@@ -188,9 +190,9 @@ kayla_scharfstein:
   img: /assets/people/kayla-scharfstein.jpg
 siddhaarth_sarkar:
   name: Siddhaarth Sarkar
-  roster: student
-  position: Graduate Student
-  affiliation: Statistics
+  roster: alumni
+  position: Research Scientist
+  affiliation: Meta
   url: https://sidsarkar8.github.io/
   img: /assets/people/siddhaarth-sarkar.jpg
 ergan_shang:
@@ -201,16 +203,16 @@ ergan_shang:
   img: /assets/people/eshang.jpg
 james_michelson:
   name: James Michelson
-  roster: student
-  position: Graduate Student
-  affiliation: Philosophy
+  roster: alumni
+  position: Software Engineer
+  affiliation: CFC Underwriting
   url: https://jmemich.github.io/
   img: /assets/people/jmichelson.jpg
 hongjian_wang:
   name: Hongjian Wang
-  roster: student
-  position: Graduate Student
-  affiliation: Statistics
+  roster: alumni
+  position: Quantitative Researcher
+  affiliation: Citadel
   url: https://wanghongjian.wordpress.com/
   img: /assets/people/hongjiaw.jpg
 ziqi_liu:
@@ -224,13 +226,12 @@ yuchen_chen:
   roster: student
   position: Graduate Student
   affiliation: Statistics
-  url: https://a-chicharito-s.github.io/
   img: /assets/people/yuchenchen.jpg
 sangmin_park:
   name: Sangmin Park
-  roster: student
-  position: Graduate Student
-  affiliation: Mathematical Sciences
+  roster: alumni
+  position: von Karman Instructor
+  affiliation: Caltech
   url: https://sites.google.com/view/sangminparks
   img: /assets/people/Sangminpark.jpg
 alex_shen:
@@ -241,16 +242,13 @@ alex_shen:
   img: /assets/people/alexshen.jpg
 yusha_liu:
   name: Yusha Liu
-  roster: student
-  position: Graduate Student
-  affiliation: Machine Learning
+  roster: alumni
   img: /assets/people/yushaliu.jpg
 kevin_han:
   name: Kevin Han
   roster: student
   position: Graduate Student
   affiliation: Machine Learning
-  url: https://kevinxhan.com/
   img: /assets/people/kevinhan.jpg
 chandler_squires:
   name: Chandler Squires
@@ -261,16 +259,14 @@ chandler_squires:
   img: /assets/people/chandlersquires.jpg
 tianyu_zhang:
   name: Tianyu Zhang
-  roster: postdoc
-  position: Postdoc
-  affiliation: Statistics
+  roster: alumni
+  position: Assistant Professor
+  affiliation: UC Santa Barbara
   url: https://terrytianyuzhang.github.io/
   img: /assets/people/tianyuz.jpg
 ernesto_araya:
   name: Ernesto Araya Valdivia
-  roster: postdoc
-  position: Postdoc
-  affiliation: Ludwig Maximilian University of Munich
+  affiliation: LMU Munich
   img: /assets/people/araya.jpg
 ojash_neopane:
   name: Ojash Neopane
@@ -293,9 +289,9 @@ kartik_gupta:
 ian_waudby_smith:
   name: Ian Waudby-Smith
   roster: alumni
-  position: Postdoctoral Fellow
-  affiliation: UC-Berkeley
-  url: https://ianws.com
+  position: Miller Fellow
+  affiliation: UC Berkeley
+  url: https://ianws.com/
   img: /assets/people/ianws.jpg
 nick_kissel:
   name: Nick Kissel
@@ -307,9 +303,9 @@ nick_kissel:
 tudor_manole:
   name: Tudor Manole
   roster: alumni
-  position: Postdoctoral Fellow
-  affiliation: MIT
-  url: https://www.stat.cmu.edu/~tmanole/
+  position: Assistant Professor (from Fall 2026)
+  affiliation: Stanford University
+  url: https://tmanole.github.io/
   img: /assets/people/tudor_new.jpg
 andrew_warren:
   name: Andrew Warren
@@ -371,9 +367,9 @@ beomjo_park:
 sangwon_hyun:
   name: Sangwon Hyun
   roster: alumni
-  position: Postdoctoral Fellow
-  affiliation: USC
-  url: http://www.stat.cmu.edu/~shyun/
+  position: Assistant Professor
+  affiliation: UC Santa Cruz
+  url: https://sangwon-hyun.org/
   img: /assets/people/sangwonHyun.jpg
 veeranjaneyulu_sadhanala:
   name: Veeru Sadhanala
@@ -392,9 +388,9 @@ yining_wang:
 simon_du:
   name: Simon Du
   roster: alumni
-  position: Postdoctoral Fellow
-  affiliation: Princeton University
-  url: http://www.cs.cmu.edu/~ssdu/
+  position: Associate Professor
+  affiliation: University of Washington
+  url: https://simonshaoleidu.com/
   img: /assets/people/simonDu.jpg
 gautam_dasarathy:
   name: Gautam Dasarathy
@@ -451,16 +447,16 @@ akshay_krishnamurthy:
 jerzy_wieczorek:
   name: Jerzy Wieczorek
   roster: alumni
-  position: Assistant Professor
+  position: Associate Professor
   affiliation: Colby College
-  url: http://web.colby.edu/jawieczo/
+  url: https://web.colby.edu/jawieczo/
   img: /assets/people/jerzyWieczorek.jpg
 mladen_kolar:
   name: Mladen Kolar
   roster: alumni
-  position: Assistant Professor
-  affiliation: University of Chicago - Booth
-  url: http://sites.coffeejunkies.org/mkolar/
+  position: Professor
+  affiliation: USC Marshall
+  url: https://www.marshall.usc.edu/people/mladen-kolar
   img: /assets/people/mladenKolar-new.jpg
 james_sharpnack:
   name: James Sharpnack
@@ -472,15 +468,16 @@ james_sharpnack:
 jisu_kim:
   name: Jisu Kim
   roster: alumni
-  position: Postdoctoral Fellow
-  affiliation: Inria
-  url: http://www.stat.cmu.edu/~jisuk/
+  position: Assistant Professor
+  affiliation: Seoul National University
+  url: https://jkim82133.github.io/
   img: /assets/people/jisuKim.jpg
 asaf_weinstein:
   name: Asaf Weinstein
   roster: alumni
-  url: https://www.stat.cmu.edu/~asafw/
+  url: https://en.stat.huji.ac.il/people/asaf-weinstein
   img: /assets/people/asafWeinstein.jpg
+  affiliation: Hebrew University of Jerusalem
 bryon_aragam:
   name: Bryon Aragam
   roster: alumni
@@ -493,7 +490,7 @@ eugene_katsevich:
   roster: alumni
   position: Assistant Professor
   affiliation: University of Pennsylvania - Wharton
-  url: http://www.andrew.cmu.edu/user/ekatsevi/
+  url: https://ekatsevi.github.io/
   img: /assets/people/eugeneKatsevich.jpg
 yixuan_qiu:
   name: Yixuan Qiu
@@ -522,9 +519,8 @@ jaehyeok_shin:
 kwangho_kim:
   name: Kwangho Kim
   roster: alumni
-  position: Postdoctoral Research Associate
-  affiliation: Harvard Medical School
-  url: https://www.linkedin.com/in/kwangho-joshua-kim
+  position: Assistant Professor
+  affiliation: Korea University
   img: /assets/people/kwangho.jpg
 pratik_patil:
   name: Pratik Patil
@@ -552,6 +548,7 @@ boyan_duan:
   position: Data Scientist
   affiliation: Google
   img: /assets/people/boyan.jpg
+  url: https://duanby.github.io/
 tim_coleman:
   name: Tim Coleman
   roster: alumni
@@ -602,6 +599,7 @@ shubhanshu_shekhar:
   position: Assistant Professor
   url: https://www.sshekhar.page/
   img: /assets/people/sshekhar.jpg
+  affiliation: University of Michigan
 heejong_bong:
   name: Heejong Bong
   roster: alumni
@@ -619,8 +617,8 @@ marina_dubova:
 sasha_podkopaev:
   name: Aleksandr (Sasha) Podkopaev
   roster: alumni
-  position: Senior Data Scientist
-  affiliation: Walmart Global Tech
+  position: Senior Applied Scientist
+  affiliation: Amazon Web Services
   url: https://sashapodkopaev.com/
   img: /assets/people/sashapop.jpg
 eric_chen:
@@ -629,6 +627,11 @@ eric_chen:
   position: Graduate Student
   affiliation: Statistics & Data Science
   url: https://ericchen28.github.io
+nicolas_garcia_trillos:
+  position: Associate Professor
+  affiliation: University of Wisconsin-Madison
+  url: https://www.nicolasgarciat.com/
+  name: Nicolas Garcia Trillos
 adams_wei_yu:
   name: Adams Wei Yu
 alden_green:
@@ -727,8 +730,6 @@ miguel_carreira_perpinan:
   name: Miguel Carreira Perpinan
 min_xu:
   name: Min Xu
-nicolas_garcia_trillos:
-  name: Nicolas Garcia Trillos
 pengtao_xie:
   name: Pengtao Xie
 prateek_jain:
