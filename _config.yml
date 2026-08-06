@@ -1,0 +1,37 @@
+# StatML Reading Group -- https://statml-reading-group.github.io/
+# Served at the ROOT of an org user-site, so baseurl is empty.
+
+title:       "Statistics and Machine Learning Reading Group"
+description: "A reading group at the intersection of statistics and machine learning at Carnegie Mellon University."
+url:         "https://statml-reading-group.github.io"
+baseurl:     ""
+
+source:      .
+destination: ./_site
+
+# Built by GitHub Actions with real Jekyll 4.3, so plugins are not restricted
+# to the Pages allowlist. Unlike the reference site, these are actually wired
+# up -- listing a gem in the Gemfile alone leaves it inert.
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-feed
+
+feed:
+  path: feed.xml
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - scripts/
+  - vendor/
+  - .bundle/
+  - build/
+
+# _archive/ needs no exclude rule -- Jekyll skips underscore-prefixed
+# directories automatically, which is exactly the semantics we want:
+# preserved in the repo, absent from the published site.
+
+sass:
+  style: compressed

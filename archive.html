@@ -1,0 +1,72 @@
+---
+layout: default
+title: Archive
+permalink: /archive/
+---
+
+{%- assign total = 0 -%}
+{%- for term in site.data.terms -%}
+  {%- for t in site.data.talks[term.key] -%}
+    {%- if t.kind == nil %}{% assign total = total | plus: 1 %}{% endif -%}
+  {%- endfor -%}
+{%- endfor -%}
+
+<div class="docs-section" id="archive">
+  <div class="section-header-row">
+    <h4>Archive</h4>
+    <span class="term-meta">{{ site.data.terms.size }} semesters &middot; {{ site.data.terms.last.name }} &ndash; {{ site.data.terms.first.name }}</span>
+  </div>
+
+  <div class="archive-controls">
+    <input class="archive-search" type="search" placeholder="Search talks by title, speaker or year&hellip;"
+           aria-label="Search talks" autocomplete="off" spellcheck="false">
+    <span class="archive-count">{{ total }} talks</span>
+    <select class="term-jump" aria-label="Jump to a semester">
+      <option value="">Jump to&hellip;</option>
+      {%- for term in site.data.terms %}
+      <option value="term-{{ term.key }}">{{ term.name }}</option>
+      {%- endfor %}
+    </select>
+  </div>
+
+  <p class="archive-empty is-hidden">No talks match that search.</p>
+
+  {%- for term in site.data.terms -%}
+    {%- assign talks = site.data.talks[term.key] -%}
+    {%- if talks and talks.size > 0 -%}
+    <div class="term-section" id="term-{{ term.key }}">
+      <div class="term-header">
+        <span class="term-name">{{ term.name }}</span>
+        <span class="term-meta">
+          {%- if term.default_weekday %}{{ term.default_weekday }}s, {% endif -%}
+          {%- if term.default_time %}{{ term.default_time }}{% endif -%}
+          {%- if term.default_room %}{% if term.default_time %} &middot; {% endif %}{{ term.default_room }}{% endif -%}
+        </span>
+      </div>
+      <div class="talk-list">
+        {%- for t in talks -%}
+          {% include talk.html talk=t term=term show_year=true %}
+        {%- endfor -%}
+      </div>
+    </div>
+    {%- endif -%}
+  {%- endfor -%}
+</div>
+
+<div class="docs-section" id="archive-notes">
+  <h4>About this archive</h4>
+  <div class="prose">
+    <p>
+      Talks from Fall 2010 onward, reconstructed from the group's own records:
+      the previous site's archive pages, per-semester schedule spreadsheets, and
+      the original pre-2015 pages hosted by Aarti Singh. Pre-2015 entries record
+      the paper the group read rather than an abstract &mdash; in that era this
+      was a reading group in the literal sense.
+    </p>
+    <p>
+      The group's tenth-anniversary slides record its founding:
+      <strong>2009&ndash;2010</strong>, by Larry Wasserman, John Lafferty and
+      Aarti Singh.
+    </p>
+  </div>
+</div>

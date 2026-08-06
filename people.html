@@ -1,0 +1,34 @@
+---
+layout: default
+title: People
+permalink: /people/
+---
+
+{%- assign groups = "faculty,postdoc,student,alumni" | split: "," -%}
+{%- assign labels = "Faculty,Postdoctoral Fellows,Graduate Students,Alumni" | split: "," -%}
+
+<div class="docs-section" id="people">
+  <div class="section-header-row">
+    <h4>People</h4>
+    <span class="term-meta">{{ site.data.people | size }} listed</span>
+  </div>
+  <div class="prose">
+    <p>
+      To be added here, or to correct an entry, email one of the organizers.
+    </p>
+  </div>
+
+  {%- for g in groups -%}
+    {%- assign slugs = site.data.roster[g] -%}
+    {%- if slugs and slugs.size > 0 -%}
+    <div class="people-group" id="{{ g }}">
+      <div class="people-group-title">{{ labels[forloop.index0] }} <span style="color:var(--text-faint)">&middot; {{ slugs.size }}</span></div>
+      <div class="people-grid">
+        {%- for slug in slugs -%}
+          {% include person.html slug=slug %}
+        {%- endfor -%}
+      </div>
+    </div>
+    {%- endif -%}
+  {%- endfor -%}
+</div>

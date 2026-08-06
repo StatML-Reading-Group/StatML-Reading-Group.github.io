@@ -1,0 +1,85 @@
+{%- comment -%}
+One talk row. The single most reused include on the site -- it replaces the
+reference site's publication card, which is duplicated verbatim four times.
+
+  include.talk      a talk entry from _data/talks/<term>.yaml
+  include.term      the matching entry from _data/terms.yaml (for defaults)
+  include.show_year print "12 Nov 2024" instead of "12 Nov"
+
+Speakers are joined against _data/people.yaml by slug -- the same single-hop
+registry pattern as the reference site's coauthors.yaml.
+{%- endcomment -%}
+
+{%- assign t = include.talk -%}
+{%- assign term = include.term -%}
+{%- assign kind = t.kind | default: 'talk' -%}
+{%- assign date_fmt = '%-d %b' -%}
+{%- if include.show_year -%}{%- assign date_fmt = '%-d %b %Y' -%}{%- endif -%}
+
+{%- capture byline -%}
+  {%- for slug in t.speakers -%}
+    {%- assign p = site.data.people[slug] -%}
+    {%- if p -%}
+      {%- if p.url %}<a href="{{ p.url }}" target="_blank" rel="noopener">{{ p.name }}</a>
+      {%- else %}{{ p.name }}{%- endif -%}
+      {%- unless p.roster -%}{%- if p.affiliation %} <span class="talk-affil">({{ p.affiliation }})</span>{%- endif -%}{%- endunless -%}
+    {%- else -%}{{ slug }}{%- endif -%}
+    {%- unless forloop.last %}, {% endunless -%}
+  {%- endfor -%}
+{%- endcapture -%}
+
+{%- comment -%} Lowercased haystack for the archive filter. {%- endcomment -%}
+{%- capture haystack -%}{{ t.title }} {{ byline | strip_html }} {{ t.date }} {{ term.name }}{%- endcapture -%}
+
+{%- comment -%}
+  A `tbd` slot is a scheduled meeting with no speaker yet -- visually distinct
+  from a `no_meeting` break. Collapsing them would tell a reader that Fall 2026
+  has no meetings, when in fact it has thirteen with speakers still to confirm.
+{%- endcomment -%}
+{%- assign is_break = false -%}
+{%- if kind == 'no_meeting' or kind == 'cancelled' %}{% assign is_break = true %}{% endif -%}
+
+<div class="talk{% if kind != 'talk' %} talk-{{ kind }}{% endif %}{% if is_break %} is-break{% endif %}"
+     {% if kind == 'talk' %}data-search="{{ haystack | strip_newlines | downcase | escape_once }}"{% endif %}
+     {% if t.date %}id="t-{{ t.date }}{% if t.speakers.first %}-{{ t.speakers.first }}{% endif %}"{% endif %}>
+  <div class="talk-date">{{ t.date | date: date_fmt }}</div>
+  <div class="talk-body">
+
+    {%- if kind == 'talk' -%}
+      <span class="talk-title{% unless t.abstract %} is-static{% endunless %}">{{ t.title | default: 'Untitled' }}</span>
+      {%- if byline != blank %}<div class="talk-byline">{{ byline }}</div>{% endif -%}
+
+      {%- comment -%} Only show room/time when they differ from the term default. {%- endcomment -%}
+      {%- assign room = t.room | default: nil -%}
+      {%- assign time = t.time | default: nil -%}
+      {%- if room and room != term.default_room or time and time != term.default_time or t.weekday_override -%}
+        <div class="talk-where">
+          {%- if t.weekday_override %}{{ t.weekday_override }}{% if room or time %}, {% endif %}{% endif -%}
+          {%- if time %}{{ time }}{% if room %}, {% endif %}{% endif -%}
+          {%- if room %}{{ room }}{% endif -%}
+        </div>
+      {%- endif -%}
+      {%- if t.note %}<div class="talk-note">{{ t.note }}</div>{% endif -%}
+      {%- if t.date_note %}<div class="talk-note">{{ t.date_note }}</div>{% endif -%}
+
+      {%- if t.abstract %}<div class="talk-abstract">{{ t.abstract }}</div>{% endif -%}
+
+      {%- if t.paper_url or t.slides or t.external_url -%}
+        <div class="talk-links">
+          {%- if t.paper_url %}<a class="talk-badge" href="{{ t.paper_url }}" target="_blank" rel="noopener">Paper</a>{% endif -%}
+          {%- if t.slides %}<a class="talk-badge" href="{{ t.slides | relative_url }}" target="_blank" rel="noopener">Slides</a>{% endif -%}
+          {%- if t.external_url %}<a class="talk-badge" href="{{ t.external_url }}" target="_blank" rel="noopener">Original page</a>{% endif -%}
+        </div>
+      {%- endif -%}
+      {%- if t.paper_authors %}<div class="talk-note">{{ t.paper_authors }}</div>{% endif -%}
+
+    {%- elsif kind == 'tbd' -%}
+      <span class="talk-title is-static">Speaker to be confirmed</span>
+      {%- if t.note %}<div class="talk-note">{{ t.note }}</div>{% endif -%}
+
+    {%- else -%}
+      <span class="talk-title is-static">{{ t.label | default: 'No meeting' }}</span>
+    {%- endif -%}
+
+  </div>
+</div>

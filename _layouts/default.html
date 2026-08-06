@@ -1,0 +1,68 @@
+<!-- Chrome adapted from ericchen28.github.io. Load order matters: the theme
+     script must run BEFORE any stylesheet or the page flashes light-then-dark. -->
+<meta charset="utf-8">
+<title>{% if page.title and page.url != "/" %}{{ page.title }} | {% endif %}{{ site.title }}</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+{% seo title=false %}
+
+<!-- Theme (must run before first paint; keep before all CSS links) -->
+<meta name="theme-color" id="meta-theme-color" content="#ffffff">
+<script>
+  (function () {
+    var t = null;
+    try { t = new URLSearchParams(window.location.search).get('theme'); } catch (e) {}
+    if (t !== 'light' && t !== 'dark') { try { t = localStorage.getItem('theme'); } catch (e) {} }
+    if (t !== 'light' && t !== 'dark') { t = 'light'; }  // default: day
+    document.documentElement.setAttribute('data-theme', t);
+    var m = document.getElementById('meta-theme-color');
+    if (m) m.setAttribute('content', t === 'dark' ? '#14161a' : '#ffffff');
+  })();
+</script>
+
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="{{ '/libs/external/skeleton/normalize.css' | relative_url }}">
+<link rel="stylesheet" href="{{ '/libs/external/skeleton/skeleton.css'  | relative_url }}">
+<link rel="stylesheet" href="{{ '/libs/external/fontawesome/css/all.min.css' | relative_url }}">
+<link rel="stylesheet" href="{{ '/libs/custom/my_css.css' | relative_url }}">
+<script defer src="{{ '/libs/custom/site.js' | relative_url }}"></script>
+
+<link rel="icon" type="image/png" href="{{ '/libs/icon.png' | relative_url }}">
+<link rel="alternate" type="application/atom+xml" title="{{ site.title }}" href="{{ '/feed.xml' | relative_url }}">
+
+<button class="theme-toggle theme-toggle-floating" aria-label="Toggle dark mode" aria-pressed="false" title="Toggle dark mode">
+  <i class="fa-solid fa-moon"></i><i class="fa-solid fa-sun"></i>
+</button>
+
+<div class="container">
+  <section class="header">
+    <a class="wordmark" href="{{ '/' | relative_url }}">
+      <span class="wordmark-main">Statistics &amp; Machine Learning</span>
+      <span class="wordmark-sub">Reading Group</span>
+    </a>
+    <p class="header-affil">
+      <a href="https://www.ml.cmu.edu/">Machine Learning</a> &amp;
+      <a href="https://www.stat.cmu.edu/">Statistics &amp; Data Science</a>,
+      Carnegie Mellon University
+    </p>
+  </section>
+
+  {% include nav.html %}
+
+  {{ content }}
+
+  <div class="footer">
+    <p>
+      <a href="https://www.ml.cmu.edu/">Machine Learning Department</a> &amp;
+      <a href="https://www.stat.cmu.edu/">Department of Statistics &amp; Data Science</a><br>
+      <a href="https://www.cmu.edu/">Carnegie Mellon University</a>
+    </p>
+    <p class="footer-meta">
+      <a href="{{ '/history/' | relative_url }}">History</a>
+      <span class="dot">&middot;</span>
+      <a href="{{ '/feed.xml' | relative_url }}">Feed</a>
+      <span class="dot">&middot;</span>
+      <a href="https://github.com/StatML-Reading-Group">GitHub</a>
+    </p>
+  </div>
+</div>

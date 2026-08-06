@@ -1,0 +1,18 @@
+{%- comment -%}
+One person card.  include.slug -> _data/people.yaml key
+{%- endcomment -%}
+{%- assign p = site.data.people[include.slug] -%}
+{%- if p -%}
+<div class="person{% if p.memorial %} is-memorial{% endif %}">
+  <img class="person-photo" loading="lazy"
+       src="{{ p.img | default: '/assets/people/placeholder.jpg' | relative_url }}"
+       alt="{{ p.name }}" width="320" height="400">
+  <span class="person-name">
+    {%- if p.url -%}<a href="{{ p.url }}" target="_blank" rel="noopener">{{ p.name }}</a>
+    {%- else -%}{{ p.name }}{%- endif -%}
+  </span>
+  {%- if p.position %}<div class="person-role">{{ p.position }}</div>{% endif -%}
+  {%- if p.affiliation %}<div class="person-affil">{{ p.affiliation }}</div>{% endif -%}
+  {%- if p.affiliation2 %}<div class="person-affil">{{ p.affiliation2 }}</div>{% endif -%}
+</div>
+{%- endif -%}
