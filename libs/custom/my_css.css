@@ -9,23 +9,23 @@
   color-scheme: light;
 
   /* surfaces: ivory rather than #fff */
-  --bg: #fcfbf7;
+  --bg: #fdfdfb;
   --bg-elev: #ffffff;
-  --bg-sunk: #f6f4ee;
-  --nav-bg: #fcfbf7;
-  --nav-bg-docked: rgba(252, 251, 247, 0.88);
+  --bg-sunk: #f7f6f2;
+  --nav-bg: #fdfdfb;
+  --nav-bg-docked: rgba(253, 253, 251, 0.88);
 
   /* ---- text ramp */
   --text-strong: #14161c;
   --text: #22252c;
   --text-mid: #333740;
   --text-soft: #555a63;
-  --text-muted: #6f747c;   /* 4.54:1 on ivory -- AA at 13px */
+  --text-muted: #6f747c;   /* 4.61:1 on paper -- AA at 13px */
   --text-faint: #8d939c;   /* decorative only */
 
   /* ---- lines & borders */
-  --hairline: #e9e6de;
-  --hairline-strong: #dcd8ce;
+  --hairline: #ebe9e4;
+  --hairline-strong: #ded9d1;
   --border-mid: #bcb8ae;
 
   /* ---- accents */
