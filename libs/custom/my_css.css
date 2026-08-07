@@ -500,11 +500,9 @@ mark {
   border-top: 1px solid var(--hairline);
   padding: 24px 0 40px; margin-bottom: 0; font-size: var(--fs-meta);
 }
-.footer p { margin-bottom: 8px; }
-.footer-meta .dot { margin: 0 8px; color: var(--text-faint); }
 .footer-history {
-  max-width: 52rem; margin: 14px auto 0;
-  font-size: var(--fs-meta); color: var(--text-faint); line-height: 1.5;
+  max-width: 54rem; margin: 0 auto;
+  font-size: var(--fs-meta); color: var(--text-muted); line-height: 1.55;
 }
 
 /* ================ Theme toggle ================ */
