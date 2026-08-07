@@ -165,11 +165,11 @@ a:hover { color: inherit; }
 .wordmark-rule span:nth-child(3) { background: var(--rouge); }
 
 .header-affil {
-  margin-top: 14px;
+  margin-top: 16px;
   margin-bottom: 0;
-  font-size: var(--fs-body);
+  font-size: var(--fs-sub);
   letter-spacing: .02rem;
-  color: var(--text-soft);
+  color: var(--text-mid);
 }
 .header-affil a {
   color: var(--text-soft);
