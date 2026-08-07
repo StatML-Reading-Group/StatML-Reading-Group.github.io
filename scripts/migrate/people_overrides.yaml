@@ -31,6 +31,8 @@ steven_wu:
   # stale. His CV (updated 2026-06-05) records the promotion as effective
   # July 2025. The personal source wins here.
   position: Associate Professor
+  affiliation: Computer Science
+  affiliation2: null
 dejan_slepcev:
   url: https://www.math.cmu.edu/~slepcev/
 larry_wasserman:
