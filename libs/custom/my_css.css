@@ -33,8 +33,8 @@
   --rouge: #8c2731;
   --rouge-wash: rgba(140, 39, 49, 0.07);
 
-  --link: #406185;            /* blue, well under the chroma of a default web link */
-  --link-hover: #26496c;
+  --link: #4f668d;            /* blue, well under the chroma of a default web link */
+  --link-hover: #334c71;
 
   --shadow-soft: rgba(20, 22, 28, 0.05);
 }
@@ -62,8 +62,8 @@
   --rouge: #e4868d;
   --rouge-wash: rgba(228, 134, 141, 0.12);
 
-  --link: #9ab8e1;
-  --link-hover: #b8d7ff;
+  --link: #a3b9e4;
+  --link-hover: #c2d8ff;
 
   --shadow-soft: rgba(0, 0, 0, 0.35);
 }
