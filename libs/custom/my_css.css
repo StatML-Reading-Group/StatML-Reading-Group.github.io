@@ -33,8 +33,8 @@
   --rouge: #8c2731;
   --rouge-wash: rgba(140, 39, 49, 0.07);
 
-  --link: var(--text);        /* links carry body weight, not less */
-  --link-rule: #b3b7bd;       /* the underline is what marks them */
+  --link: #265f63;            /* petrol: clearly not the ink, never bright */
+  --link-hover: #1c4c50;
 
   --shadow-soft: rgba(20, 22, 28, 0.05);
 }
@@ -62,8 +62,8 @@
   --rouge: #e4868d;
   --rouge-wash: rgba(228, 134, 141, 0.12);
 
-  --link: var(--text);        /* links carry body weight, not less */
-  --link-rule: #b3b7bd;       /* the underline is what marks them */
+  --link: #265f63;            /* petrol: clearly not the ink, never bright */
+  --link-hover: #1c4c50;
 
   --shadow-soft: rgba(0, 0, 0, 0.35);
 }
@@ -106,23 +106,22 @@ h4 {
 a { color: inherit; }
 a:hover { color: inherit; }
 
-/* Links read at body weight and are underlined by default -- a hover-only
-   underline gives no cue until you are already on the link, and a link
-   lighter than its surrounding text reads as disabled rather than active.
-   The rule is quiet at rest and goes to full strength on hover. */
+/* Colour marks the link; the underline is the hover state. Petrol sits far
+   enough from the ink to register at a glance (dE ~29) while staying deep
+   enough not to protrude -- a link lighter than its surrounding text reads
+   as disabled, which is what the earlier grey did. */
 .text-link, .prose a, .person-name a, .footer a, .abstract a, .talk-byline a {
   color: var(--link);
   text-decoration: underline;
-  text-decoration-color: var(--link-rule);
+  text-decoration-color: transparent;
   text-decoration-thickness: 1px;
   text-underline-offset: 3px;
   transition: text-decoration-color 0.2s ease, color 0.2s ease;
 }
 .text-link:hover, .prose a:hover, .person-name a:hover,
 .footer a:hover, .abstract a:hover, .talk-byline a:hover {
-  color: var(--text-strong);
+  color: var(--link-hover);
   text-decoration-color: currentColor;
-  text-decoration-thickness: 1.5px;
 }
 
 /* ================ Header ================ */
@@ -169,11 +168,11 @@ a:hover { color: inherit; }
 .header-affil a {
   color: inherit;
   text-decoration: underline;
-  text-decoration-color: var(--link-rule);
+  text-decoration-color: transparent;
   text-underline-offset: 4px;
-  transition: text-decoration-color 0.2s ease, color 0.2s ease;
+  transition: text-decoration-color 0.2s ease;
 }
-.header-affil a:hover { color: var(--text-strong); text-decoration-color: currentColor; }
+.header-affil a:hover { text-decoration-color: var(--text-faint); }
 
 /* ================ Sections ================ */
 .docs-section {
