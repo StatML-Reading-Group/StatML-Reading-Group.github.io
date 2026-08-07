@@ -1,81 +1,81 @@
 /* StatML Reading Group.
-   Neutral ramps, section rhythm, navbar and theme mechanics follow
-   ericchen28.github.io. Added here: a --fs-* type scale, and two accents --
-   bleu for structure, rouge for the present tense (current term, next talk). */
+   Structure, section rhythm, navbar and theme mechanics follow
+   ericchen28.github.io. The palette is warm rather than cool -- ecru paper,
+   espresso ink, and two accents drawn from the French maisons: cuir (leather
+   brown) for structure, brique (a restrained Hermes orange) for the present
+   tense. Type comes from the --fs-* scale; nothing sets a loose size. */
 
 /* ================ Theme variables ================ */
 :root {
   color-scheme: light;
 
-  /* surfaces: ivory rather than #fff */
-  --bg: #fcfbf7;
-  --bg-elev: #ffffff;
-  --bg-sunk: #f6f4ee;
-  --nav-bg: #fcfbf7;
-  --nav-bg-docked: rgba(252, 251, 247, 0.88);
+  /* surfaces: ecru paper, not screen white */
+  --bg: #faf7f1;
+  --bg-elev: #fffdf9;
+  --bg-sunk: #f3eee4;
+  --nav-bg: #faf7f1;
+  --nav-bg-docked: rgba(250, 247, 241, 0.88);
 
-  /* ---- text ramp */
-  --text-strong: #14161c;
-  --text: #22252c;
-  --text-mid: #333740;
-  --text-soft: #555a63;
-  --text-muted: #6f747c;   /* 4.54:1 on ivory -- AA at 13px */
-  --text-faint: #8d939c;   /* decorative only */
+  /* ink ramp, warm/taupe-leaning */
+  --text-strong: #1a1713;
+  --text: #2b251d;
+  --text-mid: #3f372c;
+  --text-soft: #5e5445;
+  --text-muted: #6d6250;   /* 5.59:1 on ecru */
+  --text-faint: #9c9081;   /* decorative only */
 
-  /* ---- lines & borders */
-  --hairline: #e9e6de;
-  --hairline-strong: #dcd8ce;
-  --border-mid: #bcb8ae;
+  /* lines */
+  --hairline: #e9e2d5;
+  --hairline-strong: #ddd4c3;
+  --border-mid: #c0b2a0;
 
-  /* ---- accents */
-  --bleu: #1f3a68;
-  --bleu-soft: #2f5391;
-  --bleu-wash: rgba(31, 58, 104, 0.07);
-  --rouge: #9d2c35;
-  --rouge-soft: #b8434c;
-  --rouge-wash: rgba(157, 44, 53, 0.08);
+  /* accents */
+  --cuir: #5c3a24;                          /* structure: links, nav, rules */
+  --cuir-soft: #7a4f2c;
+  --cuir-wash: rgba(92, 58, 36, 0.07);
+  --brique: #a8481f;                        /* the present tense */
+  --brique-wash: rgba(168, 72, 31, 0.08);
 
-  --link: var(--bleu-soft);
+  --link: var(--cuir-soft);
 
-  --pill-bg: #333;
-  --pill-text: #fff;
-  --shadow-soft: rgba(20, 22, 28, 0.05);
-  --shadow: rgba(20, 22, 28, 0.10);
+  --pill-bg: #3f372c;
+  --pill-text: #faf7f1;
+  --shadow-soft: rgba(40, 30, 20, 0.05);
+  --shadow: rgba(40, 30, 20, 0.11);
 }
 
 :root[data-theme="dark"] {
   color-scheme: dark;
-  --bg: #14161a;
-  --bg-elev: #1d2026;
-  --bg-sunk: #191c21;
-  --nav-bg: #14161a;
-  --nav-bg-docked: rgba(20, 22, 26, 0.85);
+  --bg: #16130f;
+  --bg-elev: #201c16;
+  --bg-sunk: #1b1813;
+  --nav-bg: #16130f;
+  --nav-bg-docked: rgba(22, 19, 15, 0.85);
 
-  --text-strong: #f2f3f5;
-  --text: #d7d9dd;
-  --text-mid: #c4c7cc;
-  --text-soft: #a3a7ad;
-  --text-muted: #7d828a;
-  --text-faint: #62666d;
+  --text-strong: #f2ede4;
+  --text: #ded7cb;
+  --text-mid: #cbc3b5;
+  --text-soft: #a89e8e;
+  --text-muted: #8a806f;
+  --text-faint: #6b6255;
 
-  --hairline: rgba(255, 255, 255, 0.09);
-  --hairline-strong: rgba(255, 255, 255, 0.17);
-  --border-mid: rgba(255, 255, 255, 0.28);
+  --hairline: rgba(255, 248, 235, 0.09);
+  --hairline-strong: rgba(255, 248, 235, 0.17);
+  --border-mid: rgba(255, 248, 235, 0.28);
 
-  /* lifted: the light values sit near 2:1 on #14161a */
-  --bleu: #8fb3e8;
-  --bleu-soft: #a3c1ee;
-  --bleu-wash: rgba(143, 179, 232, 0.12);
-  --rouge: #e4868d;
-  --rouge-soft: #ec9aa0;
-  --rouge-wash: rgba(228, 134, 141, 0.12);
+  /* both accents lift on a dark ground; the light values sit near 2:1 */
+  --cuir: #d4a574;
+  --cuir-soft: #dfb289;
+  --cuir-wash: rgba(212, 165, 116, 0.12);
+  --brique: #e8956a;
+  --brique-wash: rgba(232, 149, 106, 0.13);
 
-  --link: var(--bleu-soft);
+  --link: var(--cuir);
 
-  --pill-bg: #d9dadd;
-  --pill-text: #17191d;
-  --shadow-soft: rgba(0, 0, 0, 0.35);
-  --shadow: rgba(0, 0, 0, 0.5);
+  --pill-bg: #ded7cb;
+  --pill-text: #16130f;
+  --shadow-soft: rgba(0, 0, 0, 0.4);
+  --shadow: rgba(0, 0, 0, 0.55);
 }
 
 /* ================ Type scale ================
@@ -116,7 +116,7 @@ h4 {
 a { color: inherit; }
 a:hover { color: inherit; }
 
-/* Text links: bleu, underline fades in on hover. */
+/* Text links: cuir, underline fades in on hover. */
 .text-link, .prose a, .person-name a, .footer a, .abstract a, .talk-byline a {
   color: var(--link);
   text-decoration: underline;
@@ -154,15 +154,15 @@ a:hover { color: inherit; }
 }
 @media (min-width: 550px) { .wordmark-main { font-size: var(--fs-disp-lg); } }
 
-/* Tricolore as an editorial mark, not a flag. */
+/* A quiet maison mark: leather, paper, brique. */
 .wordmark-rule {
   display: flex; justify-content: center; gap: 0;
   margin: 16px auto 0; width: 48px; height: 2px;
 }
 .wordmark-rule span { flex: 1; }
-.wordmark-rule span:nth-child(1) { background: var(--bleu); }
+.wordmark-rule span:nth-child(1) { background: var(--cuir); }
 .wordmark-rule span:nth-child(2) { background: var(--hairline-strong); }
-.wordmark-rule span:nth-child(3) { background: var(--rouge); }
+.wordmark-rule span:nth-child(3) { background: var(--brique); }
 
 .header-affil {
   margin-top: 16px;
@@ -187,7 +187,7 @@ a:hover { color: inherit; }
   margin-bottom: 0;
 }
 
-/* Heading rule. Colour encodes tense: bleu past, rouge present. */
+/* Heading rule. Colour encodes tense: cuir past, brique present. */
 .docs-section > h4,
 .section-header-row h4 {
   position: relative;
@@ -199,15 +199,15 @@ a:hover { color: inherit; }
   content: '';
   position: absolute; top: 0; left: 0;
   width: 26px; height: 2px;
-  background: var(--bleu);
+  background: var(--cuir);
   transition: width 0.3s ease;
 }
 .docs-section > h4.is-current:before,
-.section-header-row h4.is-current:before { background: var(--rouge); }
+.section-header-row h4.is-current:before { background: var(--brique); }
 
 /* Newest semester, distinguished from the thirty behind it. */
 .term-section:first-of-type .term-name { color: var(--text-strong); }
-.term-section:first-of-type .term-header { border-bottom-color: var(--rouge); }
+.term-section:first-of-type .term-header { border-bottom-color: var(--brique); }
 
 .section-header-row {
   display: flex; justify-content: space-between; align-items: baseline;
@@ -242,7 +242,7 @@ a:hover { color: inherit; }
   }
   .navbar-link:after {
     content: ''; position: absolute; bottom: 50%; left: 0; width: 100%; height: 1.5px;
-    background: var(--bleu);
+    background: var(--cuir);
     transform: translateY(14px) scaleX(0); transform-origin: center;
     transition: transform 0.3s ease;
   }
@@ -275,7 +275,7 @@ a:hover { color: inherit; }
   text-transform: uppercase; font-size: var(--fs-micro); font-weight: 600;
   letter-spacing: .18rem; color: var(--text-soft); text-decoration: none;
 }
-.navbar-mobile a.active { color: var(--bleu); }
+.navbar-mobile a.active { color: var(--cuir); }
 @media (min-width: 750px) { .navbar-mobile { display: none; } }
 
 html { scroll-behavior: smooth; }
@@ -309,8 +309,8 @@ html { scroll-behavior: smooth; }
   border-left: 2px solid var(--hairline-strong);
   transition: border-left-color 0.2s ease;
 }
-.talk:hover { border-left-color: var(--bleu); }
-.talk.open { border-left-color: var(--bleu); }
+.talk:hover { border-left-color: var(--cuir); }
+.talk.open { border-left-color: var(--cuir); }
 .talk.is-break { border-left-style: dotted; }
 .talk.is-break:hover { border-left-color: var(--hairline-strong); }
 
@@ -328,13 +328,13 @@ html { scroll-behavior: smooth; }
   transition: color 0.2s ease;
 }
 .talk-title.is-static { cursor: default; }
-.talk:hover .talk-title:not(.is-static) { color: var(--bleu); }
+.talk:hover .talk-title:not(.is-static) { color: var(--cuir); }
 
 /* Only on titles that open: inline-block, so on a wrapping title it would
    otherwise land on its own line as a blank row. */
 .talk-title:not(.is-static):after {
   content: '\203A';
-  font-size: var(--fs-body); font-weight: 300; color: var(--bleu);
+  font-size: var(--fs-body); font-weight: 300; color: var(--cuir);
   margin-left: 6px; display: inline-block;
   opacity: 0; transition: opacity 0.2s ease, transform 0.2s ease;
 }
@@ -356,7 +356,7 @@ html { scroll-behavior: smooth; }
   max-height: 260rem;
   margin-top: 10px;
   padding-left: 12px;
-  border-left: 1px solid var(--bleu-wash);
+  border-left: 1px solid var(--cuir-wash);
 }
 
 .talk-links { margin-top: 6px; display: flex; gap: 6px; flex-wrap: wrap; }
@@ -366,7 +366,7 @@ html { scroll-behavior: smooth; }
   background: transparent; border: 1px solid var(--border-mid); color: var(--text-soft);
   transition: border-color 0.2s ease, color 0.2s ease;
 }
-.talk-badge:hover { border-color: var(--bleu); color: var(--bleu); }
+.talk-badge:hover { border-color: var(--cuir); color: var(--cuir); }
 
 .talk-tbd .talk-title { color: var(--text-faint); font-weight: 500; }
 .talk-no_meeting .talk-title,
@@ -374,17 +374,17 @@ html { scroll-behavior: smooth; }
   color: var(--text-muted); font-weight: 500; font-style: italic;
 }
 
-/* "Up next" -- where rouge carries the most weight. */
+/* "Up next" -- where brique carries the most weight. */
 .next-talk {
-  border-left: 2px solid var(--rouge);
-  background: var(--rouge-wash);
+  border-left: 2px solid var(--brique);
+  background: var(--brique-wash);
   padding: 12px 0 12px 14px;
   margin-bottom: 2.4rem;
   border-radius: 0 2px 2px 0;
 }
 .next-label {
   text-transform: uppercase; font-size: var(--fs-micro); font-weight: 600;
-  letter-spacing: var(--tracking-label); color: var(--rouge);
+  letter-spacing: var(--tracking-label); color: var(--brique);
 }
 .next-title {
   font-size: var(--fs-lead); font-weight: 600; line-height: 1.35;
@@ -408,7 +408,7 @@ html { scroll-behavior: smooth; }
   transition: transform .22s ease;
 }
 .btn-quiet:hover {
-  border-color: var(--bleu); color: var(--bleu); background: var(--bleu-wash);
+  border-color: var(--cuir); color: var(--cuir); background: var(--cuir-wash);
 }
 .btn-quiet:hover:after { transform: translateX(3px); }
 
@@ -432,7 +432,7 @@ html { scroll-behavior: smooth; }
 
 mark {
   background: transparent;
-  color: var(--rouge);
+  color: var(--brique);
   font-weight: 600;
   padding: 0;
 }
@@ -462,7 +462,7 @@ mark {
 .person-row.is-memorial .person-name:after {
   content: 'in memoriam';
   display: block; font-size: var(--fs-micro); font-weight: 500; font-style: italic;
-  text-transform: uppercase; letter-spacing: .1rem; color: var(--rouge);
+  text-transform: uppercase; letter-spacing: .1rem; color: var(--brique);
   margin-top: 2px;
 }
 
@@ -476,7 +476,7 @@ mark {
 }
 .people-count {
   font-size: var(--fs-micro); font-weight: 600; letter-spacing: .08rem;
-  color: var(--bleu); background: var(--bleu-wash);
+  color: var(--cuir); background: var(--cuir-wash);
   padding: 1px 6px; border-radius: 2px;
   font-variant-numeric: tabular-nums;
 }
@@ -518,7 +518,7 @@ html[data-theme="dark"] .theme-toggle .icon-moon { display: none; }
   font-size: var(--fs-lead); color: var(--text-muted);
   transition: color 0.2s ease;
 }
-.theme-toggle-floating:hover { color: var(--bleu); }
+.theme-toggle-floating:hover { color: var(--cuir); }
 
 /* Dissolve the old frame as one unit (View Transitions). */
 ::view-transition-new(root) { animation: none; }
@@ -543,8 +543,8 @@ input[type="number"], textarea, select {
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 input[type="text"]:focus, input[type="search"]:focus, textarea:focus, select:focus {
-  border-color: var(--bleu);
-  box-shadow: 0 0 0 3px var(--bleu-wash);
+  border-color: var(--cuir);
+  box-shadow: 0 0 0 3px var(--cuir-wash);
   outline: 0;
 }
 input::placeholder { color: var(--text-faint); }
@@ -559,12 +559,12 @@ hr { border-top: 1px solid var(--hairline); }
 
 .button, button { color: var(--text-soft); border-color: var(--border-mid); }
 .button:hover, button:hover, .button:focus, button:focus {
-  color: var(--bleu); border-color: var(--bleu);
+  color: var(--cuir); border-color: var(--cuir);
 }
 
 /* Skeleton styles focus on inputs only. */
 a:focus-visible, button:focus-visible, .talk-title:focus-visible {
-  outline: 2px solid var(--bleu);
+  outline: 2px solid var(--cuir);
   outline-offset: 2px;
   border-radius: 1px;
 }
