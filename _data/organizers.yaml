@@ -1,4 +1,5 @@
-# Current organizers, in display order. Slugs key into _data/people.yaml.
-# Update this when the group hands over -- it drives the homepage byline.
-- eric_chen
-- tomas_gonzalez
+# Update both fields at handover; the homepage reads them directly.
+year: 2026&ndash;2027
+people:
+  - eric_chen
+  - tomas_gonzalez

@@ -97,12 +97,13 @@ title: Home
   <h4>Organizers</h4>
   <div class="prose">
     <p>
-      {{ term.name }} is organized by
-      {%- for slug in site.data.organizers %}
+      {%- for slug in site.data.organizers.people %}
         {%- assign p = site.data.people[slug] -%}
-        {% if forloop.last and forloop.length > 1 %} and {% elsif forloop.first %} {% else %}, {% endif -%}
+        {% if forloop.last and forloop.length > 1 %} and {% elsif forloop.first %}{% else %}, {% endif -%}
         {% if p.url %}<a class="text-link" href="{{ p.url }}" target="_blank" rel="noopener">{{ p.name }}</a>{% else %}{{ p.name }}{% endif -%}
-      {%- endfor %}.
+      {%- endfor %}
+      {% if site.data.organizers.people.size > 1 %}are{% else %}is{% endif %} organizing the group
+      for the {{ site.data.organizers.year }} academic year.
     </p>
   </div>
 </div>
