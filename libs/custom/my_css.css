@@ -38,10 +38,7 @@
 
   --link: var(--cuir-soft);
 
-  --pill-bg: #3f372c;
-  --pill-text: #faf7f1;
   --shadow-soft: rgba(40, 30, 20, 0.05);
-  --shadow: rgba(40, 30, 20, 0.11);
 }
 
 :root[data-theme="dark"] {
@@ -72,10 +69,7 @@
 
   --link: var(--cuir);
 
-  --pill-bg: #ded7cb;
-  --pill-text: #16130f;
   --shadow-soft: rgba(0, 0, 0, 0.4);
-  --shadow: rgba(0, 0, 0, 0.55);
 }
 
 /* ================ Type scale ================
