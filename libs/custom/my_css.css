@@ -502,6 +502,10 @@ mark {
 }
 .footer p { margin-bottom: 8px; }
 .footer-meta .dot { margin: 0 8px; color: var(--text-faint); }
+.footer-history {
+  max-width: 52rem; margin: 14px auto 0;
+  font-size: var(--fs-meta); color: var(--text-faint); line-height: 1.5;
+}
 
 /* ================ Theme toggle ================ */
 .theme-toggle {

@@ -41,7 +41,7 @@ jobs:
           fail() { echo "::error::$1"; exit 1; }
 
           # Every page renders.
-          for p in index.html archive/index.html people/index.html history/index.html 404.html; do
+          for p in index.html archive/index.html people/index.html 404.html; do
             [ -s "_site/$p" ] || fail "missing or empty: _site/$p"
           done
 
