@@ -33,8 +33,8 @@
   --rouge: #8c2731;
   --rouge-wash: rgba(140, 39, 49, 0.07);
 
-  --link: #265f63;            /* petrol: clearly not the ink, never bright */
-  --link-hover: #1c4c50;
+  --link: #385a74;            /* slate blue: petrol rotated to blue, same depth */
+  --link-hover: #264a62;
 
   --shadow-soft: rgba(20, 22, 28, 0.05);
 }
@@ -62,8 +62,8 @@
   --rouge: #e4868d;
   --rouge-wash: rgba(228, 134, 141, 0.12);
 
-  --link: #265f63;            /* petrol: clearly not the ink, never bright */
-  --link-hover: #1c4c50;
+  --link: #385a74;            /* slate blue: petrol rotated to blue, same depth */
+  --link-hover: #264a62;
 
   --shadow-soft: rgba(0, 0, 0, 0.35);
 }
