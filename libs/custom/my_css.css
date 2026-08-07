@@ -1,8 +1,9 @@
 /* StatML Reading Group.
    Structure, section rhythm, navbar and theme mechanics follow
-   ericchen28.github.io. Restraint over decoration: paper-toned neutrals, one
-   accent for structure and one for the present tense, each appearing only
-   where it means something. Type comes from the --fs-* scale. */
+   ericchen28.github.io. Restraint over decoration: the page is neutral --
+   even links and the nav underline -- and a single accent, rouge, appears
+   only for the present tense: the running term, the next talk, a life
+   remembered. Twice a page, never as decoration. Type comes from --fs-*. */
 
 /* ================ Theme variables ================ */
 :root {
@@ -29,17 +30,12 @@
   --border-mid: #bcb8ae;
 
   /* ---- accents */
-  --bleu: #1b3157;
-  --bleu-soft: #2b4a80;
-  --bleu-wash: rgba(27, 49, 87, 0.07);
   --rouge: #8c2731;
-  --rouge-soft: #a33540;
   --rouge-wash: rgba(140, 39, 49, 0.07);
 
-  --link: var(--bleu-soft);
+  --link: #6f747c;
 
   --shadow-soft: rgba(20, 22, 28, 0.05);
-  --shadow: rgba(20, 22, 28, 0.10);
 }
 
 :root[data-theme="dark"] {
@@ -62,14 +58,10 @@
   --border-mid: rgba(255, 255, 255, 0.28);
 
   /* lifted: the light values sit near 2:1 on #14161a */
-  --bleu: #8fb3e8;
-  --bleu-soft: #a3c1ee;
-  --bleu-wash: rgba(143, 179, 232, 0.12);
   --rouge: #e4868d;
-  --rouge-soft: #ec9aa0;
   --rouge-wash: rgba(228, 134, 141, 0.12);
 
-  --link: var(--bleu-soft);
+  --link: #6f747c;
 
   --shadow-soft: rgba(0, 0, 0, 0.35);
 }
@@ -112,7 +104,7 @@ h4 {
 a { color: inherit; }
 a:hover { color: inherit; }
 
-/* Text links: bleu, underline fades in on hover. */
+/* Links are near-neutral; the underline is the affordance. */
 .text-link, .prose a, .person-name a, .footer a, .abstract a, .talk-byline a {
   color: var(--link);
   text-decoration: underline;
@@ -156,7 +148,7 @@ a:hover { color: inherit; }
   margin: 16px auto 0; width: 48px; height: 2px;
 }
 .wordmark-rule span { flex: 1; }
-.wordmark-rule span:nth-child(1) { background: var(--bleu); }
+.wordmark-rule span:nth-child(1) { background: var(--text-mid); }
 .wordmark-rule span:nth-child(2) { background: var(--hairline-strong); }
 .wordmark-rule span:nth-child(3) { background: var(--rouge); }
 
@@ -183,7 +175,7 @@ a:hover { color: inherit; }
   margin-bottom: 0;
 }
 
-/* Heading rule. Colour encodes tense: bleu past, rouge present. */
+/* Heading rule. Neutral by default; rouge marks the running term. */
 .docs-section > h4,
 .section-header-row h4 {
   position: relative;
@@ -195,7 +187,7 @@ a:hover { color: inherit; }
   content: '';
   position: absolute; top: 0; left: 0;
   width: 26px; height: 2px;
-  background: var(--bleu);
+  background: var(--text-mid);
   transition: width 0.3s ease;
 }
 .docs-section > h4.is-current:before,
@@ -238,7 +230,7 @@ a:hover { color: inherit; }
   }
   .navbar-link:after {
     content: ''; position: absolute; bottom: 50%; left: 0; width: 100%; height: 1.5px;
-    background: var(--bleu);
+    background: var(--text-strong);
     transform: translateY(14px) scaleX(0); transform-origin: center;
     transition: transform 0.3s ease;
   }
@@ -271,7 +263,7 @@ a:hover { color: inherit; }
   text-transform: uppercase; font-size: var(--fs-micro); font-weight: 600;
   letter-spacing: .18rem; color: var(--text-soft); text-decoration: none;
 }
-.navbar-mobile a.active { color: var(--bleu); }
+.navbar-mobile a.active { color: var(--text-strong); }
 @media (min-width: 750px) { .navbar-mobile { display: none; } }
 
 html { scroll-behavior: smooth; }
@@ -305,8 +297,8 @@ html { scroll-behavior: smooth; }
   border-left: 2px solid var(--hairline-strong);
   transition: border-left-color 0.2s ease;
 }
-.talk:hover { border-left-color: var(--bleu); }
-.talk.open { border-left-color: var(--bleu); }
+.talk:hover { border-left-color: var(--text-muted); }
+.talk.open { border-left-color: var(--text-mid); }
 .talk.is-break { border-left-style: dotted; }
 .talk.is-break:hover { border-left-color: var(--hairline-strong); }
 
@@ -324,13 +316,13 @@ html { scroll-behavior: smooth; }
   transition: color 0.2s ease;
 }
 .talk-title.is-static { cursor: default; }
-.talk:hover .talk-title:not(.is-static) { color: var(--bleu); }
+.talk:hover .talk-title:not(.is-static) { color: var(--text-strong); }
 
 /* Only on titles that open: inline-block, so on a wrapping title it would
    otherwise land on its own line as a blank row. */
 .talk-title:not(.is-static):after {
   content: '\203A';
-  font-size: var(--fs-body); font-weight: 300; color: var(--bleu);
+  font-size: var(--fs-body); font-weight: 300; color: var(--text-muted);
   margin-left: 6px; display: inline-block;
   opacity: 0; transition: opacity 0.2s ease, transform 0.2s ease;
 }
@@ -352,7 +344,7 @@ html { scroll-behavior: smooth; }
   max-height: 260rem;
   margin-top: 10px;
   padding-left: 12px;
-  border-left: 1px solid var(--bleu-wash);
+  border-left: 1px solid var(--hairline);
 }
 
 .talk-links { margin-top: 6px; display: flex; gap: 6px; flex-wrap: wrap; }
@@ -362,7 +354,7 @@ html { scroll-behavior: smooth; }
   background: transparent; border: 1px solid var(--border-mid); color: var(--text-soft);
   transition: border-color 0.2s ease, color 0.2s ease;
 }
-.talk-badge:hover { border-color: var(--bleu); color: var(--bleu); }
+.talk-badge:hover { border-color: var(--text-muted); color: var(--text-mid); }
 
 .talk-tbd .talk-title { color: var(--text-faint); font-weight: 500; }
 .talk-no_meeting .talk-title,
@@ -404,7 +396,7 @@ html { scroll-behavior: smooth; }
   transition: transform .22s ease;
 }
 .btn-quiet:hover {
-  border-color: var(--bleu); color: var(--bleu); background: var(--bleu-wash);
+  border-color: var(--text-muted); color: var(--text-strong); background: var(--bg-sunk);
 }
 .btn-quiet:hover:after { transform: translateX(3px); }
 
@@ -472,7 +464,7 @@ mark {
 }
 .people-count {
   font-size: var(--fs-micro); font-weight: 600; letter-spacing: .08rem;
-  color: var(--bleu); background: var(--bleu-wash);
+  color: var(--text-muted); background: var(--bg-sunk);
   padding: 1px 6px; border-radius: 2px;
   font-variant-numeric: tabular-nums;
 }
@@ -514,7 +506,7 @@ html[data-theme="dark"] .theme-toggle .icon-moon { display: none; }
   font-size: var(--fs-lead); color: var(--text-muted);
   transition: color 0.2s ease;
 }
-.theme-toggle-floating:hover { color: var(--bleu); }
+.theme-toggle-floating:hover { color: var(--text-strong); }
 
 /* Dissolve the old frame as one unit (View Transitions). */
 ::view-transition-new(root) { animation: none; }
@@ -539,8 +531,8 @@ input[type="number"], textarea, select {
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 input[type="text"]:focus, input[type="search"]:focus, textarea:focus, select:focus {
-  border-color: var(--bleu);
-  box-shadow: 0 0 0 3px var(--bleu-wash);
+  border-color: var(--text-muted);
+  box-shadow: 0 0 0 3px var(--bg-sunk);
   outline: 0;
 }
 input::placeholder { color: var(--text-faint); }
@@ -555,12 +547,12 @@ hr { border-top: 1px solid var(--hairline); }
 
 .button, button { color: var(--text-soft); border-color: var(--border-mid); }
 .button:hover, button:hover, .button:focus, button:focus {
-  color: var(--bleu); border-color: var(--bleu);
+  color: var(--text-strong); border-color: var(--text-muted);
 }
 
 /* Skeleton styles focus on inputs only. */
 a:focus-visible, button:focus-visible, .talk-title:focus-visible {
-  outline: 2px solid var(--bleu);
+  outline: 2px solid var(--rouge);
   outline-offset: 2px;
   border-radius: 1px;
 }
