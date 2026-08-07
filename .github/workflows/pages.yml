@@ -58,6 +58,9 @@ jobs:
 
           echo "talks=$talks people=$people stubs=$stubs"
 
+      - name: Colour tokens hold contrast in both themes
+        run: python3 scripts/check_theme_contrast.py
+
       - name: Every redirect target exists in the archive
         run: |
           python3 - <<'PY'

@@ -62,8 +62,8 @@
   --rouge: #e4868d;
   --rouge-wash: rgba(228, 134, 141, 0.12);
 
-  --link: #385a74;            /* slate blue: petrol rotated to blue, same depth */
-  --link-hover: #264a62;
+  --link: #9abdd9;
+  --link-hover: #bbdefc;
 
   --shadow-soft: rgba(0, 0, 0, 0.35);
 }

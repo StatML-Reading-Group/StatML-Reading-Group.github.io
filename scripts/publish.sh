@@ -28,6 +28,8 @@ stubs=$(find _site/blog -name '*.html' | wc -l | tr -d ' ')
 [ "$stubs"  -ge 400 ] || fail "only $stubs redirect stubs, expected >= 400"
 echo "  talks=$talks  people=$people  redirect stubs=$stubs"
 
+python3 scripts/check_theme_contrast.py
+
 echo "Checking links..."
 # No --log-level: passing it makes html-proofer exit 1 even when all checks pass.
 bundle exec htmlproofer ./_site \
