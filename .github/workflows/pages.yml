@@ -47,7 +47,10 @@ jobs:
 
           # A bad filter or renamed key renders the archive EMPTY while the
           # build still succeeds. That is the failure this catches.
-          talks=$(grep -o 'class="talk"' _site/archive/index.html | wc -l)
+          # Match the class list's first token, not the whole attribute: talks
+          # carry modifiers (is-archive, talk-tbd), so an exact-string match
+          # silently counts zero. `talk-` variants are excluded by [ "].
+          talks=$(grep -oE 'class="talk[ "]' _site/archive/index.html | wc -l)
           [ "$talks" -ge 340 ] || fail "archive has $talks talks, expected >= 340"
 
           people=$(grep -o 'class="person-name"' _site/people/index.html | wc -l)
