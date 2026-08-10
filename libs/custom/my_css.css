@@ -467,8 +467,10 @@ mark {
   background: var(--rouge); border-color: var(--rouge); color: var(--bg);
 }
 .sort-option.is-active:before { content: '\2713'; }
+/* No max-width: the note runs the full width of the panel and wraps only
+   when the viewport actually forces it. */
 .sort-note {
-  margin: 12px 0 0; max-width: 76ch;
+  margin: 12px 0 0;
   font-size: var(--fs-meta); color: var(--text-muted); line-height: 1.5;
 }
 
