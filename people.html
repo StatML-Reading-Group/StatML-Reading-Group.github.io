@@ -18,6 +18,22 @@ permalink: /people/
     </p>
   </div>
 
+  <div class="sort-controls" role="group" aria-label="Sort people">
+    <span class="sort-label">Sort</span>
+    <div class="sort-options">
+      <button type="button" class="sort-option is-active" data-sort-mode="random" aria-pressed="true">Random</button>
+      <button type="button" class="sort-option" data-sort-mode="alpha" aria-pressed="false">Alphabetical by Last Name</button>
+      <button type="button" class="sort-option" data-sort-mode="reverse" aria-pressed="false">Reverse-Alphabetical</button>
+    </div>
+    <p class="sort-note">
+      The ordering on this page is randomized, as opposed to ordering
+      alphabetically. See
+      <a class="text-link" href="https://researchonresearch.blog/2018/11/28/theres-lots-in-a-name/"
+         target="_blank" rel="noopener">this article</a>
+      for further discussion.
+    </p>
+  </div>
+
   {%- for g in groups -%}
     {%- assign slugs = site.data.roster[g] -%}
     {%- if slugs and slugs.size > 0 -%}
@@ -38,7 +54,10 @@ permalink: /people/
           {%- for slug in slugs -%}
             {%- assign p = site.data.people[slug] -%}
             {%- if p -%}
-            <li class="person-row{% if p.memorial %} is-memorial{% endif %}">
+            {%- assign name_parts = p.name | split: ' ' -%}
+            {%- assign sort_key = p.sort_as | default: name_parts.last -%}
+            <li class="person-row{% if p.memorial %} is-memorial{% endif %}"
+                data-sort="{{ sort_key | escape }}" data-name="{{ p.name | escape }}">
               <span class="person-name">
                 {%- if p.url -%}<a href="{{ p.url }}" target="_blank" rel="noopener">{{ p.name }}</a>
                 {%- else -%}{{ p.name }}{%- endif -%}
