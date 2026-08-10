@@ -308,11 +308,15 @@ html { scroll-behavior: smooth; }
 .talk.is-break { border-left-style: dotted; }
 .talk.is-break:hover { border-left-color: var(--hairline-strong); }
 
+/* Fixed width, not min-width: a floor lets any longer date widen its own cell,
+   which knocks that row's title out of line with the rest. */
 .talk-date {
   color: var(--text-muted); font-size: var(--fs-meta); font-weight: 500;
-  min-width: 74px; flex-shrink: 0; padding-top: 1px;
-  font-variant-numeric: tabular-nums;
+  width: 74px; flex-shrink: 0; padding-top: 1px;
+  font-variant-numeric: tabular-nums; white-space: nowrap;
 }
+/* Archive dates carry a year ("30 May 2018"), so they need a wider column. */
+.talk.is-archive .talk-date { width: 80px; }
 .talk-body { min-width: 0; flex: 1; }
 
 .talk-title {
@@ -566,7 +570,8 @@ a:focus-visible, button:focus-visible, .talk-title:focus-visible {
 /* ================ Small screens ================ */
 @media (max-width: 549px) {
   .talk { gap: 10px; }
-  .talk-date { min-width: 58px; font-size: var(--fs-micro); }
+  .talk-date { width: 58px; font-size: var(--fs-micro); }
+  .talk.is-archive .talk-date { width: 68px; }
   .people-grid { grid-template-columns: repeat(auto-fill, minmax(132px, 1fr)); gap: 22px 16px; }
   .wordmark-main { font-size: var(--fs-disp-sm); }
   .people-list { columns: 1; }

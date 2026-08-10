@@ -74,7 +74,7 @@
 - date: '2024-09-24'
   speakers:
   - selina_carter
-  title: '"Online Bootstrap Confidence Intervals for the Stochastic Gradient Descent Estimator"'
+  title: Online Bootstrap Confidence Intervals for the Stochastic Gradient Descent Estimator
   abstract: >-
     Motivated by work with Jeff Schneider (Robotics Insitute), I will first give a basic intro to
     bootstrapping -- can it be done anytime anywhere? What's the use? Then, I'll discuss the paper

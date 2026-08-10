@@ -168,9 +168,8 @@
 - date: '2015-10-28'
   speakers:
   - larry_wasserman
-  title: >-
-    "Generalization in Adaptive Data Analysis and Holdout Reuse" by Dwork, Feldman, Hardt, Pitassi,
-    Reingold and Roth
+  title: Generalization in Adaptive Data Analysis and Holdout Reuse
+  paper_authors: Cynthia Dwork, Vitaly Feldman, Moritz Hardt, Toniann Pitassi, Omer Reingold, Aaron Roth
   abstract: >-
     Overfitting is the bane of data analysts, even when data are plentiful. Formal approaches to understanding
     this problem focus on statistical inference and generalization of individual analysis procedures.

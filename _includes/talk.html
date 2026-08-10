@@ -32,7 +32,7 @@
 {%- assign is_break = false -%}
 {%- if kind == 'no_meeting' or kind == 'cancelled' %}{% assign is_break = true %}{% endif -%}
 
-<div class="talk{% if kind != 'talk' %} talk-{{ kind }}{% endif %}{% if is_break %} is-break{% endif %}"
+<div class="talk{% if kind != 'talk' %} talk-{{ kind }}{% endif %}{% if is_break %} is-break{% endif %}{% if mode == 'archive' %} is-archive{% endif %}"
      {% if kind == 'talk' %}data-search="{{ haystack | strip_newlines | downcase | escape_once }}"{% endif %}
      {% if t.date %}id="t-{{ t.date }}{% if t.speakers.first %}-{{ t.speakers.first }}{% endif %}"{% endif %}>
   <div class="talk-date">{{ t.date | date: date_fmt }}</div>
