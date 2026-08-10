@@ -60,6 +60,13 @@ nihar_shah:
   affiliation2: Computer Science
   url: https://www.cs.cmu.edu/~nihars/
   img: /assets/people/niharShah.jpg
+andrew_ilyas:
+  name: Andrew Ilyas
+  roster: faculty
+  position: Assistant Professor
+  affiliation: Computer Science
+  url: https://andrewilyas.com/
+  img: /assets/people/andrewIlyas.jpeg
 pradeep_ravikumar:
   name: Pradeep Ravikumar
   roster: faculty
@@ -174,6 +181,7 @@ patrick_kramer:
   roster: student
   position: Graduate Student
   affiliation: Statistics & Machine Learning
+  url: https://patrick-kramer.github.io/
 diego_martinez_taboada:
   name: Diego Martinez Taboada
   roster: student
