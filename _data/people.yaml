@@ -427,6 +427,18 @@ mladen_kolar:
   position: Professor
   affiliation: USC Marshall
   url: https://www.marshall.usc.edu/people/mladen-kolar
+john_lafferty:
+  name: John Lafferty
+  roster: alumni
+  position: Professor
+  affiliation: Yale University
+  url: https://www.lafferty-lab.org/
+han_liu:
+  name: Han Liu
+  roster: alumni
+  position: Professor
+  affiliation: Northwestern University
+  url: https://magics.cs.northwestern.edu/
 james_sharpnack:
   name: James Sharpnack
   roster: alumni
