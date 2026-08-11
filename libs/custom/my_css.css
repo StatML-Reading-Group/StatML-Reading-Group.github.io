@@ -436,44 +436,6 @@ mark {
 }
 
 /* ================ People ================ */
-/* Sort control. The active pill takes its text colour from --bg so it stays
-   readable in both themes: rouge is dark on paper and pale on the dark page. */
-.sort-controls {
-  margin: 1.8rem 0 2.4rem;
-  padding: 16px 18px;
-  border: 1px solid var(--hairline);
-  border-radius: 4px;
-  background: var(--bg-elev);
-}
-.sort-label {
-  display: block; margin-bottom: 10px;
-  font-size: var(--fs-small); font-weight: 600; color: var(--text-mid);
-}
-.sort-options { display: flex; gap: 10px; flex-wrap: wrap; }
-.sort-option {
-  font-family: inherit; font-size: var(--fs-small); font-weight: 500;
-  height: 34px; padding: 0 16px;
-  border: 1px solid var(--border-mid); border-radius: 999px;
-  background: transparent; color: var(--text-mid);
-  cursor: pointer; white-space: nowrap;
-  /* Skeleton styles every button uppercase, tracked out and 38px-tall. */
-  text-transform: none; letter-spacing: normal; line-height: 32px;
-  margin-bottom: 0;
-  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
-}
-.sort-option:before { content: '+'; margin-right: 6px; }
-.sort-option:hover { border-color: var(--text-muted); color: var(--text-strong); }
-.sort-option.is-active {
-  background: var(--rouge); border-color: var(--rouge); color: var(--bg);
-}
-.sort-option.is-active:before { content: '\2713'; }
-/* No max-width: the note runs the full width of the panel and wraps only
-   when the viewport actually forces it. */
-.sort-note {
-  margin: 12px 0 0;
-  font-size: var(--fs-meta); color: var(--text-muted); line-height: 1.5;
-}
-
 .people-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(172px, 1fr));

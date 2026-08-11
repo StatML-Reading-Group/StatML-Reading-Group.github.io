@@ -147,69 +147,6 @@
     }
   }
 
-  /* ---------- People sort ------------------------------------------------- */
-  /* Alphabetical rosters quietly advantage early surnames, so random is the
-   * default and it reshuffles on every visit. Nodes are physically reordered
-   * rather than given a CSS `order`, which would leave the DOM -- and so the
-   * reading and tab order -- disagreeing with what is on screen. */
-  function initPeopleSort() {
-    var wrap = document.querySelector('.sort-controls');
-    if (!wrap) return;
-    var groups = Array.prototype.slice.call(
-      document.querySelectorAll('.people-grid, .people-list'));
-    if (!groups.length) return;
-
-    var buttons = Array.prototype.slice.call(wrap.querySelectorAll('.sort-option'));
-    var items = groups.map(function (g) {
-      return Array.prototype.slice.call(g.children);
-    });
-
-    function key(el) { return el.getAttribute('data-sort') || ''; }
-    function full(el) { return el.getAttribute('data-name') || ''; }
-
-    // localeCompare so Slepcev and Varici land where a reader expects.
-    function byName(a, b) {
-      var c = key(a).localeCompare(key(b), 'en', { sensitivity: 'base' });
-      return c !== 0 ? c : full(a).localeCompare(full(b), 'en', { sensitivity: 'base' });
-    }
-
-    function shuffle(list) {
-      for (var i = list.length - 1; i > 0; i--) {          // Fisher-Yates
-        var j = Math.floor(Math.random() * (i + 1));
-        var t = list[i]; list[i] = list[j]; list[j] = t;
-      }
-      return list;
-    }
-
-    function apply(mode) {
-      groups.forEach(function (g, i) {
-        var order = items[i].slice();
-        if (mode === 'alpha') order.sort(byName);
-        else if (mode === 'reverse') order.sort(byName).reverse();
-        else shuffle(order);
-        var frag = document.createDocumentFragment();
-        order.forEach(function (el) { frag.appendChild(el); });
-        g.appendChild(frag);
-      });
-      buttons.forEach(function (b) {
-        var on = b.getAttribute('data-sort-mode') === mode;
-        b.classList.toggle('is-active', on);
-        b.setAttribute('aria-pressed', on ? 'true' : 'false');
-      });
-    }
-
-    wrap.addEventListener('click', function (e) {
-      var btn = e.target.closest ? e.target.closest('.sort-option') : null;
-      if (!btn) return;
-      apply(btn.getAttribute('data-sort-mode'));   // re-clicking random reshuffles
-    });
-
-    // Deliberately not remembered. Alphabetical is a per-visit choice, so the
-    // randomised order is what every visitor meets first -- which is the whole
-    // point of randomising it.
-    apply('random');
-  }
-
   function boot() {
     syncButtons(document.documentElement.getAttribute('data-theme'));
     initNavDock();
@@ -217,7 +154,6 @@
     initArchiveSearch();
     initTermJump();
     initNavActive();
-    initPeopleSort();
   }
 
   if (document.readyState === 'loading') {
