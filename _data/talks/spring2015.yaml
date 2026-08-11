@@ -65,7 +65,7 @@
   - aaditya_ramdas
   title: All of Two Sample Testing
   abstract: >-
-    "I haven't decided the order or how much detail yet, but the following projects are at varying
+    I haven't decided the order or how much detail yet, but the following projects are at varying
     stages of completion (some will end up in my thesis). <br/> (1) QQ Plots and Distribution-Free
     Wasserstein TST (with Nicolas Garcia, Marco Cuturi - evolved from last sem's SMLRG talk and a
     Japan trip)<br/> (2) Martingale LIL and Sequential TST (with Akshay Balasubramani - evolved from
@@ -79,7 +79,7 @@
     Dino Sejdinovic)<br/> I guess I'll mostly talk about the second one so I can go into details and
     spare time for ideas - it also has the most scope for extensions at the moment, which I would
     be extremely interested in pursuing with some of you (since most of these projects just started
-    off as conversations with people smarter than me). "
+    off as conversations with people smarter than me).
   legacy_urls:
   - /blog/2015/02/19/talk5.html
   - /blog/2015/2/19/talk5.html
