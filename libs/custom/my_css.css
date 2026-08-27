@@ -231,7 +231,7 @@ a:hover { color: inherit; }
   .navbar-item { position: relative; margin-bottom: 0; }
   .navbar-link {
     text-transform: uppercase;
-    font-size: var(--fs-label); font-weight: 600; letter-spacing: var(--tracking-label);
+    font-size: var(--fs-small); font-weight: 600; letter-spacing: var(--tracking-label);
     text-decoration: none; line-height: 5.2rem; color: var(--text-mid);
     position: relative; transition: color 0.3s ease, opacity 0.3s ease;
   }
@@ -267,7 +267,7 @@ a:hover { color: inherit; }
   border-bottom: 1px solid var(--hairline);
 }
 .navbar-mobile a {
-  text-transform: uppercase; font-size: var(--fs-micro); font-weight: 600;
+  text-transform: uppercase; font-size: var(--fs-label); font-weight: 600;
   letter-spacing: .18rem; color: var(--text-soft); text-decoration: none;
 }
 .navbar-mobile a.active { color: var(--text-strong); }
