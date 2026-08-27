@@ -4,18 +4,25 @@ title: Archive
 permalink: /archive/
 ---
 
-{%- comment -%} Only talks that happened and have a title. {%- endcomment -%}
+{%- comment -%} Only past-semester talks with a title. {%- endcomment -%}
 {%- assign total = 0 -%}
+{%- assign semesters = 0 -%}
+{%- assign newest_archived = nil -%}
 {%- for term in site.data.terms -%}
-  {%- for t in site.data.talks[term.key] -%}
-    {%- if t.kind == nil and t.title %}{% assign total = total | plus: 1 %}{% endif -%}
-  {%- endfor -%}
+  {%- if term.status != 'upcoming' and term.status != 'current' -%}
+    {%- assign semesters = semesters | plus: 1 -%}
+    {%- if newest_archived == nil %}{% assign newest_archived = term %}{% endif -%}
+    {%- assign oldest_archived = term -%}
+    {%- for t in site.data.talks[term.key] -%}
+      {%- if t.kind == nil and t.title %}{% assign total = total | plus: 1 %}{% endif -%}
+    {%- endfor -%}
+  {%- endif -%}
 {%- endfor -%}
 
 <div class="docs-section" id="archive">
   <div class="section-header-row">
     <h4>Archive</h4>
-    <span class="term-meta">{{ site.data.terms.size }} semesters &middot; {{ site.data.terms.last.name }} &ndash; {{ site.data.terms.first.name }}</span>
+    <span class="term-meta">{{ semesters }} semesters &middot; {{ oldest_archived.name }} &ndash; {{ newest_archived.name }}</span>
   </div>
 
   <div class="archive-controls">
@@ -25,9 +32,11 @@ permalink: /archive/
     <select class="term-jump" aria-label="Jump to a semester">
       <option value="">Jump to&hellip;</option>
       {%- for term in site.data.terms -%}
-        {%- assign n = site.data.talks[term.key] | where_exp: "t", "t.kind == nil" | where_exp: "t", "t.title" -%}
-        {%- if n.size > 0 %}
+        {%- if term.status != 'upcoming' and term.status != 'current' -%}
+          {%- assign n = site.data.talks[term.key] | where_exp: "t", "t.kind == nil" | where_exp: "t", "t.title" -%}
+          {%- if n.size > 0 %}
       <option value="term-{{ term.key }}">{{ term.name }}</option>
+          {%- endif -%}
         {%- endif -%}
       {%- endfor %}
     </select>
@@ -36,9 +45,10 @@ permalink: /archive/
   <p class="archive-empty is-hidden">No talks match that search.</p>
 
   {%- for term in site.data.terms -%}
-    {%- assign all = site.data.talks[term.key] -%}
-    {%- assign talks = all | where_exp: "t", "t.kind == nil" | where_exp: "t", "t.title" -%}
-    {%- if talks.size > 0 -%}
+    {%- if term.status != 'upcoming' and term.status != 'current' -%}
+      {%- assign all = site.data.talks[term.key] -%}
+      {%- assign talks = all | where_exp: "t", "t.kind == nil" | where_exp: "t", "t.title" -%}
+      {%- if talks.size > 0 -%}
     <div class="term-section" id="term-{{ term.key }}">
       <div class="term-header">
         <span class="term-name">{{ term.name }}</span>
@@ -50,6 +60,7 @@ permalink: /archive/
         {%- endfor -%}
       </div>
     </div>
+      {%- endif -%}
     {%- endif -%}
   {%- endfor -%}
 </div>
