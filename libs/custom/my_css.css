@@ -212,6 +212,7 @@ a:hover { color: inherit; }
 .prose { max-width: none; }
 .prose p { margin-bottom: 1.6rem; font-size: var(--fs-body); }
 .lede { font-size: var(--fs-lead); line-height: 1.6; color: var(--text-mid); }
+#about .lede { font-size: var(--fs-sub); line-height: 1.65; }
 
 /* ================ Nav ================ */
 .navbar { display: none; }
@@ -365,13 +366,14 @@ html { scroll-behavior: smooth; }
   border-left: 1px solid var(--hairline);
 }
 
-.talk-links { margin-top: 6px; display: flex; gap: 6px; flex-wrap: wrap; }
+.talk-links { margin-top: 6px; display: flex; gap: 6px; flex-wrap: wrap; align-items: center; }
 .talk-badge {
-  font-size: var(--fs-micro); padding: 0 5px; border-radius: 2px; line-height: 1.6;
-  display: inline-block; text-decoration: none; font-family: inherit;
+  font-size: var(--fs-micro); padding: 1px 6px; border-radius: 2px; line-height: 1.4;
+  display: inline-flex; align-items: center; text-decoration: none; font-family: inherit;
   font-weight: 400; letter-spacing: 0; text-transform: none; text-align: left;
   background: transparent; border: 1px solid var(--border-mid); color: var(--text-soft);
-  cursor: pointer; height: auto; min-width: 0;
+  cursor: pointer; height: auto; min-height: 18px; min-width: 0; margin: 0;
+  -webkit-appearance: none; appearance: none; box-sizing: border-box;
   transition: border-color 0.2s ease, color 0.2s ease;
 }
 .talk-badge:hover { border-color: var(--text-muted); color: var(--text-mid); }
