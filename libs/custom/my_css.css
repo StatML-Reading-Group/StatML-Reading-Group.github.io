@@ -294,6 +294,12 @@ html { scroll-behavior: smooth; }
   font-size: var(--fs-meta); color: var(--text-muted);
   font-variant-numeric: tabular-nums;
 }
+.term-note {
+  color: var(--text-muted);
+  font-size: var(--fs-meta);
+  margin-top: -0.6rem;
+  margin-bottom: 1.8rem;
+}
 
 .talk-list { display: flex; flex-direction: column; gap: 14px; }
 

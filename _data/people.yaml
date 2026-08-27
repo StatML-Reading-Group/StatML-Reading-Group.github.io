@@ -109,6 +109,12 @@ weijing_tang:
   affiliation: Statistics
   url: https://sites.google.com/andrew.cmu.edu/weijingtang/home
   img: /assets/people/weijing-tang.jpg
+aditya_kumar:
+  name: Aditya Kumar
+  roster: student
+  position: Graduate Student
+  affiliation: CMU SCS
+  url: https://scholar.google.com/citations?user=sfgpP8UAAAAJ&hl=en
 richard_zhu:
   name: Richard Zhu
   roster: student
@@ -607,6 +613,10 @@ sanjit_dandapanthula:
   affiliation: Statistics & Machine Learning
   url: https://sanjitdp.github.io/
   name: Sanjit Dandapanthula
+soheun_yi:
+  name: Soheun Yi
+  affiliation: Carnegie Mellon University
+  url: https://soheunyi.github.io/
 oliver_hannaoui:
   name: Oliver Hannaoui
   roster: student
@@ -785,3 +795,6 @@ zijian_guo:
   name: Zijian Guo
 zoltan_szabo:
   name: Zoltan Szabo
+uriel_martinez_leon:
+  name: Uriel Martinez Leon
+  affiliation: NYU Center for Data Science

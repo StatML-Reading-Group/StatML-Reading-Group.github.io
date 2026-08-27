@@ -3,8 +3,11 @@
 
 - key: fall2026
   name: Fall 2026
-  talks: 0
-  note: 'Time & location: TBD & TBD'
+  talks: 8
+  default_weekday: Tuesday
+  default_room: GHC 4405
+  default_time: 12-1pm
+  note: 'Room exceptions: GHC 6121 on Sep 22; NSH 3002 on Oct 13.'
   status: upcoming
 - key: spring2026
   name: Spring 2026

@@ -32,6 +32,10 @@ title: Home
     </span>
   </div>
 
+  {%- if term.note -%}
+    <p class="term-note">{{ term.note }}</p>
+  {%- endif -%}
+
   {%- comment -%} First titled talk still ahead of us. {%- endcomment -%}
   {%- assign today = site.time | date: '%Y-%m-%d' -%}
   {%- assign next = nil -%}
