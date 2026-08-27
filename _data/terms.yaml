@@ -7,7 +7,8 @@
   default_weekday: Tuesday
   default_room: GHC 4405
   default_time: 12-1pm
-  note: 'Room exceptions: GHC 6121 on Sep 22; NSH 3002 on Oct 13.'
+  note: 'Room exception: GHC 6121 on Sep 22.'
+  show_speaker_affiliations: true
   status: upcoming
 - key: spring2026
   name: Spring 2026

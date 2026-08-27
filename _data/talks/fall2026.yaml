@@ -5,6 +5,22 @@
   speakers:
   - weijing_tang
   title: Statistical Viewpoint for Shapley Value Estimation
+  abstract: >-
+    Probabilistic values, including Shapley values and semivalues, provide a model-agnostic framework
+    to attribute the behavior of a black-box model to data points or features, with a wide range of
+    applications including explainable artificial intelligence and data valuation. However, their
+    exact computation requires utility evaluations over exponentially many coalitions, making Monte
+    Carlo approximation essential in modern machine learning applications. Existing estimators are
+    often developed through different identification strategies, including weighted averages, self-normalized
+    weighting, regression adjustment, and weighted least squares. Our key observation is that these
+    seemingly distinct constructions share a common first-order error structure, in which the leading
+    term is an augmented inverse-probability weighted influence term determined by the sampling law
+    and a working surrogate function. This first-order representation yields an explicit expression
+    for the leading mean squared error (MSE), which characterizes how the sampling law and the surrogate
+    jointly determine statistical efficiency. Guided by this criterion, we propose an Efficiency-Aware
+    Surrogate-adjusted Estimator (EASE) that directly chooses the sampling law and surrogate to minimize
+    the first-order MSE. We demonstrate that EASE consistently outperforms state-of-the-art estimators
+    for various probabilistic values.
   paper_url: https://arxiv.org/abs/2605.02827
   sources:
   - sheet
@@ -16,6 +32,7 @@
   speakers:
   - diego_martinez_taboada
   title: Title TBD
+  abstract: TBD
   weekday_override: Monday
   sources:
   - sheet
@@ -28,26 +45,48 @@
   speakers:
   - soheun_yi
   title: Minimax Estimation of Velocity Fields from Snapshots and Trajectories
-  note: My work
+  abstract: TBD
   sources:
   - sheet
 - date: '2026-10-06'
   speakers:
   - selina_carter
   title: 'Online Prediction Intervals with Prior Knowledge: A Conformal Approach for Time Series'
-  note: My work
+  abstract: TBD
+  sources:
+  - sheet
+- date: '2026-10-13'
+  kind: no_meeting
+  label: Fall break
   sources:
   - sheet
 - date: '2026-10-20'
   speakers:
   - ben_chugg
   title: Title TBD
+  abstract: TBD
   sources:
   - sheet
 - date: '2026-10-27'
   speakers:
   - uriel_martinez_leon
   title: Wasserstein Least Squares
+  abstract: >-
+    We perform a mathematical and statistical analysis of the Wasserstein least squares problem, a
+    regression method for vector-valued covariates and distribution-valued responses. Our proposal
+    contrasts with other distributional regression methods by having a direct interpretation in terms
+    of random variables, as a nonparametric analogue of the classic random-effects model. On the mathematical
+    side, we use a strategy of Lavenant (2024) to show that Wasserstein least squares is the canonical
+    extension of Euclidean least squares to the space of probability distributions from the perspective
+    of convex analysis; this viewpoint gives rise to multimarginal and dual formulations of the Wasserstein
+    least squares problem, extending a similar theory for Wasserstein barycenters. We perform a statistical
+    analysis of the Wasserstein least squares problem under the template deformation model, showing,
+    surprisingly, that estimation is possible at the n^{-1/2} rate. As a special case, we obtain improved
+    rates of estimation for Wasserstein barycenters, which are an exponential improvement over those
+    established by Ahidar-Coutrix, Le Gouic and Paris (2020). Finally, we propose a heuristic particle
+    method for Wasserstein least squares and use it to conduct a novel analysis of large-scale demographic
+    data from the RAND Health and Retirement Study.
+  paper_url: https://arxiv.org/abs/2605.30266
   sources:
   - sheet
 - date: '2026-11-03'
@@ -58,13 +97,13 @@
   speakers:
   - rebecca_farina
   title: Title TBD
+  abstract: TBD
   sources:
   - sheet
 - date: '2026-11-17'
   speakers:
   - oliver_hannaoui
   title: How well do time-series foundation models predict infectious disease?
-  note: ADA, ongoing work
   abstract: >-
     I'll give a quick overview on time-series foundation models: the premise, different architectures
     & models, how well they seem to do in practice, etc. Then present some results of our analysis

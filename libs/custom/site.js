@@ -58,13 +58,29 @@
 
   /* ---------- Talk accordions --------------------------------------------- */
   function initTalks() {
+    function setExpanded(talk, expanded) {
+      talk.classList.toggle('open', expanded);
+      var toggles = talk.querySelectorAll('.talk-title:not(.is-static), .talk-abstract-toggle');
+      for (var i = 0; i < toggles.length; i++) {
+        toggles[i].setAttribute('aria-expanded', expanded ? 'true' : 'false');
+      }
+    }
+
     document.addEventListener('click', function (e) {
+      var btn = e.target.closest ? e.target.closest('.talk-abstract-toggle') : null;
+      if (btn) {
+        var btnTalk = btn.closest('.talk');
+        if (!btnTalk || !btnTalk.querySelector('.talk-abstract')) return;
+        setExpanded(btnTalk, !btnTalk.classList.contains('open'));
+        return;
+      }
+
       var title = e.target.closest ? e.target.closest('.talk-title') : null;
       if (!title || title.classList.contains('is-static')) return;
       if (e.target.closest('a')) return;           // let links through
       var talk = title.closest('.talk');
       if (!talk || !talk.querySelector('.talk-abstract')) return;
-      talk.classList.toggle('open');
+      setExpanded(talk, !talk.classList.contains('open'));
     });
 
     // The row is interactive, so it must be focusable.
@@ -72,6 +88,7 @@
     for (var i = 0; i < titles.length; i++) {
       titles[i].setAttribute('tabindex', '0');
       titles[i].setAttribute('role', 'button');
+      titles[i].setAttribute('aria-expanded', 'false');
       titles[i].addEventListener('keydown', function (ev) {
         if (ev.key === 'Enter' || ev.key === ' ') {
           ev.preventDefault();

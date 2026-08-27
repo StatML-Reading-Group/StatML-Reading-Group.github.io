@@ -290,13 +290,15 @@ html { scroll-behavior: smooth; }
   font-size: var(--fs-sub); font-weight: 600;
   color: var(--text-mid); letter-spacing: .04rem;
 }
-.term-meta {
-  font-size: var(--fs-meta); color: var(--text-muted);
-  font-variant-numeric: tabular-nums;
+.term-meta { font-size: var(--fs-meta); color: var(--text-muted); font-variant-numeric: tabular-nums; }
+#schedule .section-header-row .term-meta {
+  color: var(--text-mid);
+  font-size: var(--fs-lead);
+  font-weight: 600;
 }
 .term-note {
-  color: var(--text-muted);
-  font-size: var(--fs-meta);
+  color: var(--text-soft);
+  font-size: var(--fs-small);
   margin-top: -0.6rem;
   margin-bottom: 1.8rem;
 }
@@ -366,8 +368,10 @@ html { scroll-behavior: smooth; }
 .talk-links { margin-top: 6px; display: flex; gap: 6px; flex-wrap: wrap; }
 .talk-badge {
   font-size: var(--fs-micro); padding: 0 5px; border-radius: 2px; line-height: 1.6;
-  display: inline-block; text-decoration: none;
+  display: inline-block; text-decoration: none; font-family: inherit;
+  font-weight: 400; letter-spacing: 0; text-transform: none; text-align: left;
   background: transparent; border: 1px solid var(--border-mid); color: var(--text-soft);
+  cursor: pointer; height: auto; min-width: 0;
   transition: border-color 0.2s ease, color 0.2s ease;
 }
 .talk-badge:hover { border-color: var(--text-muted); color: var(--text-mid); }

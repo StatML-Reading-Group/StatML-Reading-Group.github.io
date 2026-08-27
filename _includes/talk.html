@@ -19,7 +19,11 @@
     {%- if p -%}
       {%- if p.url and mode != 'archive' %}<a href="{{ p.url }}" target="_blank" rel="noopener">{{ p.name }}</a>
       {%- else %}{{ p.name }}{%- endif -%}
-      {%- unless p.roster -%}{%- if p.affiliation %} <span class="talk-affil">({{ p.affiliation }})</span>{%- endif -%}{%- endunless -%}
+      {%- assign affil = p.talk_affiliation | default: p.affiliation -%}
+      {%- assign show_affil = false -%}
+      {%- if p.roster == nil and p.affiliation %}{% assign show_affil = true %}{% endif -%}
+      {%- if mode != 'archive' and term.show_speaker_affiliations and affil %}{% assign show_affil = true %}{% endif -%}
+      {%- if show_affil %} <span class="talk-affil">({{ affil }})</span>{%- endif -%}
     {%- else -%}{{ slug }}{%- endif -%}
     {%- unless forloop.last %}, {% endunless -%}
   {%- endfor -%}
@@ -60,9 +64,10 @@
       {%- if t.abstract %}<div class="talk-abstract">{{ t.abstract }}</div>{% endif -%}
 
       {%- if mode != 'archive' -%}
-        {%- if t.paper_url or t.slides -%}
+        {%- if t.paper_url or t.slides or t.abstract -%}
           <div class="talk-links">
-            {%- if t.paper_url %}<a class="talk-badge" href="{{ t.paper_url }}" target="_blank" rel="noopener">Paper</a>{% endif -%}
+            {%- if t.paper_url %}<a class="talk-badge" href="{{ t.paper_url }}" target="_blank" rel="noopener">Paper link</a>{% endif -%}
+            {%- if t.abstract %}<button class="talk-badge talk-abstract-toggle" type="button" aria-expanded="false">Abstract</button>{% endif -%}
             {%- if t.slides %}<a class="talk-badge" href="{{ t.slides | relative_url }}" target="_blank" rel="noopener">Slides</a>{% endif -%}
           </div>
         {%- endif -%}

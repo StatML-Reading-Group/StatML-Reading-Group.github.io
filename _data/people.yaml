@@ -107,6 +107,7 @@ weijing_tang:
   roster: faculty
   position: Assistant Professor
   affiliation: Statistics
+  talk_affiliation: CMU Statistics
   url: https://sites.google.com/andrew.cmu.edu/weijingtang/home
   img: /assets/people/weijing-tang.jpg
 aditya_kumar:
@@ -132,6 +133,7 @@ ben_chugg:
   position: Graduate Student
   affiliation: Machine Learning & Statistics
   affiliation2: Statistics
+  talk_affiliation: CMU MLD and Statistics
   url: https://benchugg.com
 tomas_gonzalez:
   name: Tomas Gonzalez
@@ -151,6 +153,7 @@ selina_carter:
   position: Graduate Student
   affiliation: Statistics & Machine Learning
   affiliation2: Machine Learning
+  talk_affiliation: CMU Statistics and MLD
   url: https://selinacarter.github.io/
 james_leiner:
   name: James Leiner
@@ -175,6 +178,7 @@ rebecca_farina:
   roster: student
   position: Graduate Student
   affiliation: Statistics
+  talk_affiliation: CMU Statistics
   url: https://rebyfa98.github.io
 woonyoung_chang:
   name: Woonyoung Chang
@@ -193,6 +197,7 @@ diego_martinez_taboada:
   roster: student
   position: Graduate Student
   affiliation: Statistics
+  talk_affiliation: CMU Statistics
   url: https://dmartinezt.github.io/
 kayla_scharfstein:
   name: Kayla Scharfstein
@@ -615,13 +620,14 @@ sanjit_dandapanthula:
   name: Sanjit Dandapanthula
 soheun_yi:
   name: Soheun Yi
-  affiliation: Carnegie Mellon University
+  affiliation: CMU Statistics and Data Science
   url: https://soheunyi.github.io/
 oliver_hannaoui:
   name: Oliver Hannaoui
   roster: student
   position: Graduate Student
   affiliation: Statistics
+  talk_affiliation: CMU Statistics
   url: https://hanna-oui.github.io/
 burak_varici:
   name: Burak Varıcı
@@ -798,3 +804,4 @@ zoltan_szabo:
 uriel_martinez_leon:
   name: Uriel Martinez Leon
   affiliation: NYU Center for Data Science
+  url: https://urielml.com/
