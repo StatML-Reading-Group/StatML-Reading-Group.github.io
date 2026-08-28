@@ -194,6 +194,8 @@ patrick_kramer:
   url: https://patrick-kramer.github.io/
 diego_martinez_taboada:
   name: Diego Martinez Taboada
+  # Two-word surname: without this the sort would file him under T, not M.
+  sort_as: Martinez Taboada
   roster: student
   position: Graduate Student
   affiliation: Statistics

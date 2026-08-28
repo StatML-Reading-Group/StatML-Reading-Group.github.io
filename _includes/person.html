@@ -1,7 +1,11 @@
 {%- comment -%} include.slug -> _data/people.yaml key {%- endcomment -%}
 {%- assign p = site.data.people[include.slug] -%}
 {%- if p -%}
-<div class="person{% if p.memorial %} is-memorial{% endif %}">
+{%- comment -%} Surname is the last token unless people.yaml overrides it. {%- endcomment -%}
+{%- assign name_parts = p.name | split: ' ' -%}
+{%- assign sort_key = p.sort_as | default: name_parts.last -%}
+<div class="person{% if p.memorial %} is-memorial{% endif %}"
+     data-sort="{{ sort_key | escape }}" data-name="{{ p.name | escape }}">
   <img class="person-photo" loading="lazy"
        src="{{ p.img | default: '/assets/people/placeholder.jpg' | relative_url }}"
        alt="{{ p.name }}" width="320" height="400">
