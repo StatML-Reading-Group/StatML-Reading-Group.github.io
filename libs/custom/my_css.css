@@ -247,15 +247,19 @@ a:hover { color: inherit; }
 }
 .section-header-row h4 { margin-bottom: 0; }
 
-/* .prose itself stays uncapped so the people roster and grid span the
-   container; the cap belongs on the lines of text inside it. */
+/* Page copy runs the full container and reflows with it, rather than sitting
+   in a 640px column with the rest of the width left empty. The sections that
+   use .prose -- About, Joining, Organizers -- are one or two sentences each,
+   so the long line a measure normally guards against never accumulates over
+   enough lines to cost the reader their place. --measure is still applied to
+   .talk-abstract, which is the one block here that runs to paragraphs. */
 .prose { max-width: none; }
-.prose p { margin-bottom: 1.6rem; font-size: var(--fs-body); max-width: var(--measure); }
+.prose p { margin-bottom: 1.6rem; font-size: var(--fs-body); }
 .prose p:last-child { margin-bottom: 0; }
 /* One lede size. About had a size of its own, and it showed. */
 .lede {
   font-size: var(--fs-lead); line-height: 1.65;
-  max-width: var(--measure); color: var(--text-mid);
+  color: var(--text-mid);
 }
 
 /* ================ Nav ================ */
