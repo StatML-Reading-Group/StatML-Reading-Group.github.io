@@ -36,30 +36,20 @@ title: Home
     <p class="term-note">{{ term.note }}</p>
   {%- endif -%}
 
-  {%- comment -%} First titled talk still ahead of us. {%- endcomment -%}
+  {%- comment -%} The next meeting we can announce: a real talk with a
+     confirmed speaker, titled or not, still ahead of us. It is marked in place
+     in the list below -- reprinting row one verbatim above row one was never
+     emphasis, and the row is strictly richer than the copy was. {%- endcomment -%}
   {%- assign today = site.time | date: '%Y-%m-%d' -%}
   {%- assign next = nil -%}
   {%- for t in talks -%}
-    {%- if next == nil and t.title and t.kind == nil -%}
+    {%- if next == nil and t.kind == nil and t.speakers -%}
       {%- assign d = t.date | date: '%Y-%m-%d' -%}
       {%- if d >= today %}{% assign next = t %}{% endif -%}
     {%- endif -%}
   {%- endfor -%}
-
-  {%- if next -%}
-    <div class="next-talk">
-      <div class="next-label">Up next &middot; {{ next.date | date: '%-d %B' }}</div>
-      <div class="next-title">{{ next.title }}</div>
-      <div class="talk-byline">
-        {%- for slug in next.speakers -%}
-          {%- assign p = site.data.people[slug] -%}
-          {%- if p.url %}<a href="{{ p.url }}" target="_blank" rel="noopener">{{ p.name }}</a>
-          {%- else %}{{ p.name | default: slug }}{% endif -%}
-          {%- unless forloop.last %}, {% endunless -%}
-        {%- endfor -%}
-      </div>
-    </div>
-  {%- endif -%}
+  {%- assign next_date = nil -%}
+  {%- if next %}{% assign next_date = next.date %}{% endif -%}
 
   {%- assign scheduled = 0 -%}
   {%- for t in talks -%}{%- if t.title %}{% assign scheduled = scheduled | plus: 1 %}{% endif -%}{%- endfor -%}
@@ -76,7 +66,7 @@ title: Home
 
   <div class="talk-list">
     {%- for t in talks -%}
-      {% include talk.html talk=t term=term %}
+      {% include talk.html talk=t term=term next_date=next_date %}
     {%- endfor -%}
   </div>
 
@@ -85,7 +75,7 @@ title: Home
   </p>
 </div>
 
-<div class="docs-section" id="join">
+<div class="docs-section is-brief" id="join">
   <h4>Joining</h4>
   <div class="prose">
     <p>

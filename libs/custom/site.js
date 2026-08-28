@@ -60,28 +60,41 @@
   function initTalks() {
     function setExpanded(talk, expanded) {
       talk.classList.toggle('open', expanded);
-      var toggles = talk.querySelectorAll('.talk-title:not(.is-static), .talk-abstract-toggle');
+      var toggles = talk.querySelectorAll('.talk-title:not(.is-static)');
       for (var i = 0; i < toggles.length; i++) {
         toggles[i].setAttribute('aria-expanded', expanded ? 'true' : 'false');
       }
     }
 
     document.addEventListener('click', function (e) {
-      var btn = e.target.closest ? e.target.closest('.talk-abstract-toggle') : null;
-      if (btn) {
-        var btnTalk = btn.closest('.talk');
-        if (!btnTalk || !btnTalk.querySelector('.talk-abstract')) return;
-        setExpanded(btnTalk, !btnTalk.classList.contains('open'));
-        return;
-      }
-
       var title = e.target.closest ? e.target.closest('.talk-title') : null;
       if (!title || title.classList.contains('is-static')) return;
       if (e.target.closest('a')) return;           // let links through
+      // A drag that ends inside an element still fires click on it, so selecting
+      // a title used to open its abstract -- on /archive/, where finding a talk
+      // and copying its title is the whole reason the page exists. Three
+      // characters rather than one: a sloppy click can catch a letter or two,
+      // and that is a click, not a selection.
+      var sel = window.getSelection ? window.getSelection() : null;
+      if (sel && !sel.isCollapsed && String(sel).length > 2) return;
       var talk = title.closest('.talk');
       if (!talk || !talk.querySelector('.talk-abstract')) return;
       setExpanded(talk, !talk.classList.contains('open'));
     });
+
+    // The title names the region it opens. There is one handle now, and
+    // aria-controls is what states the relationship -- the only part of it the
+    // markup never says on its own.
+    var rows = document.querySelectorAll('.talk');
+    for (var r = 0; r < rows.length; r++) {
+      var panel = rows[r].querySelector('.talk-abstract');
+      if (!panel) continue;
+      if (!panel.id) panel.id = (rows[r].id || 'talk-' + r) + '-abstract';
+      var handles = rows[r].querySelectorAll('.talk-title:not(.is-static)');
+      for (var h = 0; h < handles.length; h++) {
+        handles[h].setAttribute('aria-controls', panel.id);
+      }
+    }
 
     // The row is interactive, so it must be focusable.
     var titles = document.querySelectorAll('.talk-title:not(.is-static)');
