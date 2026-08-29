@@ -114,10 +114,15 @@ aditya_kumar:
   name: Aditya Kumar
   roster: student
   position: Graduate Student
-  affiliation: CMU SCS
+  affiliation: Computer Science
   url: https://scholar.google.com/citations?user=sfgpP8UAAAAJ&hl=en
 richard_zhu:
   name: Richard Zhu
+  roster: student
+  position: Graduate Student
+  affiliation: Statistics
+jennifer_zhao:
+  name: Jennifer Zhao
   roster: student
   position: Graduate Student
   affiliation: Statistics
