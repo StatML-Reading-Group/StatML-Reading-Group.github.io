@@ -3,7 +3,7 @@
 
 - key: fall2026
   name: Fall 2026
-  talks: 8
+  talks: 9
   default_weekday: Tuesday
   default_room: GHC 4405
   default_time: 12-1pm
