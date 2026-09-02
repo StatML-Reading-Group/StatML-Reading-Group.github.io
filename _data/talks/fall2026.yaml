@@ -19,6 +19,7 @@
     first-order approximation to the mean squared error. We demonstrate that EASE consistently improves
     estimation accuracy compared to existing estimators under the same utility-evaluation budget.
   paper_url: https://arxiv.org/abs/2605.02827
+  skip_up_next: true
   sources:
   - sheet
 - date: '2026-09-08'

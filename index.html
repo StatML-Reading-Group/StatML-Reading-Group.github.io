@@ -43,7 +43,7 @@ title: Home
   {%- assign today = site.time | date: '%Y-%m-%d' -%}
   {%- assign next = nil -%}
   {%- for t in talks -%}
-    {%- if next == nil and t.kind == nil and t.speakers -%}
+    {%- if next == nil and t.kind == nil and t.speakers and t.skip_up_next != true -%}
       {%- assign d = t.date | date: '%Y-%m-%d' -%}
       {%- if d >= today %}{% assign next = t %}{% endif -%}
     {%- endif -%}
