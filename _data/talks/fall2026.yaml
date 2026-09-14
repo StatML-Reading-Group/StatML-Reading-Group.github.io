@@ -38,7 +38,7 @@
   paper_url: https://arxiv.org/abs/2605.26099
   sources:
   - sheet
-- date: '2026-09-14'
+- date: '2026-09-15'
   speakers:
   - diego_martinez_taboada
   title: 'Tensor Programs V: Tuning Large Neural Networks via Zero-Shot Hyperparameter Transfer'
@@ -55,7 +55,6 @@
     model, with tuning cost only 7% of total pretraining cost. A Pytorch implementation of our technique
     can be found at this http URL and installable via `pip install mup`.
   paper_url: https://arxiv.org/abs/2203.03466
-  weekday_override: Monday
   sources:
   - sheet
 - date: '2026-09-22'
