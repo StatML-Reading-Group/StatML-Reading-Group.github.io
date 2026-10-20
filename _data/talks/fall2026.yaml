@@ -97,9 +97,12 @@
   - sheet
 - date: '2026-10-20'
   speakers:
-  - ben_chugg
-  title: Title TBD
-  abstract: TBD
+  - anupam_nayak
+  title: Late-Stage Patching Full-Attention Transformers to Gated DeltaNets
+  # Adapted from the speaker description at https://luma.com/dbpclm7u
+  abstract: >-
+    Model architectures are usually treated as fixed once pretraining is complete. This talk examines how pretrained transformers with full attention can instead be adapted into more efficient hybrid models without starting training over. Earlier conversion methods restore performance on short contexts but leave substantial gaps in long-context reasoning and retrieval. A recovery process combining representation alignment, off-policy distillation, and extended on-policy distillation addresses these gaps at a small fraction of the original pretraining cost. The results suggest that architectural decisions can remain open to revision well into a model’s training lifecycle.
+  paper_url: https://hunchings.github.io/late-stage-patching/
   sources:
   - sheet
 - date: '2026-10-27'
